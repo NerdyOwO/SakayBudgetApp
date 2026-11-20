@@ -342,6 +342,60 @@ header{margin-bottom:14px}
 }
 body.kb nav,body.kb .fbar{display:none}
 @media (prefers-reduced-motion:reduce){.fbar,.sheet,.sheet-card{animation:none!important;transition:none!important}}
+
+.tf{display:inline}.ts{display:none}
+.hcard{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center;padding:14px;margin-bottom:10px;border-radius:14px;background:var(--sc);animation:rise2 .42s cubic-bezier(.2,0,0,1) both;animation-delay:calc(var(--i,0)*45ms)}
+@keyframes rise2{from{opacity:0;transform:translateY(14px)}}
+.hmain b{display:block;font-weight:500;overflow-wrap:anywhere}.hmain small{color:var(--mute)}
+.hnums{text-align:right}.hnums b{display:block;font-size:1.2rem;font-weight:700}.hnums small{color:var(--mute)}.hnums small.neg{color:var(--red)}
+.hact{grid-column:1/-1;display:flex;gap:8px;justify-content:flex-end}.hact .mini{margin-left:0}
+.emptyx{text-align:center;padding:28px 8px;color:var(--mute)}.emptyx p{margin:6px 0 2px;font-weight:500;color:var(--ink)}
+.ebus{display:inline-block;font-size:2.6rem;animation:bob 2.2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-9px)}}
+.stats div{animation:rise2 .45s cubic-bezier(.2,0,0,1) both}.stats div:nth-child(2){animation-delay:.06s}.stats div:nth-child(3){animation-delay:.12s}
+.res div{animation:rise2 .45s cubic-bezier(.2,0,0,1) both}.res div:nth-child(2){animation-delay:.06s}.res div:nth-child(3){animation-delay:.12s}
+.steps li{animation:rise2 .45s cubic-bezier(.2,0,0,1) both}.steps li:nth-child(2){animation-delay:.07s}.steps li:nth-child(3){animation-delay:.14s}
+.legs li{animation:rise2 .35s cubic-bezier(.2,0,0,1) both}.legs li:nth-child(2){animation-delay:.06s}
+.chips2 button[aria-pressed=true]{animation:chipsel .3s cubic-bezier(.2,0,0,1)}
+@keyframes chipsel{50%{transform:scale(1.08)}}
+.pals button[aria-pressed=true] i{animation:chipsel .35s cubic-bezier(.2,0,0,1)}
+.fbar.bump{animation:bump .35s cubic-bezier(.2,0,0,1)}
+@keyframes bump{40%{transform:scale(1.035)}}
+.bar i::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);transform:translateX(-100%);animation:shine 1.1s .4s both}
+.bar i{position:relative;overflow:hidden}
+@keyframes shine{to{transform:translateX(100%)}}
+.prow{animation:rise2 .3s cubic-bezier(.2,0,0,1) both}.prow:nth-child(n+14){animation:none}
+.rates summary{cursor:pointer;font-weight:500;color:var(--pri);padding:8px 0}
+#n-ctl[hidden]{display:none}
+.sheet-card{will-change:transform}
+nav,.fbar{backface-visibility:hidden}
+/* cross-fade and slide between tabs (Android WebView 111+ and Chrome); older engines use the CSS animations above */
+nav{view-transition-name:appnav}.fbar{view-transition-name:appfbar}header{view-transition-name:apphdr}
+::view-transition-group(appnav),::view-transition-group(appfbar),::view-transition-group(apphdr){animation:none}
+::view-transition-old(appnav),::view-transition-new(appnav),::view-transition-old(appfbar),::view-transition-new(appfbar),::view-transition-old(apphdr),::view-transition-new(apphdr){animation:none;mix-blend-mode:normal}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.3s;animation-timing-function:cubic-bezier(.2,0,0,1)}
+html[data-dir="fwd"]::view-transition-old(root){animation-name:vt-out-l}
+html[data-dir="fwd"]::view-transition-new(root){animation-name:vt-in-r}
+html[data-dir="back"]::view-transition-old(root){animation-name:vt-out-r}
+html[data-dir="back"]::view-transition-new(root){animation-name:vt-in-l}
+@keyframes vt-out-l{to{opacity:0;transform:translateX(-36px)}}
+@keyframes vt-in-r{from{opacity:0;transform:translateX(36px)}}
+@keyframes vt-out-r{to{opacity:0;transform:translateX(36px)}}
+@keyframes vt-in-l{from{opacity:0;transform:translateX(-36px)}}
+html.vt section:not([hidden]),html.vt section:not([hidden]) .panel,html.vt section:not([hidden]) .stub{animation:none}
+@media(max-width:640px){
+ .tf{display:none}.ts{display:inline}
+ nav{overflow:hidden}
+ nav button{min-width:0;flex:1 1 0;white-space:nowrap}
+}
+@media (prefers-reduced-motion:reduce){.hcard,.stats div,.res div,.steps li,.legs li,.prow,.ebus,.bar i::after,.fbar.bump{animation:none!important}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}
+
+html,body{overflow-x:clip;max-width:100%}
+.wrap{overflow-x:clip}
+section.noanim,section.noanim .panel,section.noanim .stub{animation:none!important}
+.trip{grid-template-columns:18px minmax(0,1fr) 48px}
+.flds,.flds>div,.place{min-width:0}
+.pins{width:18px}
 </style>
 </head>
 <body>
@@ -480,14 +534,15 @@ body.kb nav,body.kb .fbar{display:none}
   </div>
   <div class="panel">
    <h2>About</h2>
-   <p style="margin:0 0 8px"><b>SakayBudget 1.0</b></p>
+   <p style="margin:0 0 8px"><b>SakayBudget 1.2</b></p>
    <p class="hint" style="margin-top:0">Fares are estimates based on the LTFRB rates reported for September 2026, plus fares you reported yourself. Distances are approximate, so what the conductor charges can differ by a peso or two. Your budget, trips and settings are saved on this device, and the Android app works without internet.</p>
+   <details class="rates"><summary>How fares are worked out</summary><p class="hint" style="margin-top:8px">Fare rules follow the LTFRB rates reported for September 2026: traditional jeepney ₱14 for the first 4 km then ₱2 per km, modern jeepney ₱17 then ₱2.40 per km, ordinary city bus ₱15 for the first 5 km then ₱2.49 per km, air-conditioned city bus ₱18 then ₱2.98 per km, and provisional UV Express rates of ₱2.60 (traditional) and ₱3.00 (modern) per km. Discounted fares are 20% off, rounded up to the next peso. Distances are estimated from approximate map positions, so a conductor’s fare may differ; type the km if you know it. Places come from the <a href="https://en.wikipedia.org/wiki/List_of_bus_routes_in_Metro_Manila" target="_blank" rel="noopener">Metro Manila bus routes</a> and <a href="https://wiki.openstreetmap.org/wiki/Metro_Manila/Jeepney_and_UV_Express_routes" target="_blank" rel="noopener">jeepney and UV Express routes</a> lists.</p></details>
    <div class="row"><button class="btn alt" id="s-tour" type="button">Show the getting-started guide</button></div>
   </div>
  </div>
 </section>
 
-<p class="hint" style="margin-top:28px">Fare rules follow the LTFRB rates reported for September 2026: traditional jeepney ₱14 for the first 4 km then ₱2 per km, modern jeepney ₱17 then ₱2.40 per km, ordinary city bus ₱15 for the first 5 km then ₱2.49 per km, air-conditioned city bus ₱18 then ₱2.98 per km, and provisional UV Express rates of ₱2.60 (traditional) and ₱3.00 (modern) per km. Discounted fares are 20% off, rounded up to the next peso. Distances are estimated from approximate map positions, so a conductor’s fare may differ; type the km if you know it. Places come from the <a href="https://en.wikipedia.org/wiki/List_of_bus_routes_in_Metro_Manila" target="_blank" rel="noopener">Metro Manila bus routes</a> and <a href="https://wiki.openstreetmap.org/wiki/Metro_Manila/Jeepney_and_UV_Express_routes" target="_blank" rel="noopener">jeepney and UV Express routes</a> lists.</p>
+
 </div>
 
 <div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="sheet-title">
@@ -506,7 +561,7 @@ var KEY="sakaybudget:v2";
 var REG={
 K:["Caloocan","Monumento (Caloocan)|14.6543|120.9839;Grace Park|14.6480|120.9830;5th Avenue (LRT-1)|14.6443|120.9838;Sangandaan|14.6560|120.9730;Maypajo|14.6350|120.9730;Malaria|14.7600|121.0560;Bagong Barrio|14.6615|120.9985;Baesa|14.6770|121.0060;Santa Quiteria|14.6820|121.0200;Bagumbong|14.7400|121.0100;Deparo|14.7480|121.0230;Camarin|14.7550|121.0320;Bagong Silang|14.7700|121.0450"],
 N:["Valenzuela, Malabon, Navotas and Bulacan","Malabon City Hall|14.6625|120.9569;Navotas|14.6667|120.9417;Valenzuela Gateway Complex|14.7003|120.9906;Malinta|14.7016|120.9780;Meycauayan|14.7369|120.9609;Marilao|14.7573|120.9486;Bocaue|14.7990|120.9260;Balagtas|14.8150|120.9100;Santa Maria (Bulacan)|14.8190|120.9570;San Jose del Monte|14.8140|121.0450;Norzagaray|14.9180|121.0430"],
-Q:["Quezon City and Novaliches","SM North EDSA / TriNoma|14.6561|121.0292;Balintawak|14.6573|121.0012;Muñoz|14.6570|121.0220;Quezon City Hall|14.6510|121.0495;UP Diliman|14.6538|121.0685;Commonwealth / Batasan|14.6820|121.0910;Don Fabian|14.6930|121.0830;SM Annex|14.6580|121.0305;PCMC / Agham Road|14.6500|121.0390;Litex|14.7040|121.0802;Eton Centris|14.6405|121.0378;Kamuning|14.6270|121.0420;Cubao (Araneta City)|14.6196|121.0529;Welcome Rotonda|14.6165|121.0000;Katipunan|14.6307|121.0725;Novaliches Proper|14.7240|121.0370;Robinsons Novaliches|14.7170|121.0426;SM Fairview|14.7339|121.0575"],
+Q:["Quezon City and Novaliches","SM North EDSA / TriNoma|14.6561|121.0292;Balintawak|14.6573|121.0012;Muñoz|14.6570|121.0220;Quezon City Hall|14.6510|121.0495;UP Diliman|14.6538|121.0685;Commonwealth / Batasan|14.6820|121.0910;Don Fabian|14.6930|121.0830;SM Annex|14.6580|121.0305;FCM (Fairview Center Mall)|14.7350|121.0590;PCMC / Agham Road|14.6500|121.0390;Litex|14.7040|121.0802;Eton Centris|14.6405|121.0378;Kamuning|14.6270|121.0420;Cubao (Araneta City)|14.6196|121.0529;Welcome Rotonda|14.6165|121.0000;Katipunan|14.6307|121.0725;Novaliches Proper|14.7240|121.0370;Robinsons Novaliches|14.7170|121.0426;SM Fairview|14.7339|121.0575"],
 C:["Manila, Mandaluyong and San Juan","Quiapo|14.5995|120.9836;Manila City Hall|14.5896|120.9815;Divisoria|14.6010|120.9718;Blumentritt|14.6225|120.9825;Lawton|14.5933|120.9795;Ermita (T.M. Kalaw)|14.5830|120.9830;Paco|14.5790|120.9970;Pandacan|14.5850|121.0060;Santa Mesa|14.6000|121.0120;Mandaluyong City Hall|14.5794|121.0356;Kalentong (JRC)|14.5776|121.0277;San Juan (Pinaglabanan)|14.6016|121.0343;Greenhills|14.6027|121.0486"],
 M:["Pasay, Parañaque, Makati and Taguig","Libertad (Pasay)|14.5476|120.9977;Vito Cruz|14.5636|120.9946;Buendia / Gil Puyat|14.5540|121.0114;Pasay Rotonda|14.5385|121.0011;Baclaran|14.5340|120.9987;SM Mall of Asia|14.5352|120.9822;PITX|14.5065|120.9908;NAIA Terminal 3|14.5090|121.0177;Nichols|14.5190|121.0230;Magallanes|14.5415|121.0195;Ayala Center (Makati)|14.5495|121.0271;Guadalupe (ABC)|14.5670|121.0450;Market! Market!|14.5496|121.0560;BGC / McKinley Hill|14.5368|121.0527;FTI / Arca South|14.5082|121.0490;SM Bicutan|14.4838|121.0443"],
 E:["Marikina, Pasig and Rizal","Ortigas Center (EDSA-Shaw)|14.5813|121.0528;Robinsons Galleria|14.5876|121.0599;Eastwood City|14.6097|121.0802;Marikina (SM Marikina)|14.6239|121.0846;SSS Village|14.6360|121.0951;Pasig Market|14.5764|121.0851;Rosario (Pasig)|14.5878|121.0897;Pateros|14.5446|121.0687;Cainta Junction|14.5783|121.1143;SM Masinag|14.6256|121.1207;Antipolo|14.5985|121.1741;Taytay|14.5635|121.1327;Angono|14.5266|121.1536;Binangonan|14.4640|121.1920;San Mateo|14.6935|121.1236;Rodriguez (Montalban)|14.7595|121.1182"],
@@ -541,6 +596,8 @@ try{var raw=localStorage.getItem(KEY);if(raw){var o=JSON.parse(raw);if(o&&typeof
 S.set=Object.assign({theme:"system",accent:"blue",size:"m",motion:"on",name:"",warn:90,dfare:"reg",dmode:"tj",haptic:"on"},S.set||{});
 if(!Array.isArray(S.recent))S.recent=[];S.tour=Object.assign({done:false},S.tour||{});
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+var svT;function saveSoon(){clearTimeout(svT);svT=setTimeout(save,250)}
+window.addEventListener("pagehide",function(){clearTimeout(svT);save()});document.addEventListener("visibilitychange",function(){if(document.hidden){clearTimeout(svT);save()}});
 var $=function(s){return document.querySelector(s)};
 var peso=function(n){return"₱"+(+n||0).toLocaleString("en-PH",{minimumFractionDigits:2,maximumFractionDigits:2})};
 var pesoW=function(n){return"₱"+(+n||0).toLocaleString("en-PH",{maximumFractionDigits:2})};
@@ -616,7 +673,7 @@ function initCalc(){
  $("#km").value=S.c.km;if(S.c.km)$("#more").open=true;
  initPicker();CB.o=mkPlace("o",function(){return S.c.o},function(v){S.c.o=v;save();renderCalc();ride()});
  CB.d=mkPlace("d",function(){return S.c.d},function(v){S.c.d=v;save();renderCalc();ride()});
- $("#km").oninput=function(e){S.c.km=e.target.value;save();renderCalc()};
+ $("#km").oninput=function(e){S.c.km=e.target.value;saveSoon();renderCalc()};
  $("#pm").onclick=function(){S.c.pax=Math.max(1,S.c.pax-1);save();syncUI();renderCalc()};
  $("#pp2").onclick=function(){S.c.pax=Math.min(10,S.c.pax+1);save();syncUI();renderCalc()};
  $("#swap").onclick=function(){var t=S.c.o;S.c.o=S.c.d;S.c.d=t;CB.o();CB.d();save();renderCalc();ride();$("#swap").classList.toggle("spin")};
@@ -655,7 +712,7 @@ function initSettings(){
  Object.keys(MODES).forEach(function(k){$("#s-mode").appendChild(opt(k,MODES[k].n))});
  for(var i=1;i<=7;i++)$("#s-days").appendChild(opt(i,i+(i===1?" day":" days")));
  [[60,"60% of my budget"],[70,"70% of my budget"],[80,"80% of my budget"],[90,"90% of my budget"],[100,"Only when over budget"]].forEach(function(w){$("#s-warn").appendChild(opt(w[0],w[1]))});
- $("#s-name").oninput=function(e){S.set.name=e.target.value.slice(0,24);save();applySet()};
+ $("#s-name").oninput=function(e){S.set.name=e.target.value.slice(0,24);saveSoon();applySet()};
  $("#s-mode").onchange=function(e){S.set.dmode=e.target.value;S.c.mode=e.target.value;save();syncUI();render()};
  $("#s-days").onchange=function(e){S.days=+e.target.value;save();render()};
  $("#s-warn").onchange=function(e){S.set.warn=+e.target.value;save();render()};
@@ -740,17 +797,32 @@ function initFx(){
 /* pages */
 var pages=[["dashboard","Dashboard"],["calc","Fare Calculator"],["plan","Budget Planner"],["history","History"],["settings","Settings"]];
 var tabs=$("#tabs");
-pages.forEach(function(p){if(p[0]==="settings")return;var b=document.createElement("button");b.textContent=p[1];b.setAttribute("role","tab");b.dataset.p=p[0];b.onclick=function(){go(p[0])};tabs.appendChild(b)});
+pages.forEach(function(p){if(p[0]==="settings")return;var b=document.createElement("button");var sl={dashboard:"Home",calc:"Fares",plan:"Planner",history:"History"}[p[0]]||p[1];b.innerHTML='<span class="tf">'+p[1]+'</span><span class="ts">'+sl+'</span>';b.setAttribute("role","tab");b.dataset.p=p[0];b.onclick=function(){go(p[0])};tabs.appendChild(b)});
+function renderPage(id){
+ if(id==="dashboard"){renderPresets();renderTour();$("#budget").value=S.budget;renderStub()}
+ else if(id==="calc"){$("#round").checked=S.round;renderRides();renderRecent();renderCalc();renderStub()}
+ else if(id==="plan"){renderStub();renderPlan()}
+ else if(id==="history")renderHistory();
+ else if(id==="settings")renderSettings()}
 function go(id,pop){
  if(window._ready&&!pop&&(location.hash||"").slice(1)!=="p-"+id){try{history.pushState(null,"","#p-"+id)}catch(e){}}
- var ni=pages.map(function(p){return p[0]}).indexOf(id),dir=ni>=(window._pi||0)?1:-1;window._pi=ni;window._cur=id;if(id!=="settings")window._last=id;$("#gear").setAttribute("aria-pressed",String(id==="settings"));$("#"+id).style.setProperty("--dx",(dir*32)+"px");
- pages.forEach(function(p){$("#"+p[0]).hidden=p[0]!==id});
- if(window._ready)window.scrollTo(0,0);
- $("#fbar").hidden=!(id==="dashboard"||id==="calc");
- tabs.querySelectorAll("button").forEach(function(b){b.setAttribute("aria-selected",b.dataset.p===id)});
- if((location.hash||"").slice(1)!=="p-"+id){try{history.replaceState(null,"","#p-"+id)}catch(e){}}
- render();
-}
+ var ni=pages.map(function(p){return p[0]}).indexOf(id),dir=ni>=(window._pi||0)?1:-1;
+ window._pi=ni;window._cur=id;if(id!=="settings")window._last=id;
+ var useVT=!!(window._ready&&!RM&&document.startViewTransition);
+ var apply=function(){
+  $("#gear").setAttribute("aria-pressed",String(id==="settings"));
+  $("#"+id).style.setProperty("--dx",(dir*32)+"px");
+  pages.forEach(function(p){var el=$("#"+p[0]);el.hidden=p[0]!==id;el.classList.toggle("noanim",useVT)});
+  tabs.querySelectorAll("button").forEach(function(b){b.setAttribute("aria-selected",b.dataset.p===id)});
+  if(window._ready)window.scrollTo(0,0);
+  $("#fbar").hidden=!(id==="dashboard"||id==="calc");
+  if((location.hash||"").slice(1)!=="p-"+id){try{history.replaceState(null,"","#p-"+id)}catch(e){}}
+  renderPage(id)};
+ var de=document.documentElement;
+ if(useVT){
+  de.dataset.dir=dir>0?"fwd":"back";
+  try{document.startViewTransition(apply);return}catch(e){}}
+ apply()}
 document.querySelectorAll("[data-go]").forEach(function(b){b.onclick=function(){go(b.dataset.go)}});
 
 function renderRides(){
@@ -759,8 +831,8 @@ function renderRides(){
   var d=document.createElement("div");d.className="ride";
   d.innerHTML='<input aria-label="Ride '+(i+1)+' description" placeholder="Vehicle or route" value="'+esc(r.n)+'"><div class="money"><b>₱</b><input aria-label="Ride '+(i+1)+' fare" type="number" min="0" step="0.5" inputmode="decimal" placeholder="0" value="'+esc(r.f)+'"></div><button aria-label="Remove ride '+(i+1)+'">×</button>';
   var ins=d.querySelectorAll("input");
-  ins[0].oninput=function(){r.n=ins[0].value;save()};
-  ins[1].oninput=function(){r.f=ins[1].value;save();renderStub()};
+  ins[0].oninput=function(){r.n=ins[0].value;saveSoon()};
+  ins[1].oninput=function(){r.f=ins[1].value;saveSoon();renderStub()};
   d.querySelector("button").onclick=function(){var rm=S.rides.splice(i,1)[0];save();render();toast("Ride removed",["Undo",function(){S.rides.splice(i,0,rm);save();render()}])};
   box.appendChild(d);
  });
@@ -773,7 +845,7 @@ function renderStub(){
   if(!e.firstChild)e.innerHTML='<small>Total fare</small><div class="big st-t">₱0.00</div><div class="tear"></div><small>Remaining</small><div class="big st-r">₱0.00</div><span class="badge"></span>';
   tween(e.querySelector(".st-t"),t,peso);tween(e.querySelector(".st-r"),Math.max(left,0),peso);
   var bd=e.querySelector(".badge"),cls="badge "+(over?"bad":warn?"warn":"ok");bd.textContent=msg;if(bd.className!==cls)bd.className=cls});
- var fb=$("#fbar");tween(fb.querySelector(".ft"),t,peso);tween(fb.querySelector(".fr"),Math.max(left,0),peso);
+ var fb=$("#fbar");if(fb._t!==undefined&&fb._t!==t&&!RM){fb.classList.remove("bump");void fb.offsetWidth;fb.classList.add("bump")}fb._t=t;tween(fb.querySelector(".ft"),t,peso);tween(fb.querySelector(".fr"),Math.max(left,0),peso);
  var fc=fb.querySelector(".badge"),fcl="badge "+(over?"bad":warn?"warn":"ok");fc.textContent=!b?"Set budget":over?"Over "+peso(-left):warn?"Near limit":"On budget";if(fc.className!==fcl)fc.className=fcl;
  var count=S.rides.filter(function(r){return num(r.f)}).length*(S.round?2:1);
  tween($("#d-rides"),count,String);tween($("#d-week"),t*S.days,peso);tween($("#d-trips"),S.history.length,String);
@@ -792,16 +864,18 @@ function renderPlan(){
 function clearHist(){var old=S.history;if(!old.length){toast("Nothing to clear");return}S.history=[];save();render();toast("Saved trips cleared",["Undo",function(){S.history=old;save();render()}])}
 function renderHistory(){
  var h=$("#h-body"),cl=$("#clear");cl.hidden=!S.history.length;
- if(!S.history.length){h.innerHTML='<p class="empty">No saved trips yet. Work out a fare, then press Save trip.</p>';return}
- var rows=S.history.map(function(x,i){return[x,i]}).reverse().map(function(q){var x=q[0],i=q[1];
-  return"<tr><td>"+esc(x.label)+"</td><td>"+esc(x.date)+"</td><td>"+x.rides+"</td><td>"+peso(x.total)+"</td><td>"+(x.budget?peso(x.budget-x.total):"–")+'</td><td class="act">'+(x.items?'<button class="mini" data-r="'+i+'">Reuse</button>':"")+'<button class="mini" data-d="'+i+'" aria-label="Delete trip">×</button></td></tr>'}).join("");
- h.innerHTML='<div style="overflow-x:auto"><table><thead><tr><th>Trip</th><th>Date</th><th>Rides</th><th>Total</th><th>Left</th><th></th></tr></thead><tbody>'+rows+"</tbody></table></div>";
- h.querySelectorAll("[data-r]").forEach(function(b){b.onclick=function(){var x=S.history[+b.dataset.r];S.rides=x.items.map(function(r){return{n:r.n,f:r.f}});S.round=!!x.round;save();render();go("calc");toast("Trip loaded")}});
+ if(!S.history.length){h.innerHTML='<div class="emptyx"><span class="ebus" aria-hidden="true">🚌</span><p>No saved trips yet</p><small>Work out a fare, then press Save trip.</small></div>';return}
+ var n=0;
+ h.innerHTML=S.history.map(function(x,i){return[x,i]}).reverse().map(function(q){var x=q[0],i=q[1],left=x.budget?x.budget-x.total:null;
+  return'<div class="hcard" style="--i:'+(n++)+'"><div class="hmain"><b>'+esc(x.label)+'</b><small>'+esc(x.date)+" · "+x.rides+(x.rides===1?" ride":" rides")+'</small></div>'
+   +'<div class="hnums"><b>'+peso(x.total)+'</b><small'+(left!==null&&left<0?' class="neg"':"")+'>'+(left===null?"No budget set":left>=0?peso(left)+" left":"Over by "+peso(-left))+'</small></div>'
+   +'<div class="hact">'+(x.items?'<button class="mini" data-r="'+i+'">Reuse</button>':"")+'<button class="mini" data-d="'+i+'" aria-label="Delete trip">Delete</button></div></div>'}).join("");
+ h.querySelectorAll("[data-r]").forEach(function(b){b.onclick=function(){var x=S.history[+b.dataset.r];S.rides=x.items.map(function(r){return{n:r.n,f:r.f}});S.round=!!x.round;save();go("calc");toast("Trip loaded")}});
  h.querySelectorAll("[data-d]").forEach(function(b){b.onclick=function(){var i=+b.dataset.d,rm=S.history.splice(i,1)[0];save();render();toast("Trip deleted",["Undo",function(){S.history.splice(i,0,rm);save();render()}])}});
 }
 function render(){renderPresets();renderTour();renderRecent();$("#budget").value=S.budget;$("#round").checked=S.round;renderRides();renderStub();renderPlan();renderHistory();renderCalc();renderSettings()}
 
-$("#budget").oninput=function(e){S.budget=e.target.value;save();renderStub();renderPlan()};
+$("#budget").oninput=function(e){S.budget=e.target.value;saveSoon();renderStub();renderPlan()};
 $("#round").onchange=function(e){S.round=e.target.checked;save();renderStub();renderPlan()};
 $("#add").onclick=function(){S.rides.push({n:"",f:""});save();renderRides();renderStub();var i=document.querySelectorAll("#rides .ride input");if(i.length)i[i.length-2].focus()};
 $("#save").onclick=function(){
@@ -812,7 +886,8 @@ $("#save").onclick=function(){
 $("#clear").onclick=clearHist;
 initCalc();initSettings();initFx();
 var start=(location.hash||"").slice(1).replace(/^p-/,"");go(pages.some(function(p){return p[0]===start})?start:"dashboard");
-window._ready=true;window.addEventListener("popstate",function(){if(PK.open){hideSheet();return}var h=(location.hash||"").slice(1).replace(/^p-/,"");if(pages.some(function(p){return p[0]===h}))go(h,true)});
+window._ready=true;var onNav=function(){if(PK.open){hideSheet();return}var h=(location.hash||"").slice(1).replace(/^p-/,"");if(h!==window._cur&&pages.some(function(p){return p[0]===h}))go(h,true)};
+window.addEventListener("popstate",onNav);window.addEventListener("hashchange",onNav);
 })();
 </script>
 </body>
