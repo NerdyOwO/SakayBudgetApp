@@ -1,7 +1,7 @@
 # SakayBudget for Android
 
 A small Android app that wraps the SakayBudget web page (`app/src/main/assets/index.html`) in a WebView.
-Your budget, trips and settings are stored on the phone and work offline (only the Google Fonts link needs a connection).
+Your budget, trips and settings are stored on the phone and work offline (fonts are bundled, so no connection is needed).
 
 Package: `com.sakaybudget.app`, minimum Android 8.0 (API 26), target API 34.
 
