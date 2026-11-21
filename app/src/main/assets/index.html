@@ -438,6 +438,88 @@ section.noanim,section.noanim .panel,section.noanim .stub{animation:none!importa
 .sp-tag{margin:0;color:var(--mute);font-family:"Bricolage Grotesque",Roboto,system-ui,sans-serif;opacity:0;animation:spT .6s 1.1s ease both}
 @keyframes spT{from{opacity:0;transform:translateY(8px)}to{opacity:1}}
 @media (prefers-reduced-motion:reduce){.veh,.splash *{animation:none!important}.veh[aria-pressed=true] .wh,.veh[aria-pressed=true] .vb,.sp-bus .wh{animation:none!important}}
+
+.datebox{display:flex;flex-direction:column;flex:1;min-width:170px}
+.datebox input{min-height:48px}
+.hday{display:flex;justify-content:space-between;align-items:baseline;padding:14px 4px 6px;color:var(--mute);font-size:.85rem;font-weight:500;letter-spacing:.02em}
+.hday b{font-weight:500;color:var(--pri)}
+.hact{position:relative}
+.hdate{position:absolute;right:0;bottom:0;width:1px;height:1px;opacity:0;pointer-events:none;border:0;padding:0}
+
+.plhead{display:flex;align-items:center;gap:10px}.plwk{flex:1;text-align:center}.plwk b{display:block;font-size:1.15rem;font-weight:500}.plwk small{color:var(--mute)}
+.navb{width:48px;height:48px;padding:0;font-size:1.3rem}
+.pstats{grid-template-columns:repeat(2,minmax(0,1fr))}.pstats .neg b{color:var(--red)}
+.pcols{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin:16px 0 2px;align-items:end}
+.pcol{text-align:center;font-size:.75rem;color:var(--mute)}.pcol.today span{color:var(--pri);font-weight:700}
+.pbar{position:relative;height:64px;background:var(--sc);border-radius:10px;overflow:hidden;margin-bottom:4px}
+.pbar i{position:absolute;left:0;right:0;bottom:0;height:0;background:var(--pri);border-radius:8px 8px 0 0;transition:height .4s cubic-bezier(.2,0,0,1)}
+.pbar u{position:absolute;left:2px;right:2px;bottom:0;height:0;border-top:2px dashed var(--mute);text-decoration:none;opacity:.85}
+.pday{background:var(--card);border-radius:16px;box-shadow:var(--sh1);padding:14px;margin-top:12px;transition:opacity .2s,box-shadow .2s}
+.pday.off{opacity:.72}.pday.today{box-shadow:0 0 0 2px var(--pri),var(--sh1)}
+.pd-top{display:flex;align-items:center;gap:12px}.pd-name{flex:1}.pd-name b{display:block;font-weight:500}.pd-name small{color:var(--mute)}
+.pd-cost{font-weight:700;font-size:1.05rem;text-align:right}
+.pday.off .pd-body{display:none}
+.pd-body{margin-top:12px}.pd-row{margin-top:10px}
+.pd-bar{height:8px;border-radius:4px;background:var(--line);overflow:hidden;margin:12px 0 6px}
+.pd-bar i{display:block;height:100%;width:0;background:var(--pri);transition:width .35s cubic-bezier(.2,0,0,1)}
+.pday.warn .pd-bar i{background:#E0A100}.pday.bad .pd-bar i{background:var(--red)}
+.pd-meta{color:var(--mute);font-size:.9rem}.pd-meta b{color:var(--teal)}.pd-meta .neg{color:var(--red)}
+.pd-act{margin-top:8px}.pd-act .mini{margin-left:0}
+label.sw{position:relative;display:inline-block;width:52px;height:32px;flex:none;margin:0;padding:0}
+.sw input{position:absolute;inset:0;opacity:0;width:100%;height:100%;margin:0;cursor:pointer;min-height:0;z-index:1}
+.swt{position:absolute;inset:0;border-radius:16px;border:2px solid var(--mute);transition:background .2s,border-color .2s}
+.swt::after{content:"";position:absolute;left:5px;top:50%;width:16px;height:16px;border-radius:50%;background:var(--mute);transform:translateY(-50%);transition:left .2s cubic-bezier(.2,0,0,1),width .2s,height .2s,background .2s}
+.sw input:checked+.swt{background:var(--pri);border-color:var(--pri)}
+.sw input:checked+.swt::after{left:25px;width:20px;height:20px;background:var(--onpri)}
+.sw input:focus-visible+.swt{outline:3px solid var(--pri);outline-offset:2px}
+html[data-accent="sunset"]{--bg:#FFF4EA;--card:#FFFAF5;--sc:#FFE3CC;--ink:#3A2112;--mute:#6E4B33;--line:#FFCDA6;--pri:#C2510A;--onpri:#FFFFFF;--pric:#FFD9B8;--onpric:#4A1D00;--stubbg:#FF9F5A;--stubfg:#3A1700}
+@media(prefers-color-scheme:dark){html[data-accent="sunset"]:not([data-theme="light"]){--bg:#1F130B;--card:#2A1A0F;--sc:#382314;--ink:#FFF4EA;--mute:#DDBFA5;--line:#5E3B22;--pri:#FFB27D;--onpri:#4A1D00;--pric:#7A3A0F;--onpric:#FFD9B8;--stubbg:#7A3A0F;--stubfg:#FFD9B8}}
+html[data-accent="sunset"][data-theme="dark"]{--bg:#1F130B;--card:#2A1A0F;--sc:#382314;--ink:#FFF4EA;--mute:#DDBFA5;--line:#5E3B22;--pri:#FFB27D;--onpri:#4A1D00;--pric:#7A3A0F;--onpric:#FFD9B8;--stubbg:#7A3A0F;--stubfg:#FFD9B8}
+html[data-accent="mint"]{--bg:#EDFBF3;--card:#F8FFFB;--sc:#D2F2E1;--ink:#0F2B1E;--mute:#3F6354;--line:#A9E3C8;--pri:#1F8A5B;--onpri:#FFFFFF;--pric:#BDEBD3;--onpric:#00311F;--stubbg:#7FD8AE;--stubfg:#04301F}
+@media(prefers-color-scheme:dark){html[data-accent="mint"]:not([data-theme="light"]){--bg:#0B1F17;--card:#112A20;--sc:#17372A;--ink:#E6FBF0;--mute:#A5CDB9;--line:#2B5B45;--pri:#7FD8AE;--onpri:#00391F;--pric:#1B5C40;--onpric:#BDEBD3;--stubbg:#1B5C40;--stubfg:#BDEBD3}}
+html[data-accent="mint"][data-theme="dark"]{--bg:#0B1F17;--card:#112A20;--sc:#17372A;--ink:#E6FBF0;--mute:#A5CDB9;--line:#2B5B45;--pri:#7FD8AE;--onpri:#00391F;--pric:#1B5C40;--onpric:#BDEBD3;--stubbg:#1B5C40;--stubfg:#BDEBD3}
+html[data-accent="lavender"]{--bg:#F6F2FF;--card:#FFFFFF;--sc:#E7DEFB;--ink:#231A3D;--mute:#5A4F7A;--line:#D3C5F5;--pri:#6E4BD0;--onpri:#FFFFFF;--pric:#E3D9FF;--onpric:#2A0F6B;--stubbg:#CBB8F7;--stubfg:#2A0F6B}
+@media(prefers-color-scheme:dark){html[data-accent="lavender"]:not([data-theme="light"]){--bg:#15111F;--card:#1E1930;--sc:#29223F;--ink:#F1EBFF;--mute:#C9BDE6;--line:#463C66;--pri:#CBB8F7;--onpri:#34167E;--pric:#4E3A9A;--onpric:#E3D9FF;--stubbg:#4E3A9A;--stubfg:#E3D9FF}}
+html[data-accent="lavender"][data-theme="dark"]{--bg:#15111F;--card:#1E1930;--sc:#29223F;--ink:#F1EBFF;--mute:#C9BDE6;--line:#463C66;--pri:#CBB8F7;--onpri:#34167E;--pric:#4E3A9A;--onpric:#E3D9FF;--stubbg:#4E3A9A;--stubfg:#E3D9FF}
+html[data-accent="mocha"]{--bg:#F7F0EA;--card:#FFFBF7;--sc:#EADBCF;--ink:#2E2018;--mute:#6B5547;--line:#D8C3B2;--pri:#8A5A3C;--onpri:#FFFFFF;--pric:#F0D9C6;--onpric:#35190A;--stubbg:#D2A67F;--stubfg:#2E1809}
+@media(prefers-color-scheme:dark){html[data-accent="mocha"]:not([data-theme="light"]){--bg:#1A1310;--card:#241A15;--sc:#31241C;--ink:#F6E9DE;--mute:#CDB8A7;--line:#54402F;--pri:#E1B28E;--onpri:#3B1D0B;--pric:#6A4429;--onpric:#F0D9C6;--stubbg:#6A4429;--stubfg:#F0D9C6}}
+html[data-accent="mocha"][data-theme="dark"]{--bg:#1A1310;--card:#241A15;--sc:#31241C;--ink:#F6E9DE;--mute:#CDB8A7;--line:#54402F;--pri:#E1B28E;--onpri:#3B1D0B;--pric:#6A4429;--onpric:#F0D9C6;--stubbg:#6A4429;--stubfg:#F0D9C6}
+html[data-accent="midnight"]{--bg:#F1F3FF;--card:#FFFFFF;--sc:#DDE1FA;--ink:#141A3A;--mute:#4B5379;--line:#BDC4EE;--pri:#3A4FD1;--onpri:#FFFFFF;--pric:#DCE0FF;--onpric:#00105C;--stubbg:#1D2A7A;--stubfg:#E3E6FF}
+@media(prefers-color-scheme:dark){html[data-accent="midnight"]:not([data-theme="light"]){--bg:#0A0D1F;--card:#11162E;--sc:#1A2145;--ink:#E6E9FF;--mute:#AEB6E6;--line:#2E3A75;--pri:#A5B4FF;--onpri:#0E1A6B;--pric:#2C3AA0;--onpric:#DCE0FF;--stubbg:#2C3AA0;--stubfg:#E3E6FF}}
+html[data-accent="midnight"][data-theme="dark"]{--bg:#0A0D1F;--card:#11162E;--sc:#1A2145;--ink:#E6E9FF;--mute:#AEB6E6;--line:#2E3A75;--pri:#A5B4FF;--onpri:#0E1A6B;--pric:#2C3AA0;--onpric:#DCE0FF;--stubbg:#2C3AA0;--stubfg:#E3E6FF}
+html[data-accent="jeepney"]{--bg:#FFF7E0;--card:#FFFDF5;--sc:#FFE9A8;--ink:#1B1B2F;--mute:#5B5740;--line:#F2D470;--pri:#D62828;--onpri:#FFFFFF;--pric:#FFE08A;--onpric:#5A0000;--stubbg:#FFC93C;--stubfg:#1B1B2F}
+@media(prefers-color-scheme:dark){html[data-accent="jeepney"]:not([data-theme="light"]){--bg:#14120A;--card:#1E1A0E;--sc:#2B2511;--ink:#FFF3C9;--mute:#D9CB93;--line:#5C4E1A;--pri:#FF6B6B;--onpri:#5A0000;--pric:#7D1515;--onpric:#FFE08A;--stubbg:#7D1515;--stubfg:#FFE08A}}
+html[data-accent="jeepney"][data-theme="dark"]{--bg:#14120A;--card:#1E1A0E;--sc:#2B2511;--ink:#FFF3C9;--mute:#D9CB93;--line:#5C4E1A;--pri:#FF6B6B;--onpri:#5A0000;--pric:#7D1515;--onpric:#FFE08A;--stubbg:#7D1515;--stubfg:#FFE08A}
+html[data-amoled="1"][data-theme="dark"]{--bg:#000;--card:#0C0C0E;--sc:#17181C;--line:#2B2C31}
+/* corners, spacing, font, floating bar */
+:root{--r:16px}
+html[data-round="s"]{--r:6px}html[data-round="l"]{--r:28px}
+.panel,.pday,.hcard,.veh,.place,.fbar,.stub{border-radius:var(--r)}
+.res div,.stats div,.legs li,.steps li,.pop{border-radius:calc(var(--r)*.75)}
+input:not([type=checkbox]),select,textarea{border-radius:calc(var(--r)*.5)}
+.chips2 button,.rchips button{border-radius:calc(var(--r)*.5)}
+.sheet-card{border-radius:calc(var(--r)*1.7) calc(var(--r)*1.7) 0 0}
+@media(min-width:700px){.sheet-card{border-radius:calc(var(--r)*1.7)}}
+html[data-round="s"] .btn,html[data-round="s"] nav button{border-radius:8px}
+html[data-dense="c"] .panel{padding:14px}
+html[data-dense="c"] .chips2{gap:6px;margin-bottom:10px}
+html[data-dense="c"] .chips2 button{padding:6px 12px;min-height:40px}
+html[data-dense="c"] .prow,html[data-dense="c"] .place{min-height:52px}
+html[data-dense="c"] .hcard,html[data-dense="c"] .pday{padding:10px}
+html[data-dense="c"] .grid,html[data-dense="c"] .grid1{gap:14px}
+html[data-dense="c"] h2{margin-bottom:10px}
+html[data-font="rounded"] body{font-family:"Bricolage Grotesque",Roboto,system-ui,sans-serif}
+html[data-font="system"] body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+html[data-fbar="off"] .fbar{display:none!important}
+html[data-fbar="off"] #calc .stub{display:block!important}
+
+.popular{margin:0 0 16px;border:1px solid var(--line);border-radius:calc(var(--r)*.75);padding:0 12px}
+.popular summary{cursor:pointer;font-weight:500;color:var(--pri);padding:12px 0}
+.popular[open] summary{border-bottom:1px solid var(--line);margin-bottom:8px}
+.pop{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;margin-bottom:8px;padding:12px;border:0;background:var(--sc);color:var(--ink);font:inherit;text-align:left;cursor:pointer;animation:rise2 .35s cubic-bezier(.2,0,0,1) both;animation-delay:calc(var(--i,0)*35ms);transition:transform .12s}
+.pop:active{transform:scale(.99)}
+.pop-main b{display:block;font-weight:500}.pop-main small,.pop-fare small{display:block;color:var(--mute);font-size:.78rem;margin-top:2px}
+.pop-fare{text-align:right;flex:none}.pop-fare b{font-size:1.1rem}
 </style>
 </head>
 <body>
@@ -484,6 +566,7 @@ section.noanim,section.noanim .panel,section.noanim .stub{animation:none!importa
    <div class="panel">
         <div id="view-route">
      <div id="recent" hidden><label>Recent routes</label><div class="chips2" id="rchips"></div></div>
+     <details class="popular" id="popular"><summary>Popular routes from commuters</summary><div id="plist"></div><p class="hint">Busy lines and common commuter trips in Metro Manila. Fares are estimates from this calculator, with a note where commuters reported a fare.</p></details>
      <div class="trip">
       <div class="pins" aria-hidden="true"><i class="dot a"></i><i class="ln"></i><i class="dot b"></i></div>
       <div class="flds"><div><label for="o">Origin (sakay)</label><button type="button" class="place" id="o" aria-haspopup="dialog"><span class="pv">Choose a place</span><i class="chev" aria-hidden="true"></i></button></div><div><label for="d">Destination (baba)</label><button type="button" class="place" id="d" aria-haspopup="dialog"><span class="pv">Choose a place</span><i class="chev" aria-hidden="true"></i></button></div></div>
@@ -517,6 +600,7 @@ section.noanim,section.noanim .panel,section.noanim .stub{animation:none!importa
     <div class="row" style="margin-top:4px"><button class="btn alt" id="add" type="button">Add a ride by hand</button></div>
     <label class="chk"><input type="checkbox" id="round"> Include return trip</label>
     <p class="hint">The return trip uses the same fares as the way there.</p>
+    <div class="row"><div class="datebox"><label for="tripdate">Trip date</label><input type="date" id="tripdate"></div></div>
     <div class="row"><input id="label" placeholder="Trip name (optional, we’ll name it for you)" style="flex:1;min-width:200px"><button class="btn" id="save" type="button">Save trip</button></div>
    </div>
   </div>
@@ -526,22 +610,32 @@ section.noanim,section.noanim .panel,section.noanim .stub{animation:none!importa
 
 <section id="plan" hidden>
  <div class="panel">
-  <h2>Weekly budget planner</h2>
-  <label>Days you commute each week</label>
-  <div class="chips" id="days"></div>
-  <div class="stats">
-   <div><b id="p-cost">₱0.00</b><span>planned fares per week</span></div>
-   <div><b id="p-allow">₱0.00</b><span>allowance per week</span></div>
-   <div><b id="p-left">₱0.00</b><span id="p-lbl">left over</span></div>
+  <div class="plhead">
+   <button class="btn alt navb" id="wk-prev" type="button" aria-label="Previous week">←</button>
+   <div class="plwk"><b id="wk-title">This week</b><small id="wk-sub"></small></div>
+   <button class="btn alt navb" id="wk-next" type="button" aria-label="Next week">→</button>
   </div>
-  <div class="bar" id="p-bar"><i style="width:0"></i></div>
-  <p class="hint" id="p-hint"></p>
+  <div class="row" style="margin-top:8px;justify-content:center"><button class="mini" id="wk-now" type="button" hidden>Back to this week</button></div>
+  <label style="margin-top:12px">Your usual week</label>
+  <div class="chips2" id="pl-presets"></div>
+  <div class="stats pstats">
+   <div><b id="pl-plan">₱0.00</b><span>Planned</span></div>
+   <div><b id="pl-bud">₱0.00</b><span>Budget</span></div>
+   <div id="pl-leftbox"><b id="pl-left">₱0.00</b><span id="pl-leftl">Left</span></div>
+   <div><b id="pl-spent">₱0.00</b><span>Spent so far</span></div>
+  </div>
+  <div class="pcols" id="pl-cols" aria-hidden="true"></div>
+  <p class="hint" id="pl-hint"></p>
  </div>
+ <div id="pl-days"></div>
+ <div class="panel" id="pl-month" style="margin-top:12px"><h2 id="pm-title">Month</h2><p id="pm-body" class="hint" style="margin:0"></p></div>
 </section>
 
 <section id="history" hidden>
  <div class="panel">
   <h2>Saved trips</h2>
+  <div class="chips2" id="h-filter"></div>
+  <p class="hint" id="h-sum" style="margin:0 0 12px"></p>
   <div id="h-body"></div>
   <div class="row"><button class="btn alt" id="clear" hidden>Clear history</button></div>
  </div>
@@ -560,11 +654,20 @@ section.noanim,section.noanim .panel,section.noanim .stub{animation:none!importa
    <label>Tap vibration</label><div class="chips2" id="s-haptic"></div>
   </div>
   <div class="panel">
+   <h2>Layout and behavior</h2>
+   <label>Corners</label><div class="chips2" id="s-corner"></div>
+   <label>Spacing</label><div class="chips2" id="s-dense"></div>
+   <label>Font</label><div class="chips2" id="s-font"></div>
+   <label>Open the app on</label><div class="chips2" id="s-home"></div>
+   <label>Week starts on</label><div class="chips2" id="s-wk"></div>
+   <label>Greeting language</label><div class="chips2" id="s-lang"></div>
+   <label>Floating fare bar</label><div class="chips2" id="s-fbar"></div>
+  </div>
+  <div class="panel">
    <h2>Profile and defaults</h2>
    <label for="s-name">Your name</label><input id="s-name" maxlength="24" autocomplete="off" placeholder="Optional, shown on the Dashboard">
    <label style="margin-top:14px">Usual fare type</label><div class="chips2" id="s-ft"></div>
    <label for="s-mode">Usual vehicle</label><select id="s-mode"></select>
-   <label for="s-days" style="margin-top:14px">Commuting days per week</label><select id="s-days"></select>
    <label class="chk"><input type="checkbox" id="s-round"> Include the return trip by default</label>
   </div>
   <div class="panel">
@@ -582,7 +685,7 @@ section.noanim,section.noanim .panel,section.noanim .stub{animation:none!importa
   </div>
   <div class="panel">
    <h2>About</h2>
-   <p style="margin:0 0 8px"><b>SakayBudget 1.3</b></p>
+   <p style="margin:0 0 8px"><b>SakayBudget 1.4</b></p>
    <p class="hint" style="margin-top:0">Fares are estimates based on the LTFRB rates reported for September 2026, plus fares you reported yourself. Distances are approximate, so what the conductor charges can differ by a peso or two. Your budget, trips and settings are saved on this device, and the Android app works without internet.</p>
    <details class="rates"><summary>How fares are worked out</summary><p class="hint" style="margin-top:8px">Fare rules follow the LTFRB rates reported for September 2026: traditional jeepney ₱14 for the first 4 km then ₱2 per km, modern jeepney ₱17 then ₱2.40 per km, ordinary city bus ₱15 for the first 5 km then ₱2.49 per km, air-conditioned city bus ₱18 then ₱2.98 per km, and provisional UV Express rates of ₱2.60 (traditional) and ₱3.00 (modern) per km. Discounted fares are 20% off, rounded up to the next peso. Distances are estimated from approximate map positions, so a conductor’s fare may differ; type the km if you know it. Places come from the <a href="https://en.wikipedia.org/wiki/List_of_bus_routes_in_Metro_Manila" target="_blank" rel="noopener">Metro Manila bus routes</a> and <a href="https://wiki.openstreetmap.org/wiki/Metro_Manila/Jeepney_and_UV_Express_routes" target="_blank" rel="noopener">jeepney and UV Express routes</a> lists.</p></details>
    <div class="row"><button class="btn alt" id="s-tour" type="button">Show the getting-started guide</button></div>
@@ -607,9 +710,9 @@ section.noanim,section.noanim .panel,section.noanim .stub{animation:none!importa
 (function(){
 var KEY="sakaybudget:v2";
 var REG={
-K:["Caloocan","Monumento (Caloocan)|14.6543|120.9839;Grace Park|14.6480|120.9830;5th Avenue (LRT-1)|14.6443|120.9838;Sangandaan|14.6560|120.9730;Maypajo|14.6350|120.9730;Malaria|14.7600|121.0560;Bagong Barrio|14.6615|120.9985;Baesa|14.6770|121.0060;Santa Quiteria|14.6820|121.0200;Bagumbong|14.7400|121.0100;Deparo|14.7480|121.0230;Camarin|14.7550|121.0320;Bagong Silang|14.7700|121.0450"],
+K:["Caloocan","Monumento (Caloocan)|14.6543|120.9839;Grace Park|14.6480|120.9830;5th Avenue (LRT-1)|14.6443|120.9838;Sangandaan|14.6560|120.9730;Maypajo|14.6350|120.9730;Malaria|14.7600|121.0560;Bagong Barrio|14.6615|120.9985;Baesa|14.6770|121.0060;Santa Quiteria|14.6820|121.0200;Bagumbong|14.7400|121.0100;Deparo|14.7480|121.0230;Camarin|14.7550|121.0320;Bagong Silang|14.7700|121.0450;Amparo (Sa Nana)|14.7420|121.0475|Sanana;Pangarap Village|14.7545|121.0530;Sapang Alat|14.7790|121.0540;Tala|14.7835|121.0575;Urduja|14.7405|121.0235"],
 N:["Valenzuela, Malabon, Navotas and Bulacan","Malabon City Hall|14.6625|120.9569;Navotas|14.6667|120.9417;Valenzuela Gateway Complex|14.7003|120.9906;Malinta|14.7016|120.9780;Meycauayan|14.7369|120.9609;Marilao|14.7573|120.9486;Bocaue|14.7990|120.9260;Balagtas|14.8150|120.9100;Santa Maria (Bulacan)|14.8190|120.9570;San Jose del Monte|14.8140|121.0450;Norzagaray|14.9180|121.0430"],
-Q:["Quezon City and Novaliches","SM North EDSA / TriNoma|14.6561|121.0292;Balintawak|14.6573|121.0012;Muñoz|14.6570|121.0220;Quezon City Hall|14.6510|121.0495;UP Diliman|14.6538|121.0685;Commonwealth / Batasan|14.6820|121.0910;Don Fabian|14.6930|121.0830;SM Annex|14.6580|121.0305;FCM (Fairview Center Mall)|14.7350|121.0590;PCMC / Agham Road|14.6500|121.0390;Litex|14.7040|121.0802;Eton Centris|14.6405|121.0378;Kamuning|14.6270|121.0420;Cubao (Araneta City)|14.6196|121.0529;Welcome Rotonda|14.6165|121.0000;Katipunan|14.6307|121.0725;Novaliches Proper|14.7240|121.0370;Robinsons Novaliches|14.7170|121.0426;SM Fairview|14.7339|121.0575"],
+Q:["Quezon City and Novaliches","SM North EDSA / TriNoma|14.6561|121.0292;Balintawak|14.6573|121.0012;Muñoz|14.6570|121.0220;Quezon City Hall|14.6510|121.0495;UP Diliman|14.6538|121.0685;Commonwealth / Batasan|14.6820|121.0910;Capitol|14.6775|121.0795;Don Fabian|14.6930|121.0830;SM Annex|14.6580|121.0305;FCM (Fairview Center Mall)|14.7350|121.0590;PCMC / Agham Road|14.6500|121.0390;Litex|14.7040|121.0802;Eton Centris|14.6405|121.0378;Kamuning|14.6270|121.0420;Cubao (Araneta City)|14.6196|121.0529;Welcome Rotonda|14.6165|121.0000;Katipunan|14.6307|121.0725;Novaliches Proper|14.7240|121.0370|Bayan;Robinsons Novaliches|14.7170|121.0426;SM Fairview|14.7339|121.0575"],
 C:["Manila, Mandaluyong and San Juan","Quiapo|14.5995|120.9836;Manila City Hall|14.5896|120.9815;Divisoria|14.6010|120.9718;Blumentritt|14.6225|120.9825;Lawton|14.5933|120.9795;Ermita (T.M. Kalaw)|14.5830|120.9830;Paco|14.5790|120.9970;Pandacan|14.5850|121.0060;Santa Mesa|14.6000|121.0120;Mandaluyong City Hall|14.5794|121.0356;Kalentong (JRC)|14.5776|121.0277;San Juan (Pinaglabanan)|14.6016|121.0343;Greenhills|14.6027|121.0486"],
 M:["Pasay, Parañaque, Makati and Taguig","Libertad (Pasay)|14.5476|120.9977;Vito Cruz|14.5636|120.9946;Buendia / Gil Puyat|14.5540|121.0114;Pasay Rotonda|14.5385|121.0011;Baclaran|14.5340|120.9987;SM Mall of Asia|14.5352|120.9822;PITX|14.5065|120.9908;NAIA Terminal 3|14.5090|121.0177;Nichols|14.5190|121.0230;Magallanes|14.5415|121.0195;Ayala Center (Makati)|14.5495|121.0271;Guadalupe (ABC)|14.5670|121.0450;Market! Market!|14.5496|121.0560;BGC / McKinley Hill|14.5368|121.0527;FTI / Arca South|14.5082|121.0490;SM Bicutan|14.4838|121.0443"],
 E:["Marikina, Pasig and Rizal","Ortigas Center (EDSA-Shaw)|14.5813|121.0528;Robinsons Galleria|14.5876|121.0599;Eastwood City|14.6097|121.0802;Marikina (SM Marikina)|14.6239|121.0846;SSS Village|14.6360|121.0951;Pasig Market|14.5764|121.0851;Rosario (Pasig)|14.5878|121.0897;Pateros|14.5446|121.0687;Cainta Junction|14.5783|121.1143;SM Masinag|14.6256|121.1207;Antipolo|14.5985|121.1741;Taytay|14.5635|121.1327;Angono|14.5266|121.1536;Binangonan|14.4640|121.1920;San Mateo|14.6935|121.1236;Rodriguez (Montalban)|14.7595|121.1182"],
@@ -617,10 +720,10 @@ S:["Las Piñas, Muntinlupa and Laguna","Sucat|14.4590|121.0460;Alabang (Vista Te
 V:["Cavite","Bacoor|14.4590|120.9470;Imus|14.4297|120.9367;Kawit|14.4456|120.9040;Cavite City|14.4791|120.8970;Dasmariñas|14.3294|120.9367;General Mariano Alvarez|14.3040|121.0052;Trece Martires|14.2820|120.8670;Naic|14.3175|120.7663"]
 };
 var PLACES={};
-var KNOWN={"Lawton|Malaria":32.5,"Malaria|Manila City Hall":32.5};
+var KNOWN={"Lawton|Malaria":32.5,"Malaria|Manila City Hall":32.5,"Novaliches Proper|Tala":13.6,"Bagong Silang|Novaliches Proper":7.76};
 var KNOWNF={"Don Fabian|Malaria":{ob:43,ab:50}};
-var ANCH={"Malaria":0,"Don Fabian":16,"Lawton":32.5};
-var CORR=[{sc:1.33,s:["San Jose del Monte","Malaria","Novaliches Proper","Don Fabian","Commonwealth / Batasan","Quezon City Hall","Eton Centris","Welcome Rotonda","Quiapo","Lawton","Manila City Hall","Ermita (T.M. Kalaw)","Vito Cruz","Buendia / Gil Puyat","PITX"]}];
+var ANCH={"Malaria":0,"Pangarap Village":1.07,"Novaliches Proper":10,"Don Fabian":16,"Lawton":32.5};
+var CORR=[{sc:1.33,s:["San Jose del Monte","Sapang Alat","Malaria","Pangarap Village","Amparo (Sa Nana)","Novaliches Proper","Don Fabian","Commonwealth / Batasan","Capitol","Quezon City Hall","Eton Centris","Welcome Rotonda","Quiapo","Lawton","Manila City Hall","Ermita (T.M. Kalaw)","Vito Cruz","Buendia / Gil Puyat","PITX"]}];
 var CUM=null;
 function buildCum(){CUM=CORR.map(function(c){
  var s=c.s.filter(function(n){return PLACES[n]}),m={},i,k,idx=[];
@@ -641,7 +744,16 @@ var MODES={
 };
 var S={budget:"",rides:[{n:"",f:""}],round:true,days:5,history:[],c:{o:"Cubao (Araneta City)",d:"Quiapo",mode:"tj",ft:"reg",pax:1,bill:100,km:""}};
 try{var raw=localStorage.getItem(KEY);if(raw){var o=JSON.parse(raw);if(o&&typeof o==="object"){S=Object.assign(S,o);S.c=Object.assign({o:"Cubao (Araneta City)",d:"Quiapo",mode:"tj",ft:"reg",pax:1,bill:100,km:""},o.c||{})}}}catch(e){}
-S.set=Object.assign({theme:"system",accent:"blue",size:"m",motion:"on",name:"",warn:90,dfare:"reg",dmode:"tj",haptic:"on",splash:"on"},S.set||{});
+var WD=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],MO=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+function iso(d){var m=d.getMonth()+1,x=d.getDate();return d.getFullYear()+"-"+(m<10?"0":"")+m+"-"+(x<10?"0":"")+x}
+function todayISO(){return iso(new Date())}
+function parseISO(t){var q=t.split("-");return new Date(+q[0],+q[1]-1,+q[2])}
+function fmtD(t){var d=parseISO(t),n=new Date();return WD[d.getDay()]+", "+MO[d.getMonth()]+" "+d.getDate()+(d.getFullYear()!==n.getFullYear()?", "+d.getFullYear():"")}
+function addDays(d,n){var x=new Date(d.getFullYear(),d.getMonth(),d.getDate());x.setDate(x.getDate()+n);return x}
+function startOfWeek(d,monFirst){var x=new Date(d.getFullYear(),d.getMonth(),d.getDate()),k=monFirst?(x.getDay()+6)%7:x.getDay();x.setDate(x.getDate()-k);return x}
+S.set=Object.assign({theme:"system",accent:"blue",size:"m",motion:"on",name:"",warn:90,dfare:"reg",dmode:"tj",haptic:"on",splash:"on",round:"m",dense:"m",font:"roboto",home:"dashboard",wk:"mon",lang:"tl",fbar:"on"},S.set||{});
+S.plan=(S.plan&&S.plan.days)?S.plan:{days:{}};
+S.history.forEach(function(x){if(!x.ts&&x.date){var d=new Date(x.date+" "+new Date().getFullYear());if(!isNaN(d)){if(d>new Date())d.setFullYear(d.getFullYear()-1);x.ts=iso(d)}}});
 if(!Array.isArray(S.recent))S.recent=[];S.tour=Object.assign({done:false},S.tour||{});
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
 var svT;function saveSoon(){clearTimeout(svT);svT=setTimeout(save,250)}
@@ -714,7 +826,7 @@ function syncUI(){
 }
 function ride(){var j=$("#journey");j.classList.remove("go");void j.offsetWidth;j.classList.add("go")}
 function initCalc(){
- ALLP=[];Object.keys(REG).forEach(function(k){REG[k][1].split(";").forEach(function(x){var q=x.split("|");PLACES[q[0]]=[+q[1],+q[2]];ALLP.push({n:q[0],r:REG[k][0],k:k})})});
+ ALLP=[];Object.keys(REG).forEach(function(k){REG[k][1].split(";").forEach(function(x){var q=x.split("|");PLACES[q[0]]=[+q[1],+q[2]];ALLP.push({n:q[0],r:REG[k][0],k:k,a:q[3]||""})})});
  ALLP.sort(function(a,b){return a.n.localeCompare(b.n)});
  GR=[["modes",Object.keys(MODES).map(function(k){return[k,MODES[k].n]}),"mode"],["ftypes",[["reg","Regular"],["disc","Discounted (20%)"]],"ft"],["bills",[20,50,100,200,500,1000].map(function(v){return[v,"₱"+v]}),"bill"]];
  GR.forEach(function(g){var box=$("#"+g[0]);box.innerHTML="";g[1].forEach(function(it,i){var b=document.createElement("button");b.type="button";if(g[0]==="modes"){b.className="veh";b.style.setProperty("--vc",VCOL[it[0]]);b.innerHTML=vsvg(it[0])+"<b>"+VSHORT[it[0]]+"</b><small>"+vhint(it[0])+"</small>";b.title=MODES[it[0]].n;b.setAttribute("aria-label",MODES[it[0]].n)}else b.textContent=it[1];b.dataset.v=String(it[0]);b.style.setProperty("--i",i);
@@ -732,24 +844,24 @@ function initCalc(){
   if(r.legs)r.legs.forEach(function(l){S.rides.push({n:l[0],f:String(l[2]*c.pax)})});else S.rides.push({n:c.o+" to "+c.d+" ("+MODES[c.mode].n.toLowerCase()+")",f:String(r.tot)});pushRecent();save();render();toast("Added to your trip")};
  syncUI();
 }
-var SG,SW=[["blue","Material",["#F8F9FF","#D9E2FF","#1B5BC9","#001945"]],["teal","Teal",["#E6FAFA","#9CF1F0","#006A6A","#002020"]],["violet","Violet",["#FFFBFF","#EADDFF","#6750A4","#21005D"]],["red","Red",["#FFF8F7","#FFDAD5","#B8302A","#410002"]],["green","Green",["#F6FFF1","#B0F2B0","#286C32","#002106"]],["aqua","Aqua",["#E1FDFC","#CAF0F2","#A5E2E8","#72C9CC"]],["ocean","Ocean",["#F8F6F7","#DBE0EF","#4173B0","#122E4E"]],["peach","Peach",["#FEF4E1","#FFE2E0","#FFCFCF","#FF9695"]],["blossom","Blossom",["#F7F4F6","#F6E6EC","#FDCCE0","#F0BED2"]]];
+var SG,SW=[["blue","Material",["#F8F9FF","#D9E2FF","#1B5BC9","#001945"]],["teal","Teal",["#E6FAFA","#9CF1F0","#006A6A","#002020"]],["violet","Violet",["#FFFBFF","#EADDFF","#6750A4","#21005D"]],["red","Red",["#FFF8F7","#FFDAD5","#B8302A","#410002"]],["green","Green",["#F6FFF1","#B0F2B0","#286C32","#002106"]],["aqua","Aqua",["#E1FDFC","#CAF0F2","#A5E2E8","#72C9CC"]],["ocean","Ocean",["#F8F6F7","#DBE0EF","#4173B0","#122E4E"]],["peach","Peach",["#FEF4E1","#FFE2E0","#FFCFCF","#FF9695"]],["blossom","Blossom",["#F7F4F6","#F6E6EC","#FDCCE0","#F0BED2"]],["sunset","Sunset",["#FFF4EA","#FFD9B8","#FF9F5A","#C2510A"]],["mint","Mint",["#EDFBF3","#BDEBD3","#7FD8AE","#1F8A5B"]],["lavender","Lavender",["#F6F2FF","#E3D9FF","#CBB8F7","#6E4BD0"]],["mocha","Mocha",["#F7F0EA","#F0D9C6","#D2A67F","#8A5A3C"]],["midnight","Midnight",["#F1F3FF","#DCE0FF","#A5B4FF","#3A4FD1"]],["jeepney","Jeepney",["#FFF7E0","#FFE08A","#FFC93C","#D62828"]]];
 function sysBars(){try{var m=getComputedStyle(document.body).backgroundColor.match(/\d+/g);if(!m)return;
  var hex="#"+m.slice(0,3).map(function(x){return("0"+(+x).toString(16)).slice(-2)}).join(""),lum=(0.299*m[0]+0.587*m[1]+0.114*m[2])/255,mt=document.querySelector('meta[name="theme-color"]');
  if(mt)mt.setAttribute("content",hex);if(window.Android&&Android.setBars)Android.setBars(hex,lum>0.5)}catch(e){}}
 function applySet(){var h=document.documentElement,t=S.set;
  if(t.theme==="system")h.removeAttribute("data-theme");else h.setAttribute("data-theme",t.theme==="amoled"?"dark":t.theme);if(t.theme==="amoled")h.setAttribute("data-amoled","1");else h.removeAttribute("data-amoled");
  if(t.accent==="blue")h.removeAttribute("data-accent");else h.setAttribute("data-accent",t.accent);
- h.setAttribute("data-size",t.size);h.setAttribute("data-motion",t.motion);
+ h.setAttribute("data-size",t.size);h.setAttribute("data-motion",t.motion);h.dataset.round=t.round;h.dataset.dense=t.dense;h.dataset.font=t.font;h.dataset.fbar=t.fbar;
  RM=t.motion==="off"||!!(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches);
- var hr=new Date().getHours(),g=hr<12?"Magandang umaga":hr<18?"Magandang hapon":"Magandang gabi";
+ var hr=new Date().getHours(),g=t.lang==="en"?(hr<12?"Good morning":hr<18?"Good afternoon":"Good evening"):(hr<12?"Magandang umaga":hr<18?"Magandang hapon":"Magandang gabi");
  $("#greet").textContent=t.name?g+", "+t.name:g;sysBars()}
 function renderSettings(){if(!SG)return;
  SG.forEach(function(g){$("#"+g[0]).childNodes.forEach(function(b){b.setAttribute("aria-pressed",String(String(S.set[g[2]])===b.dataset.v))})});
  $("#s-accent").childNodes.forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.v===S.set.accent))});
  var set=function(id,v){var e=$("#"+id);if(document.activeElement!==e&&e.value!==String(v))e.value=v};
- set("s-name",S.set.name);set("s-mode",S.set.dmode);set("s-days",S.days);set("s-warn",S.set.warn);$("#s-round").checked=S.round}
+ set("s-name",S.set.name);set("s-mode",S.set.dmode);set("s-warn",S.set.warn);$("#s-round").checked=S.round}
 function initSettings(){
- SG=[["s-theme",[["system","System"],["light","Light"],["dark","Dark"],["amoled","AMOLED black"]],"theme"],["s-size",[["s","Small"],["m","Medium"],["l","Large"]],"size"],["s-motion",[["on","On"],["off","Reduced"]],"motion"],["s-haptic",[["on","On"],["off","Off"]],"haptic"],["s-splash",[["on","On"],["off","Off"]],"splash"],["s-ft",[["reg","Regular"],["disc","Discounted (20%)"]],"dfare"]];
+ SG=[["s-theme",[["system","System"],["light","Light"],["dark","Dark"],["amoled","AMOLED black"]],"theme"],["s-size",[["s","Small"],["m","Medium"],["l","Large"]],"size"],["s-motion",[["on","On"],["off","Reduced"]],"motion"],["s-haptic",[["on","On"],["off","Off"]],"haptic"],["s-splash",[["on","On"],["off","Off"]],"splash"],["s-ft",[["reg","Regular"],["disc","Discounted (20%)"]],"dfare"],["s-corner",[["s","Sharp"],["m","Soft"],["l","Round"]],"round"],["s-dense",[["m","Comfortable"],["c","Compact"]],"dense"],["s-font",[["roboto","Roboto"],["rounded","Rounded"],["system","System"]],"font"],["s-home",[["dashboard","Dashboard"],["calc","Fares"],["plan","Planner"],["history","History"]],"home"],["s-wk",[["mon","Monday"],["sun","Sunday"]],"wk"],["s-lang",[["tl","Tagalog"],["en","English"]],"lang"],["s-fbar",[["on","On"],["off","Off"]],"fbar"]];
  SG.forEach(function(g){var box=$("#"+g[0]);box.innerHTML="";g[1].forEach(function(it,i){var b=document.createElement("button");b.type="button";b.textContent=it[1];b.dataset.v=it[0];b.style.setProperty("--i",i);
   b.onclick=function(){S.set[g[2]]=it[0];if(g[2]==="dfare")S.c.ft=it[0];save();applySet();render();syncUI()};box.appendChild(b)})});
  var ac=$("#s-accent");ac.innerHTML="";SW.forEach(function(a,i){var b=document.createElement("button"),c=a[2];
@@ -759,11 +871,11 @@ function initSettings(){
  $("#s-back").onclick=function(){go(window._last||"dashboard")};
  $("#gear").onclick=function(){go(window._cur==="settings"?(window._last||"dashboard"):"settings")};
  Object.keys(MODES).forEach(function(k){$("#s-mode").appendChild(opt(k,MODES[k].n))});
- for(var i=1;i<=7;i++)$("#s-days").appendChild(opt(i,i+(i===1?" day":" days")));
+
  [[60,"60% of my budget"],[70,"70% of my budget"],[80,"80% of my budget"],[90,"90% of my budget"],[100,"Only when over budget"]].forEach(function(w){$("#s-warn").appendChild(opt(w[0],w[1]))});
  $("#s-name").oninput=function(e){S.set.name=e.target.value.slice(0,24);saveSoon();applySet()};
  $("#s-mode").onchange=function(e){S.set.dmode=e.target.value;S.c.mode=e.target.value;save();syncUI();render()};
- $("#s-days").onchange=function(e){S.days=+e.target.value;save();render()};
+
  $("#s-warn").onchange=function(e){S.set.warn=+e.target.value;save();render()};
  $("#s-round").onchange=function(e){S.round=e.target.checked;save();render()};
  $("#s-exp").onclick=function(){var j=JSON.stringify(S),fb=function(){var t=$("#s-imp");t.value=j;t.focus();t.select();toast("Backup shown below. Copy it from the box.")};
@@ -798,11 +910,11 @@ var ALLP=[],CB={};
 var SHORT={K:"Caloocan",N:"North and Bulacan",Q:"Quezon City",C:"Manila",M:"Pasay and Makati",E:"East",S:"South",V:"Cavite"};
 var PK={open:false,pushed:false,id:"",q:"",reg:"all",get:null,set:null,btn:null,scrolled:0};
 function hl(n,q){var i=q?n.toLowerCase().indexOf(q):-1;return i<0?esc(n):esc(n.slice(0,i))+"<mark>"+esc(n.slice(i,i+q.length))+"</mark>"+esc(n.slice(i+q.length))}
-function prow(p,q,cur,sub){return'<button type="button" class="prow'+(p.n===cur?" cur":"")+'" role="option" aria-selected="'+(p.n===cur)+'" data-n="'+esc(p.n)+'"><span><b>'+hl(p.n,q)+'</b>'+(sub?'<small>'+esc(p.r)+'</small>':"")+'</span><span class="pchk" aria-hidden="true">✓</span></button>'}
+function prow(p,q,cur,sub){var sm=(p.a||"")+(sub?(p.a?" · ":"")+p.r:"");return'<button type="button" class="prow'+(p.n===cur?" cur":"")+'" role="option" aria-selected="'+(p.n===cur)+'" data-n="'+esc(p.n)+'"><span><b>'+hl(p.n,q)+'</b>'+(sm?'<small>'+esc(sm)+'</small>':"")+'</span><span class="pchk" aria-hidden="true">✓</span></button>'}
 function renderPick(){
  var q=PK.q.trim().toLowerCase(),cur=PK.get(),box=$("#sheet-list"),h="",inReg=function(p){return PK.reg==="all"||p.k===PK.reg};
  $("#sheet-regs").childNodes.forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.v===PK.reg))});
- if(q){var m=ALLP.filter(function(p){return inReg(p)&&p.n.toLowerCase().indexOf(q)>-1});
+ if(q){var m=ALLP.filter(function(p){return inReg(p)&&(p.n+" "+p.a).toLowerCase().indexOf(q)>-1});
   if(!m.length)m=ALLP.filter(function(p){return inReg(p)&&p.r.toLowerCase().indexOf(q)>-1});
   m.sort(function(a,b){return(b.n.toLowerCase().indexOf(q)===0)-(a.n.toLowerCase().indexOf(q)===0)||a.n.localeCompare(b.n)});
   h=m.length?m.slice(0,80).map(function(p){return prow(p,q,cur,true)}).join(""):'<p class="pnone">No place matches “'+esc(PK.q.trim())+'”. Try another name, or pick an area above.</p>'}
@@ -833,6 +945,25 @@ function initPicker(){
 function mkPlace(id,get,set){var b=$("#"+id),v=b.querySelector(".pv");
  function up(){v.textContent=get()||"Choose a place"}
  b.addEventListener("click",function(){openPicker(id,get,function(x){set(x);up()},b)});up();return up}
+var POP=[
+["Sangandaan","Quiapo","tj","Busiest jeepney line in Metro Manila, about 214,000 riders a day"],
+["Novaliches Proper","Monumento (Caloocan)","ob","Commuters report about ₱26–40 by bus"],
+["Malaria","Don Fabian","ab","Your reported fare: ₱40 aircon, ₱35 ordinary (discounted)"],
+["Malaria","Lawton","ab","Sapang Palay to PITX buses pass here. Reported ₱80 discounted"],
+["SM Fairview","Cubao (Araneta City)","ob","Cubao is the busiest transfer hub in Metro Manila"],
+["Quiapo","SM Fairview","ob","Quiapo to Fairview, a long-running line"],
+["Divisoria","Cubao (Araneta City)","ob","Divisoria to Cubao via Nagtahan"],
+["Monumento (Caloocan)","Baclaran","ob","Baclaran to Monumento via Taft"],
+["Lawton","PITX","ab","Lawton to PITX"],
+["Marikina (SM Marikina)","Cubao (Araneta City)","tj","Marikina to Cubao"],
+["Buendia / Gil Puyat","Ayala Center (Makati)","tj","Buendia to Makati Avenue"],
+["Novaliches Proper","Tala","tj","Jeepney line Novaliches to Tala, about 13.6 km"]];
+function quote(o,d,m){var c=S.c,so=c.o,sd=c.d,sk=c.km;c.o=o;c.d=d;c.km="";var k=dist().km;c.o=so;c.d=sd;c.km=sk;
+ var r=fareFor(k,m),kf=KNOWNF[[o,d].sort().join("|")];if(kf&&kf[m]!=null)r=kf[m];return{km:k,fare:r}}
+function renderPopular(){var box=$("#plist");box.innerHTML="";
+ POP.forEach(function(r,i){if(!PLACES[r[0]]||!PLACES[r[1]])return;var q=quote(r[0],r[1],r[2]),b=document.createElement("button");b.type="button";b.className="pop";b.style.setProperty("--i",i);
+  b.innerHTML='<span class="pop-main"><b>'+esc(r[0])+" → "+esc(r[1])+'</b><small>'+esc(r[3])+'</small></span><span class="pop-fare"><b>'+pesoW(q.fare)+'</b><small>'+esc(VSHORT[r[2]])+" · "+q.km+" km</small></span>";
+  b.onclick=function(){S.c.o=r[0];S.c.d=r[1];S.c.mode=r[2];save();if(CB.o)CB.o();if(CB.d)CB.d();syncUI();renderCalc();ride();$("#popular").open=false;toast("Route loaded");window.scrollTo(0,0)};box.appendChild(b)})}
 function pushRecent(){var c=S.c;if(c.o===c.d)return;
  S.recent=(S.recent||[]).filter(function(r){return!(r.o===c.o&&r.d===c.d&&r.m===c.mode)});S.recent.unshift({o:c.o,d:c.d,m:c.mode});S.recent=S.recent.slice(0,5);save();renderRecent()}
 function renderRecent(){var box=$("#rchips"),r=S.recent||[],sig=JSON.stringify(r);$("#recent").hidden=!r.length;if(box.dataset.sig===sig)return;box.dataset.sig=sig;box.innerHTML="";
@@ -847,6 +978,7 @@ function renderTour(){var t=$("#tour");if(S.tour.done){t.hidden=true;return}
  t.hidden=false;
  if(st[0]&&st[1]&&st[2]){S.tour.done=true;save();setTimeout(function(){t.hidden=true;toast("You’re all set. Happy commuting!")},900)}}
 function initFx(){
+ $("#popular").addEventListener("toggle",function(){if(this.open)renderPopular()});
  document.addEventListener("focusin",function(e){var t=e.target;if(t&&/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)&&t.type!=="checkbox")document.body.classList.add("kb")});
  document.addEventListener("focusout",function(){document.body.classList.remove("kb")});
  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&PK.open)closePicker()});
@@ -868,7 +1000,7 @@ var tabs=$("#tabs");
 pages.forEach(function(p){if(p[0]==="settings")return;var b=document.createElement("button");var sl={dashboard:"Home",calc:"Fares",plan:"Planner",history:"History"}[p[0]]||p[1];b.innerHTML='<span class="tf">'+p[1]+'</span><span class="ts">'+sl+'</span>';b.setAttribute("role","tab");b.dataset.p=p[0];b.onclick=function(){go(p[0])};tabs.appendChild(b)});
 function renderPage(id){
  if(id==="dashboard"){renderPresets();renderTour();$("#budget").value=S.budget;renderStub()}
- else if(id==="calc"){$("#round").checked=S.round;renderRides();renderRecent();renderCalc();renderStub()}
+ else if(id==="calc"){if(!$("#tripdate").value)$("#tripdate").value=todayISO();$("#round").checked=S.round;renderRides();renderRecent();renderCalc();renderStub()}
  else if(id==="plan"){renderStub();renderPlan()}
  else if(id==="history")renderHistory();
  else if(id==="settings")renderSettings()}
@@ -916,30 +1048,108 @@ function renderStub(){
  var fb=$("#fbar");if(fb._t!==undefined&&fb._t!==t&&!RM){fb.classList.remove("bump");void fb.offsetWidth;fb.classList.add("bump")}fb._t=t;tween(fb.querySelector(".ft"),t,peso);tween(fb.querySelector(".fr"),Math.max(left,0),peso);
  var fc=fb.querySelector(".badge"),fcl="badge "+(over?"bad":warn?"warn":"ok");fc.textContent=!b?"Set budget":over?"Over "+peso(-left):warn?"Near limit":"On budget";if(fc.className!==fcl)fc.className=fcl;
  var count=S.rides.filter(function(r){return num(r.f)}).length*(S.round?2:1);
- tween($("#d-rides"),count,String);tween($("#d-week"),t*S.days,peso);tween($("#d-trips"),S.history.length,String);
+ tween($("#d-rides"),count,String);tween($("#d-week"),weekEst(),peso);tween($("#d-trips"),S.history.length,String);
  var pct=b?Math.min(100,t/b*100):0,bar=$("#d-bar");bar.className="bar"+(over?" over":"");bar.firstChild.style.width=pct+"%";
  $("#d-hint").textContent=over?"Your planned fares are higher than your allowance. Remove a ride or raise your budget.":b?"You will use "+Math.round(pct)+"% of today’s allowance.":"Enter your allowance, then work out your fares in Fare Calculator.";
 }
+var PW=0,MON=["January","February","March","April","May","June","July","August","September","October","November","December"];
+function planDay(i){var d=S.plan.days[i];if(!d){d=S.plan.days[i]={on:i>=1&&i<=5,kind:"",items:[],round:false,amt:"",b:"",label:""}}return d}
+function dayCost(d){if(d.kind==="custom")return num(d.amt);return(d.items||[]).reduce(function(a,r){return a+num(r.f)},0)*(d.round?2:1)}
+function spentOn(t){return S.history.reduce(function(a,x){return a+(x.ts===t?x.total:0)},0)}
+function weekDates(off){var b=startOfWeek(addDays(new Date(),off*7),S.set.wk!=="sun"),a=[];for(var i=0;i<7;i++)a.push(addDays(b,i));return a}
+function weekEst(){var c=0,n=0,any=false;for(var i=0;i<7;i++){var d=planDay(i);if(d.on){n++;var k=dayCost(d);if(k)any=true;c+=k}}return any?c:total()*n}
+function tripOptions(d){var sel=d.kind==="custom"?"custom":((d.items||[]).length?"keep":""),o='<option value=""'+(sel===""?" selected":"")+'>No trip planned</option>';
+ if(sel==="keep")o+='<option value="keep" selected>'+esc(d.label||"Planned trip")+" · "+peso(dayCost(d))+'</option>';
+ if(total()>0)o+='<option value="today">Today’s rides · '+peso(total())+'</option>';
+ S.history.map(function(x,i){return[x,i]}).filter(function(q){return q[0].items&&q[0].items.length}).slice(-12).reverse().forEach(function(q){o+='<option value="h:'+q[1]+'">'+esc(q[0].label)+" · "+peso(q[0].total)+'</option>'});
+ return o+'<option value="custom"'+(sel==="custom"?" selected":"")+'>Custom amount</option>'}
 function renderPlan(){
- var t=total(),b=num(S.budget),wk=t*S.days,al=b*S.days,left=al-wk,over=left<0;
- tween($("#p-cost"),wk,peso);tween($("#p-allow"),al,peso);tween($("#p-left"),Math.abs(left),peso);
- $("#p-lbl").textContent=over?"short this week":"left over";
- var bar=$("#p-bar");bar.className="bar"+(over?" over":"");bar.firstChild.style.width=(al?Math.min(100,wk/al*100):0)+"%";
- $("#p-hint").textContent=!b?"Set a daily budget on the Dashboard to compare.":over?"At "+peso(t)+" a day, you need "+peso(-left)+" more to cover "+S.days+" days.":"You can cover "+S.days+" commuting days and keep "+peso(left)+".";
- var c=$("#days");c.innerHTML="";
- for(var i=1;i<=7;i++)(function(n){var x=document.createElement("button");x.textContent=n;x.setAttribute("aria-pressed",n===S.days);x.setAttribute("aria-label",n+" days");x.onclick=function(){S.days=n;save();render()};c.appendChild(x)})(i);
-}
+ var ds=weekDates(PW),hs=ds[0],he=ds[6],sm=hs.getMonth()===he.getMonth();
+ $("#wk-title").textContent=MO[hs.getMonth()]+" "+hs.getDate()+" – "+(sm?"":MO[he.getMonth()]+" ")+he.getDate();
+ $("#wk-sub").textContent=PW===0?"This week":PW===1?"Next week":PW===-1?"Last week":(PW>0?PW+" weeks ahead":(-PW)+" weeks ago");
+ $("#wk-now").hidden=PW===0;
+ var pr=$("#pl-presets");pr.innerHTML="";
+ [["Mon–Fri",[1,2,3,4,5]],["Mon–Sat",[1,2,3,4,5,6]],["Every day",[0,1,2,3,4,5,6]]].forEach(function(st,i){var b=document.createElement("button");b.type="button";b.textContent=st[0];b.style.setProperty("--i",i);
+  var cur=[0,1,2,3,4,5,6].filter(function(k){return planDay(k).on}).join(),want=st[1].slice().sort().join();
+  b.setAttribute("aria-pressed",String(cur===want));
+  b.onclick=function(){for(var k=0;k<7;k++)planDay(k).on=st[1].indexOf(k)>-1;save();renderPlan()};pr.appendChild(b)});
+ var cl=document.createElement("button");cl.type="button";cl.textContent="Clear trips";cl.style.setProperty("--i",3);
+ cl.onclick=function(){var old=JSON.stringify(S.plan);for(var k=0;k<7;k++){var d=planDay(k);d.kind="";d.items=[];d.amt="";d.label=""}save();renderPlan();toast("Trips cleared",["Undo",function(){S.plan=JSON.parse(old);save();renderPlan()}])};pr.appendChild(cl);
+ $("#pl-cols").innerHTML=ds.map(function(dt){return'<div class="pcol"><div class="pbar"><i></i><u></u></div><span>'+WD[dt.getDay()].charAt(0)+'</span></div>'}).join("");
+ $("#pl-days").innerHTML=ds.map(function(dt){var i=dt.getDay(),d=planDay(i);
+  return'<div class="pday" data-i="'+i+'"><div class="pd-top"><label class="sw"><input type="checkbox" data-on'+(d.on?" checked":"")+' aria-label="Commute on '+WD[i]+'"><span class="swt"></span></label><div class="pd-name"><b>'+WD[i]+" "+dt.getDate()+'</b><small>'+MO[dt.getMonth()]+'</small></div><div class="pd-cost" data-cost></div></div>'
+  +'<div class="pd-body"><label>Trip</label><select data-trip>'+tripOptions(d)+'</select>'
+  +'<div class="pd-row"'+(d.kind==="custom"?"":" hidden")+'><label>Amount</label><div class="money"><b>₱</b><input data-amt type="number" min="0" step="1" inputmode="decimal" value="'+esc(d.amt)+'" placeholder="0"></div></div>'
+  +'<div class="pd-row"><label>Budget for this day</label><div class="money"><b>₱</b><input data-b type="number" min="0" step="1" inputmode="decimal" value="'+esc(d.b)+'"></div></div>'
+  +'<div class="pd-bar"><i></i></div><div class="pd-meta" data-meta></div><div class="pd-act"><button class="mini" data-copy type="button">Copy to all commuting days</button></div></div></div>'}).join("");
+ updPlan()}
+function updPlan(){
+ var ds=weekDates(PW),defb=num(S.budget),cards=$("#pl-days").childNodes,cols=$("#pl-cols").childNodes,st={plan:0,bud:0,spent:0,n:0,max:1},td=todayISO(),info=[];
+ ds.forEach(function(dt,idx){var i=dt.getDay(),d=planDay(i),c=dayCost(d),b=num(d.b)||defb,sp=spentOn(iso(dt)),on=!!d.on;
+  info.push({c:on?c:0,b:on?b:0});
+  if(on){st.plan+=c;st.bud+=b;st.n++}st.spent+=sp;st.max=Math.max(st.max,on?c:0,on?b:0);
+  var over=on&&b&&c>b,near=on&&b&&!over&&c>0&&S.set.warn<100&&c>=b*S.set.warn/100,cls=!on?"off":over?"bad":near?"warn":"ok",el=cards[idx];
+  if(el&&el.querySelector){el.className="pday "+cls+(iso(dt)===td?" today":"");
+   el.querySelector("[data-cost]").textContent=on?(c?peso(c):"No trip yet"):"Rest day";
+   el.querySelector("[data-meta]").innerHTML=on?((b?(over?'<b class="neg">Over by '+peso(c-b)+"</b>":"<b>"+peso(Math.max(b-c,0))+" left</b>")+" of "+peso(b):"Set a budget on the Dashboard, or here")+(sp?" · Spent "+peso(sp):"")):(sp?"Spent "+peso(sp)+" on this day":"");
+   el.querySelector(".pd-bar i").style.width=(on&&b?Math.min(100,c/b*100):0)+"%";
+   el.querySelector("[data-b]").placeholder=defb?String(defb):"Daily budget";
+   el.querySelector("[data-copy]").hidden=!(c>0)}
+  if(cols[idx]&&cols[idx].classList)cols[idx].classList.toggle("today",iso(dt)===td)});
+ info.forEach(function(x,idx){var cl=cols[idx];if(!cl||!cl.querySelector)return;cl.querySelector(".pbar i").style.height=(x.c/st.max*100)+"%";var u=cl.querySelector(".pbar u");u.style.bottom=(x.b/st.max*100)+"%";u.style.display=x.b?"block":"none"});
+ var left=st.bud-st.plan;
+ tween($("#pl-plan"),st.plan,peso);tween($("#pl-bud"),st.bud,peso);tween($("#pl-left"),Math.abs(left),peso);tween($("#pl-spent"),st.spent,peso);
+ $("#pl-leftl").textContent=left<0?"Over budget":"Left";$("#pl-leftbox").classList.toggle("neg",left<0);
+ $("#pl-hint").textContent=!st.n?"No commuting days picked. Choose Mon–Fri above, or switch days on below.":!st.plan?"Pick a trip for each commuting day. You can reuse today’s rides or any trip you saved.":!st.bud?"Set a daily budget on the Dashboard to see what is left.":left<0?"You would be over budget by "+peso(-left)+" this week.":"On track. About "+peso(left)+" would be left across "+st.n+(st.n===1?" commuting day.":" commuting days.");
+ var m=ds[3],y=m.getFullYear(),mo=m.getMonth(),dim=new Date(y,mo+1,0).getDate(),mp=0,mb=0,mn=0,pre=y+"-"+("0"+(mo+1)).slice(-2);
+ for(var k=1;k<=dim;k++){var dy=planDay(new Date(y,mo,k).getDay());if(dy.on){mn++;mp+=dayCost(dy);mb+=num(dy.b)||defb}}
+ var ms=S.history.reduce(function(a,x){return a+((x.ts||"").slice(0,7)===pre?x.total:0)},0);
+ $("#pm-title").textContent=MON[mo]+" "+y;
+ $("#pm-body").textContent=mn+" commuting days · planned "+peso(mp)+(mb?" of "+peso(mb)+" budget":"")+" · spent so far "+peso(ms)}
+function initPlan(){
+ var box=$("#pl-days");
+ box.addEventListener("change",function(e){var t=e.target,card=t.closest(".pday");if(!card)return;var i=+card.dataset.i,d=planDay(i);
+  if(t.hasAttribute("data-on")){d.on=t.checked;save();updPlan();renderPlanKeep();return}
+  if(t.hasAttribute("data-trip")){var v=t.value;
+   if(v===""){d.kind="";d.items=[];d.label="";d.amt=""}
+   else if(v==="today"){d.kind="today";d.items=S.rides.filter(function(r){return num(r.f)}).map(function(r){return{n:r.n,f:r.f}});d.round=S.round;d.label="Today’s rides";d.amt=""}
+   else if(v.indexOf("h:")===0){var x=S.history[+v.slice(2)];if(x){d.kind="h";d.items=(x.items||[]).map(function(r){return{n:r.n,f:r.f}});d.round=!!x.round;d.label=x.label;d.amt=""}}
+   else if(v==="custom"){d.kind="custom";d.items=[];d.label="Custom amount"}
+   save();renderPlan();
+   if(v==="custom"){var a=$("#pl-days").querySelector('.pday[data-i="'+i+'"] [data-amt]');if(a)a.focus()}}});
+ box.addEventListener("input",function(e){var t=e.target,card=t.closest(".pday");if(!card)return;var d=planDay(+card.dataset.i);
+  if(t.hasAttribute("data-amt")){d.amt=t.value;saveSoon();updPlan()}else if(t.hasAttribute("data-b")){d.b=t.value;saveSoon();updPlan()}});
+ box.addEventListener("click",function(e){var b=e.target.closest("[data-copy]");if(!b)return;var src=planDay(+b.closest(".pday").dataset.i),n=0;
+  for(var k=0;k<7;k++){var d=planDay(k);if(d!==src&&d.on){d.kind=src.kind;d.items=(src.items||[]).map(function(r){return{n:r.n,f:r.f}});d.round=src.round;d.amt=src.amt;d.label=src.label;n++}}
+  save();renderPlan();toast(n?"Copied to "+n+(n===1?" other day":" other days"):"Switch on more days first")});
+ $("#wk-prev").onclick=function(){PW--;renderPlan()};$("#wk-next").onclick=function(){PW++;renderPlan()};$("#wk-now").onclick=function(){PW=0;renderPlan()}}
+function renderPlanKeep(){var pr=$("#pl-presets");if(!pr)return;var cur=[0,1,2,3,4,5,6].filter(function(k){return planDay(k).on}).join();
+ [[1,2,3,4,5],[1,2,3,4,5,6],[0,1,2,3,4,5,6]].forEach(function(st,i){if(pr.childNodes[i])pr.childNodes[i].setAttribute("aria-pressed",String(cur===st.slice().sort().join()))})}
 function clearHist(){var old=S.history;if(!old.length){toast("Nothing to clear");return}S.history=[];save();render();toast("Saved trips cleared",["Undo",function(){S.history=old;save();render()}])}
+var HF="all";
 function renderHistory(){
- var h=$("#h-body"),cl=$("#clear");cl.hidden=!S.history.length;
- if(!S.history.length){h.innerHTML='<div class="emptyx"><span class="ebus" aria-hidden="true">'+vsvg("tj")+'</span><p>No saved trips yet</p><small>Work out a fare, then press Save trip.</small></div>';return}
- var n=0;
- h.innerHTML=S.history.map(function(x,i){return[x,i]}).reverse().map(function(q){var x=q[0],i=q[1],left=x.budget?x.budget-x.total:null;
-  return'<div class="hcard" style="--i:'+(n++)+'"><div class="hmain"><b>'+esc(x.label)+'</b><small>'+esc(x.date)+" · "+x.rides+(x.rides===1?" ride":" rides")+'</small></div>'
-   +'<div class="hnums"><b>'+peso(x.total)+'</b><small'+(left!==null&&left<0?' class="neg"':"")+'>'+(left===null?"No budget set":left>=0?peso(left)+" left":"Over by "+peso(-left))+'</small></div>'
-   +'<div class="hact">'+(x.items?'<button class="mini" data-r="'+i+'">Reuse</button>':"")+'<button class="mini" data-d="'+i+'" aria-label="Delete trip">Delete</button></div></div>'}).join("");
+ var h=$("#h-body"),cl=$("#clear"),fl=$("#h-filter");cl.hidden=!S.history.length;
+ if(!fl.dataset.built){fl.dataset.built="1";[["all","All"],["week","This week"],["month","This month"]].forEach(function(f,i){var b=document.createElement("button");b.type="button";b.textContent=f[1];b.dataset.v=f[0];b.style.setProperty("--i",i);b.onclick=function(){HF=f[0];renderHistory()};fl.appendChild(b)})}
+ fl.childNodes.forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.v===HF))});
+ if(!S.history.length){$("#h-sum").textContent="";h.innerHTML='<div class="emptyx"><span class="ebus" aria-hidden="true">'+vsvg("tj")+'</span><p>No saved trips yet</p><small>Work out a fare, set the trip date, then press Save trip.</small></div>';return}
+ var now=new Date(),w0=iso(startOfWeek(now,S.set.wk!=="sun")),w1=iso(addDays(parseISO(w0),6)),m0=now.getFullYear()+"-"+("0"+(now.getMonth()+1)).slice(-2);
+ var list=S.history.map(function(x,i){return{x:x,i:i}}).filter(function(q){var t=q.x.ts;return HF==="all"||(t&&(HF==="week"?(t>=w0&&t<=w1):t.slice(0,7)===m0))});
+ list.sort(function(a,b){return(b.x.ts||"").localeCompare(a.x.ts||"")||b.i-a.i});
+ var sum=list.reduce(function(a,q){return a+q.x.total},0);
+ $("#h-sum").textContent=list.length?list.length+(list.length===1?" trip":" trips")+" · "+peso(sum)+(HF==="all"?" in total":HF==="week"?" this week":" this month"):"";
+ if(!list.length){h.innerHTML='<p class="empty">No trips '+(HF==="week"?"this week":"this month")+'.</p>';return}
+ var byDay={};list.forEach(function(q){var k=q.x.ts||"none";byDay[k]=(byDay[k]||0)+q.x.total});
+ var n=0,last="",html="";
+ list.forEach(function(q){var x=q.x,i=q.i,k=x.ts||"none",left=x.budget?x.budget-x.total:null;
+  if(k!==last){last=k;html+='<div class="hday"><b>'+(k==="none"?esc(x.date||"Date not set"):fmtD(k)+(k===todayISO()?" · Today":""))+'</b><span>'+peso(byDay[k])+'</span></div>'}
+  html+='<div class="hcard" style="--i:'+(n++)+'"><div class="hmain"><b>'+esc(x.label)+'</b><small>'+x.rides+(x.rides===1?" ride":" rides")+(left===null?"":" · "+(left>=0?peso(left)+" left":"over by "+peso(-left)))+'</small></div>'
+   +'<div class="hnums"><b>'+peso(x.total)+'</b></div>'
+   +'<div class="hact">'+(x.items?'<button class="mini" data-r="'+i+'">Reuse</button>':"")+'<button class="mini" data-dt="'+i+'">Change date</button><button class="mini" data-d="'+i+'" aria-label="Delete trip">Delete</button><input type="date" class="hdate" data-di="'+i+'" value="'+(x.ts||"")+'" tabindex="-1" aria-hidden="true"></div></div>'});
+ h.innerHTML=html;
  h.querySelectorAll("[data-r]").forEach(function(b){b.onclick=function(){var x=S.history[+b.dataset.r];S.rides=x.items.map(function(r){return{n:r.n,f:r.f}});S.round=!!x.round;save();go("calc");toast("Trip loaded")}});
  h.querySelectorAll("[data-d]").forEach(function(b){b.onclick=function(){var i=+b.dataset.d,rm=S.history.splice(i,1)[0];save();render();toast("Trip deleted",["Undo",function(){S.history.splice(i,0,rm);save();render()}])}});
+ h.querySelectorAll("[data-dt]").forEach(function(b){b.onclick=function(){var inp=b.parentNode.querySelector(".hdate");try{if(inp.showPicker){inp.showPicker();return}}catch(e){}inp.focus();inp.click()}});
+ h.querySelectorAll(".hdate").forEach(function(inp){inp.onchange=function(){if(!inp.value)return;var x=S.history[+inp.dataset.di];x.ts=inp.value;x.date=fmtD(inp.value);save();render();toast("Date changed to "+fmtD(inp.value))}});
 }
 function render(){renderPresets();renderTour();renderRecent();$("#budget").value=S.budget;$("#round").checked=S.round;renderRides();renderStub();renderPlan();renderHistory();renderCalc();renderSettings()}
 
@@ -948,12 +1158,12 @@ $("#round").onchange=function(e){S.round=e.target.checked;save();renderStub();re
 $("#add").onclick=function(){S.rides.push({n:"",f:""});save();renderRides();renderStub();var i=document.querySelectorAll("#rides .ride input");if(i.length)i[i.length-2].focus()};
 $("#save").onclick=function(){
  var t=total();if(!t){$("#label").focus();$("#label").placeholder="Add at least one fare first";return}
- S.history.push({label:$("#label").value.trim()||((S.rides.filter(function(r){return num(r.f)})[0]||{}).n)||"Trip "+(S.history.length+1),date:new Date().toLocaleDateString("en-PH",{month:"short",day:"numeric"}),rides:S.rides.filter(function(r){return num(r.f)}).length*(S.round?2:1),total:t,budget:num(S.budget),round:S.round,items:S.rides.filter(function(r){return num(r.f)}).map(function(r){return{n:r.n,f:r.f}})});
- $("#label").value="";save();go("history");toast("Trip saved");
+ S.history.push({label:$("#label").value.trim()||((S.rides.filter(function(r){return num(r.f)})[0]||{}).n)||"Trip "+(S.history.length+1),ts:($("#tripdate").value||todayISO()),date:fmtD($("#tripdate").value||todayISO()),rides:S.rides.filter(function(r){return num(r.f)}).length*(S.round?2:1),total:t,budget:num(S.budget),round:S.round,items:S.rides.filter(function(r){return num(r.f)}).map(function(r){return{n:r.n,f:r.f}})});
+ $("#label").value="";$("#tripdate").value=todayISO();save();go("history");toast("Trip saved");
 };
 $("#clear").onclick=clearHist;
-initCalc();initSettings();initFx();initSplash();
-var start=(location.hash||"").slice(1).replace(/^p-/,"");go(pages.some(function(p){return p[0]===start})?start:"dashboard");
+initCalc();initSettings();initPlan();initFx();initSplash();
+var start=(location.hash||"").slice(1).replace(/^p-/,"");go(pages.some(function(p){return p[0]===start})?start:(S.set.home||"dashboard"));
 window._ready=true;var onNav=function(){if(PK.open){hideSheet();return}var h=(location.hash||"").slice(1).replace(/^p-/,"");if(h!==window._cur&&pages.some(function(p){return p[0]===h}))go(h,true)};
 window.addEventListener("popstate",onNav);window.addEventListener("hashchange",onNav);
 })();
