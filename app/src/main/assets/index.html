@@ -520,6 +520,88 @@ html[data-fbar="off"] #calc .stub{display:block!important}
 .pop:active{transform:scale(.99)}
 .pop-main b{display:block;font-weight:500}.pop-main small,.pop-fare small{display:block;color:var(--mute);font-size:.78rem;margin-top:2px}
 .pop-fare{text-align:right;flex:none}.pop-fare b{font-size:1.1rem}
+
+.legs li b{display:block;font-weight:500}.legs li small{display:block;color:var(--mute);font-size:.8rem;margin-top:2px}
+.calhead{display:flex;align-items:center;gap:10px}.calhead b{flex:1;text-align:center;font-size:1.15rem;font-weight:500}
+.calwd,.calgrid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.calwd{margin:14px 0 6px;text-align:center;font-size:.75rem;color:var(--mute);font-weight:500}
+.cal-d{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;aspect-ratio:1/1.08;padding:2px 0;border:0;border-radius:calc(var(--r)*.6);background:transparent;color:var(--ink);font:inherit;cursor:pointer;transition:background .2s,transform .12s}
+.cal-d b{font-weight:500;font-size:.95rem;line-height:1}.cal-d i{font-style:normal;font-size:.62rem;line-height:1;min-height:.62rem;color:var(--mute)}
+.cal-d.out{opacity:.38}.cal-d.on{background:var(--sc)}.cal-d.on i{color:var(--pri);font-weight:700}
+.cal-d.bad i{color:var(--red)}.cal-d.today b{color:var(--pri);font-weight:800}
+.cal-d.today::before{content:"";position:absolute;inset:2px;border:2px solid var(--pri);border-radius:calc(var(--r)*.6);pointer-events:none}
+.cal-d.sel{background:var(--pri);color:var(--onpri)}.cal-d.sel b,.cal-d.sel i{color:var(--onpri)}.cal-d.sel.today::before{border-color:var(--onpri)}
+.cal-d.has::after{content:"";position:absolute;top:4px;right:6px;width:6px;height:6px;border-radius:50%;background:var(--teal)}
+.cal-d.sel.has::after{background:var(--onpri)}
+.cal-d:active{transform:scale(.94)}
+.calsum{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:14px}
+.dayhead{display:flex;align-items:center;gap:12px;margin-bottom:12px}.dayhead>div{flex:1}.dayhead b{display:block;font-size:1.1rem;font-weight:500}.dayhead small{color:var(--mute)}
+#dayp.off #dp-body{display:none}
+.pd-bar.bad i{background:var(--red)}
+
+.smenu{display:grid;gap:10px}
+.srow{display:flex;align-items:center;gap:14px;width:100%;padding:16px;border:0;border-radius:var(--r);background:var(--card);box-shadow:var(--sh1);color:var(--ink);font:inherit;text-align:left;cursor:pointer;animation:rise2 .35s cubic-bezier(.2,0,0,1) both;animation-delay:calc(var(--i,0)*45ms);transition:transform .12s}
+.srow:active{transform:scale(.985)}
+.sic{flex:none;width:46px;height:46px;border-radius:calc(var(--r)*.7);background:var(--pric);color:var(--onpric);display:grid;place-items:center}
+.sic svg{width:24px;height:24px;fill:currentColor}
+.stx{flex:1;min-width:0}.stx b{display:block;font-weight:500;font-size:1.05rem}.stx small{display:block;color:var(--mute);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.srow .chev{margin:0 6px 0 0;transform:rotate(-45deg)}
+.spage:not([hidden]){animation:pg .3s cubic-bezier(.2,0,0,1) both}
+.spage .panel+.panel{margin-top:14px}
+.smenu{grid-template-columns:minmax(0,1fr)}.smenu>.srow{min-width:0}
+
+.reshead{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-top:6px}.reshead label{margin:0}.reshead small{color:var(--mute);font-size:.78rem}
+.intro{position:fixed;inset:0;z-index:250;display:flex;flex-direction:column;padding:max(14px,env(safe-area-inset-top)) 20px max(16px,env(safe-area-inset-bottom));background:var(--bg);color:var(--ink);opacity:0;transition:opacity .3s}
+.intro.open{opacity:1}
+.in-top{display:flex;align-items:center;justify-content:space-between;min-height:48px}
+.in-step{color:var(--mute);font-size:.85rem;font-weight:500}
+.in-skip{border:0;background:none;color:var(--pri);font:inherit;font-weight:500;min-height:48px;padding:0 12px;cursor:pointer}
+.in-stage{flex:1;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;touch-action:pan-y}
+.in-slide{width:100%;max-width:460px;text-align:center;animation:inFwd .45s cubic-bezier(.2,0,0,1) both}
+.in-slide.back{animation-name:inBack}
+@keyframes inFwd{from{opacity:0;transform:translateX(44px)}}
+@keyframes inBack{from{opacity:0;transform:translateX(-44px)}}
+.in-art{margin:0 auto 22px;min-height:150px;display:flex;align-items:center;justify-content:center}
+.in-slide h2{font-size:1.65rem;font-weight:700;letter-spacing:-.01em;margin:0 0 10px;line-height:1.2}
+.in-slide p{color:var(--mute);margin:0 auto;max-width:36ch;line-height:1.5}
+.in-logo{font-family:"Bricolage Grotesque",Roboto,sans-serif;font-weight:800;letter-spacing:-.03em;white-space:nowrap}
+.in-logo span{background:#FFC93C;color:#10243E;padding:0 .14em;border-radius:8px;margin-left:.06em}
+.in-card{width:100%;text-align:left;background:var(--card);border-radius:var(--r);box-shadow:var(--sh1);padding:16px}
+.in-mock{pointer-events:none;user-select:none}
+.in-veh{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:100%}
+.in-veh span{display:block;animation:chipin .55s cubic-bezier(.2,0,0,1) both}.in-veh svg{width:100%;height:auto;display:block}
+.in-place{display:flex;align-items:center;gap:12px;padding:12px;border:1px solid var(--line);border-radius:calc(var(--r)*.75);margin-bottom:8px}
+.in-place .dot{width:12px;height:12px;border-radius:50%;border:3px solid var(--pri);flex:none}.in-place .dot.b{background:var(--red);border-color:var(--red)}
+.in-place small{display:block;color:var(--mute);font-size:.75rem}.in-place b{font-weight:500;font-size:1.05rem}
+.in-route{padding:10px 12px;border-radius:calc(var(--r)*.6);background:var(--sc);color:var(--mute);font-size:.85rem}
+.in-fare{padding:12px;border-radius:calc(var(--r)*.75);background:var(--sc)}.in-fare b{display:block;font-size:1.6rem;font-weight:700}.in-fare span{color:var(--mute);font-size:.85rem}
+.in-mock .fbar{position:static;animation:none;max-width:none;margin:0 0 12px}
+.in-btn{padding:13px;border-radius:999px;background:var(--pri);color:var(--onpri);text-align:center;font-weight:500}
+.in-mock .calwd{margin:0 0 6px}.in-mock .cal-d{pointer-events:none}
+.in-mock .pals{grid-template-columns:repeat(4,1fr)}.in-mock .pals div{animation:chipin .45s cubic-bezier(.2,0,0,1) both;animation-delay:calc(var(--i,0)*60ms)}
+.in-mock .pals i{display:block;height:56px;border-radius:calc(var(--r)*.8);box-shadow:inset 0 0 0 1px rgba(0,0,0,.1)}
+.in-mock .pals span{display:block;margin-top:5px;font-size:.72rem;font-weight:500;text-align:center}
+.in-chip{display:inline-block;padding:8px 14px;border:1.5px solid var(--line);border-radius:calc(var(--r)*.5);font-weight:500;font-size:.9rem}
+.in-chip[aria-pressed=true]{background:var(--pric);color:var(--onpric);border-color:transparent}
+.in-dots{display:flex;justify-content:center;gap:8px;margin:8px 0 14px}
+.in-dots button{width:9px;height:9px;padding:0;border:0;border-radius:5px;background:var(--line);transition:width .3s cubic-bezier(.2,0,0,1),background .3s}
+.in-dots button[aria-current=true]{width:26px;background:var(--pri)}
+.in-nav{display:flex;gap:12px}.in-nav .btn{flex:1}
+@media (prefers-reduced-motion:reduce){.intro,.in-slide,.in-veh span,.in-mock .pals div{animation:none!important;transition:none!important}}
+
+.tsel{min-height:56px}
+.tsel .pv{display:flex;align-items:center;gap:12px}
+.pv-v{flex:none;width:58px}.pv-v svg{width:58px;height:auto;display:block}
+.osheet{align-items:flex-end}
+.osheet .os-card{height:auto;max-height:82vh;max-height:82dvh;padding-bottom:max(12px,env(safe-area-inset-bottom,0px))}
+.os-grab{width:42px;height:4px;border-radius:2px;background:var(--line);margin:10px auto 0;flex:none}
+.osheet .sheet-head{padding:8px 14px 6px}.osheet .sheet-title{flex:1;padding:0 8px;font-size:1.15rem}
+.orow{animation:rise2 .28s cubic-bezier(.2,0,0,1) both}
+.orow .otx{flex:1;min-width:0}.orow .otx b{display:block;font-size:1.05rem;font-weight:500}.orow .otx small{display:block;color:var(--mute);font-size:.8rem;margin-top:2px}.orow.cur .otx small{color:inherit;opacity:.8}
+.orow-v{flex:none;width:68px}.orow-v svg{width:68px;height:auto;display:block}
+.ocost{flex:none;font-weight:700;color:var(--pri)}.orow.cur .ocost{color:inherit}
+@media(min-width:700px){.osheet{align-items:center}.osheet .os-card{border-radius:calc(var(--r)*1.7)}}
+@media (prefers-reduced-motion:reduce){.orow{animation:none!important}}
 </style>
 </head>
 <body>
@@ -528,6 +610,12 @@ html[data-fbar="off"] #calc .stub{display:block!important}
  <div class="sp-road"><div class="sp-bus" id="sp-bus"></div><i class="sp-line"></i></div>
  <p class="sp-tag">Plan your fare before you leave home.</p>
 </div></div>
+<div class="intro" id="intro" hidden role="dialog" aria-modal="true" aria-labelledby="in-title">
+ <div class="in-top"><span class="in-step" id="in-step"></span><button type="button" class="in-skip" id="in-skip">Skip</button></div>
+ <div class="in-stage" id="in-stage"></div>
+ <div class="in-dots" id="in-dots" aria-hidden="true"></div>
+ <div class="in-nav"><button class="btn alt" id="in-back" type="button">Back</button><button class="btn" id="in-next" type="button">Next</button></div>
+</div>
 <div class="wrap">
 <header><h1>Sakay<span>Budget</span></h1><p>Plan your fare before you leave home.</p><button class="gear" id="gear" type="button" aria-label="Settings" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg></button></header>
 <nav role="tablist" id="tabs"></nav>
@@ -566,7 +654,6 @@ html[data-fbar="off"] #calc .stub{display:block!important}
    <div class="panel">
         <div id="view-route">
      <div id="recent" hidden><label>Recent routes</label><div class="chips2" id="rchips"></div></div>
-     <details class="popular" id="popular"><summary>Popular routes from commuters</summary><div id="plist"></div><p class="hint">Busy lines and common commuter trips in Metro Manila. Fares are estimates from this calculator, with a note where commuters reported a fare.</p></details>
      <div class="trip">
       <div class="pins" aria-hidden="true"><i class="dot a"></i><i class="ln"></i><i class="dot b"></i></div>
       <div class="flds"><div><label for="o">Origin (sakay)</label><button type="button" class="place" id="o" aria-haspopup="dialog"><span class="pv">Choose a place</span><i class="chev" aria-hidden="true"></i></button></div><div><label for="d">Destination (baba)</label><button type="button" class="place" id="d" aria-haspopup="dialog"><span class="pv">Choose a place</span><i class="chev" aria-hidden="true"></i></button></div></div>
@@ -574,7 +661,8 @@ html[data-fbar="off"] #calc .stub{display:block!important}
      </div>
      <div id="vehbox"><label>Vehicle</label>
      <div class="vehs" id="modes" role="group" aria-label="Vehicle"></div>
-     <div class="journey" id="journey"><div class="lane"><span class="road"></span><span class="bus" aria-hidden="true"></span></div><small id="jtxt"></small></div></div>
+     <div class="journey" id="journey"><div class="lane"><span class="road"></span><span class="bus" aria-hidden="true"></span></div><small id="jtxt"></small></div>
+      <div id="routebox" hidden><label>Route used</label><ul class="legs" id="rlegs"></ul><p class="hint" id="rvia" style="margin:0 0 12px"></p></div></div>
      <div id="trbox" hidden><label>Transfer route</label><div class="chips2" id="tchips"></div><ul class="legs" id="legs"></ul></div>
     </div>
         <div class="opts">
@@ -584,7 +672,7 @@ html[data-fbar="off"] #calc .stub{display:block!important}
     <label>Bill handed over</label>
     <div class="chips2" id="bills"></div>
     <details id="more"><summary>I know the distance</summary><input id="km" type="number" min="0" step="0.1" inputmode="decimal" placeholder="Distance in km"></details>
-    <div class="row" style="margin-top:4px"><button class="btn go" id="calcbtn" type="button">Calculate</button></div>
+    <div class="reshead"><label>Your fare</label><small>Updates as you choose</small></div>
     <div class="res" aria-live="polite">
      <div><b id="r-pp">₱0</b><span>Fare per person</span></div>
      <div><b id="r-tot">₱0</b><span>Total fare</span></div>
@@ -610,25 +698,32 @@ html[data-fbar="off"] #calc .stub{display:block!important}
 
 <section id="plan" hidden>
  <div class="panel">
-  <div class="plhead">
-   <button class="btn alt navb" id="wk-prev" type="button" aria-label="Previous week">←</button>
-   <div class="plwk"><b id="wk-title">This week</b><small id="wk-sub"></small></div>
-   <button class="btn alt navb" id="wk-next" type="button" aria-label="Next week">→</button>
+  <div class="calhead">
+   <button class="btn alt navb" id="cal-prev" type="button" aria-label="Previous month">←</button>
+   <b id="cal-title">Month</b>
+   <button class="btn alt navb" id="cal-next" type="button" aria-label="Next month">→</button>
   </div>
-  <div class="row" style="margin-top:8px;justify-content:center"><button class="mini" id="wk-now" type="button" hidden>Back to this week</button></div>
-  <label style="margin-top:12px">Your usual week</label>
-  <div class="chips2" id="pl-presets"></div>
-  <div class="stats pstats">
-   <div><b id="pl-plan">₱0.00</b><span>Planned</span></div>
-   <div><b id="pl-bud">₱0.00</b><span>Budget</span></div>
-   <div id="pl-leftbox"><b id="pl-left">₱0.00</b><span id="pl-leftl">Left</span></div>
-   <div><b id="pl-spent">₱0.00</b><span>Spent so far</span></div>
+  <div class="calwd" id="cal-wd" aria-hidden="true"></div>
+  <div class="calgrid" id="cal-grid"></div>
+  <p class="hint" style="margin:8px 0 0">Amounts are planned fares. A green dot means you saved a trip that day.</p>
+  <div class="stats calsum">
+   <div><b id="cs-plan">₱0.00</b><span>Planned</span></div>
+   <div><b id="cs-spent">₱0.00</b><span>Spent</span></div>
+   <div><b id="cs-days">0</b><span>Commuting days</span></div>
   </div>
-  <div class="pcols" id="pl-cols" aria-hidden="true"></div>
-  <p class="hint" id="pl-hint"></p>
+  <div class="row"><button class="btn alt" id="cal-today" type="button">Today</button><button class="btn alt" id="cal-usual" type="button">Usual days</button></div>
+  <div id="usual" hidden></div>
  </div>
- <div id="pl-days"></div>
- <div class="panel" id="pl-month" style="margin-top:12px"><h2 id="pm-title">Month</h2><p id="pm-body" class="hint" style="margin:0"></p></div>
+ <div class="panel" id="dayp" style="margin-top:14px">
+  <div class="dayhead"><div><b id="dp-title">Day</b><small id="dp-sub"></small></div><label class="sw"><input type="checkbox" id="dp-on" aria-label="Commuting this day"><span class="swt"></span></label></div>
+  <div id="dp-body">
+   <label for="dp-trip">Trip</label><select id="dp-trip"></select>
+   <div id="dp-amtrow" hidden style="margin-top:10px"><label for="dp-amt">Amount</label><div class="money"><b>₱</b><input id="dp-amt" type="number" min="0" step="1" inputmode="decimal"></div></div>
+   <label for="dp-b" style="margin-top:10px">Budget for this day</label><div class="money"><b>₱</b><input id="dp-b" type="number" min="0" step="1" inputmode="decimal"></div>
+   <div class="pd-bar"><i id="dp-bar"></i></div><div class="pd-meta" id="dp-meta"></div>
+   <div class="row" style="margin-top:10px"><button class="mini" id="dp-repeat" type="button">Repeat weekly</button><button class="mini" id="dp-reset" type="button">Reset this day</button></div>
+  </div>
+ </div>
 </section>
 
 <section id="history" hidden>
@@ -642,53 +737,70 @@ html[data-fbar="off"] #calc .stub{display:block!important}
 </section>
 
 <section id="settings" hidden>
- <div class="row" style="margin:0 0 18px"><button class="btn alt" id="s-back" type="button">← Back</button><h2 style="margin:0">Settings</h2></div>
- <div class="grid1">
+ <div class="row" style="margin:0 0 16px"><button class="btn alt" id="s-back" type="button">← Back</button><h2 id="s-title" style="margin:0">Settings</h2></div>
+ <div id="s-menu" class="smenu">
+  <button type="button" class="srow" data-sp="theme" style="--i:0"><span class="sic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0 0 18c1.1 0 2-.9 2-2 0-.5-.2-1-.5-1.3-.3-.3-.5-.7-.5-1.2 0-1.1.9-2 2-2h2.3c3 0 5.5-2.5 5.5-5.5C22 6.1 17.5 3 12 3zm-5.5 9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3-4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3 4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg></span><span class="stx"><b>Theme and colors</b><small id="sm-theme"></small></span><i class="chev" aria-hidden="true"></i></button>
+  <button type="button" class="srow" data-sp="layout" style="--i:1"><span class="sic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg></span><span class="stx"><b>Layout and display</b><small id="sm-layout"></small></span><i class="chev" aria-hidden="true"></i></button>
+  <button type="button" class="srow" data-sp="fares" style="--i:2"><span class="sic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></span><span class="stx"><b>Fares and profile</b><small id="sm-fares"></small></span><i class="chev" aria-hidden="true"></i></button>
+  <button type="button" class="srow" data-sp="data" style="--i:3"><span class="sic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 20h20v-4H2v4zm2-3h2v2H4v-2zM2 4v4h20V4H2zm4 3H4V5h2v2zm-4 7h20v-4H2v4zm2-3h2v2H4v-2z"/></svg></span><span class="stx"><b>Your data</b><small id="sm-data">Backup, restore and reset</small></span><i class="chev" aria-hidden="true"></i></button>
+  <button type="button" class="srow" data-sp="about" style="--i:4"><span class="sic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg></span><span class="stx"><b>About</b><small id="sm-about"></small></span><i class="chev" aria-hidden="true"></i></button>
+ </div>
+ <div class="spage" id="sp-theme" hidden>
   <div class="panel">
-   <h2>Appearance</h2>
    <label>Theme</label><div class="chips2" id="s-theme"></div>
    <label>Color theme</label><div class="pals" id="s-accent"></div>
-   <label>Text size</label><div class="chips2" id="s-size"></div>
-   <label>Animations</label><div class="chips2" id="s-motion"></div>
-   <label>Opening animation</label><div class="chips2" id="s-splash"></div>
-   <label>Tap vibration</label><div class="chips2" id="s-haptic"></div>
   </div>
+ </div>
+ <div class="spage" id="sp-layout" hidden>
   <div class="panel">
-   <h2>Layout and behavior</h2>
+   <h2>Look</h2>
+   <label>Text size</label><div class="chips2" id="s-size"></div>
    <label>Corners</label><div class="chips2" id="s-corner"></div>
    <label>Spacing</label><div class="chips2" id="s-dense"></div>
    <label>Font</label><div class="chips2" id="s-font"></div>
-   <label>Open the app on</label><div class="chips2" id="s-home"></div>
-   <label>Week starts on</label><div class="chips2" id="s-wk"></div>
-   <label>Greeting language</label><div class="chips2" id="s-lang"></div>
+  </div>
+  <div class="panel">
+   <h2>Motion and feedback</h2>
+   <label>Animations</label><div class="chips2" id="s-motion"></div>
+   <label>Opening animation</label><div class="chips2" id="s-splash"></div>
+   <label>Tap vibration</label><div class="chips2" id="s-haptic"></div>
    <label>Floating fare bar</label><div class="chips2" id="s-fbar"></div>
   </div>
+ </div>
+ <div class="spage" id="sp-fares" hidden>
   <div class="panel">
-   <h2>Profile and defaults</h2>
+   <h2>Profile</h2>
    <label for="s-name">Your name</label><input id="s-name" maxlength="24" autocomplete="off" placeholder="Optional, shown on the Dashboard">
-   <label style="margin-top:14px">Usual fare type</label><div class="chips2" id="s-ft"></div>
+   <label style="margin-top:14px">Greeting language</label><div class="chips2" id="s-lang"></div>
+  </div>
+  <div class="panel">
+   <h2>Fare defaults</h2>
+   <label>Usual fare type</label><div class="chips2" id="s-ft"></div>
    <label for="s-mode">Usual vehicle</label><select id="s-mode"></select>
    <label class="chk"><input type="checkbox" id="s-round"> Include the return trip by default</label>
+   <label for="s-warn" style="margin-top:14px">Warn me when planned fares reach</label><select id="s-warn"></select>
   </div>
   <div class="panel">
-   <h2>Budget alerts</h2>
-   <label for="s-warn">Warn me when planned fares reach</label><select id="s-warn"></select>
-   <p class="hint">The ticket on the Dashboard and Fare Calculator turns to a warning once you reach this share of your daily budget. Choose “Only when over budget” to skip early warnings.</p>
+   <h2>App</h2>
+   <label>Open the app on</label><div class="chips2" id="s-home"></div>
+   <label>Week starts on</label><div class="chips2" id="s-wk"></div>
   </div>
+ </div>
+ <div class="spage" id="sp-data" hidden>
   <div class="panel">
-   <h2>Your data</h2>
-   <p class="hint" style="margin-top:0">Everything stays in this browser. Copy a backup to move it to another device.</p>
+   <p class="hint" style="margin-top:0">Everything stays on this device. Copy a backup to move it to another device.</p>
    <div class="row"><button class="btn" id="s-exp" type="button">Copy backup</button><button class="btn alt" id="s-clr" type="button">Clear saved trips</button><button class="btn alt" id="s-rst" type="button">Reset everything</button></div>
    <label for="s-imp" style="margin-top:16px">Restore from a backup</label>
    <textarea id="s-imp" rows="3" placeholder="Paste a backup here"></textarea>
    <div class="row"><button class="btn alt" id="s-impb" type="button">Restore</button></div>
   </div>
+ </div>
+ <div class="spage" id="sp-about" hidden>
   <div class="panel">
-   <h2>About</h2>
-   <p style="margin:0 0 8px"><b>SakayBudget 1.4</b></p>
-   <p class="hint" style="margin-top:0">Fares are estimates based on the LTFRB rates reported for September 2026, plus fares you reported yourself. Distances are approximate, so what the conductor charges can differ by a peso or two. Your budget, trips and settings are saved on this device, and the Android app works without internet.</p>
-   <details class="rates"><summary>How fares are worked out</summary><p class="hint" style="margin-top:8px">Fare rules follow the LTFRB rates reported for September 2026: traditional jeepney ₱14 for the first 4 km then ₱2 per km, modern jeepney ₱17 then ₱2.40 per km, ordinary city bus ₱15 for the first 5 km then ₱2.49 per km, air-conditioned city bus ₱18 then ₱2.98 per km, and provisional UV Express rates of ₱2.60 (traditional) and ₱3.00 (modern) per km. Discounted fares are 20% off, rounded up to the next peso. Distances are estimated from approximate map positions, so a conductor’s fare may differ; type the km if you know it. Places come from the <a href="https://en.wikipedia.org/wiki/List_of_bus_routes_in_Metro_Manila" target="_blank" rel="noopener">Metro Manila bus routes</a> and <a href="https://wiki.openstreetmap.org/wiki/Metro_Manila/Jeepney_and_UV_Express_routes" target="_blank" rel="noopener">jeepney and UV Express routes</a> lists.</p></details>
-   <div class="row"><button class="btn alt" id="s-tour" type="button">Show the getting-started guide</button></div>
+   <p style="margin:0 0 8px"><b>SakayBudget 1.6</b></p>
+   <p class="hint" style="margin-top:0">Fares are estimates based on the LTFRB rates reported for September 2026, plus fares you reported yourself. Your budget, trips and settings are saved on this device, and the Android app works without internet.</p>
+   <details class="rates"><summary>How fares are worked out</summary><p class="hint" style="margin-top:8px">Fare rules follow the LTFRB rates reported for September 2026: traditional jeepney ₱14 for the first 4 km then ₱2 per km, modern jeepney ₱17 then ₱2.40 per km, ordinary city bus ₱15 for the first 5 km then ₱2.49 per km, air-conditioned city bus ₱18 then ₱2.98 per km, and provisional UV Express rates of ₱2.60 (traditional) and ₱3.00 (modern) per km. Discounted fares are 20% off, rounded up to the next peso. Where a real bus or jeepney route exists (from the Wikipedia and OpenStreetMap route lists), the distance follows that route’s road length, and a trip that needs a transfer pays each ride’s own minimum fare. Otherwise the distance is estimated from map positions plus 30% for winding roads, so a conductor’s fare may differ; type the km if you know it. Places come from the <a href="https://en.wikipedia.org/wiki/List_of_bus_routes_in_Metro_Manila" target="_blank" rel="noopener">Metro Manila bus routes</a> and <a href="https://wiki.openstreetmap.org/wiki/Metro_Manila/Jeepney_and_UV_Express_routes" target="_blank" rel="noopener">jeepney and UV Express routes</a> lists.</p></details>
+   <div class="row"><button class="btn alt" id="s-tour" type="button">Replay the tutorial</button></div>
   </div>
  </div>
 </section>
@@ -704,15 +816,22 @@ html[data-fbar="off"] #calc .stub{display:block!important}
   <div class="sheet-list" id="sheet-list" role="listbox"></div>
  </div>
 </div>
+<div class="sheet osheet" id="osheet" hidden role="dialog" aria-modal="true" aria-labelledby="os-title">
+ <div class="sheet-card os-card">
+  <div class="os-grab" aria-hidden="true"></div>
+  <div class="sheet-head"><button type="button" class="sheet-x" id="os-x" aria-label="Close">←</button><div class="sheet-title" id="os-title">Choose</div></div>
+  <div class="sheet-list" id="os-list" role="listbox"></div>
+ </div>
+</div>
 <div class="fbar" id="fbar" hidden aria-live="polite"><div><small>Total fare</small><b class="ft">₱0.00</b></div><div class="fdiv"></div><div><small>Remaining</small><b class="fr">₱0.00</b></div><span class="badge ok">Set budget</span><small class="fprev" hidden></small></div>
 <div class="snack" id="snack" role="status" aria-live="polite"></div>
 <script>
 (function(){
 var KEY="sakaybudget:v2";
 var REG={
-K:["Caloocan","Monumento (Caloocan)|14.6543|120.9839;Grace Park|14.6480|120.9830;5th Avenue (LRT-1)|14.6443|120.9838;Sangandaan|14.6560|120.9730;Maypajo|14.6350|120.9730;Malaria|14.7600|121.0560;Bagong Barrio|14.6615|120.9985;Baesa|14.6770|121.0060;Santa Quiteria|14.6820|121.0200;Bagumbong|14.7400|121.0100;Deparo|14.7480|121.0230;Camarin|14.7550|121.0320;Bagong Silang|14.7700|121.0450;Amparo (Sa Nana)|14.7420|121.0475|Sanana;Pangarap Village|14.7545|121.0530;Sapang Alat|14.7790|121.0540;Tala|14.7835|121.0575;Urduja|14.7405|121.0235"],
+K:["Caloocan","Monumento (Caloocan)|14.6543|120.9839;Grace Park|14.6480|120.9830;5th Avenue (LRT-1)|14.6443|120.9838;Sangandaan|14.6560|120.9730;Maypajo|14.6350|120.9730;Malaria|14.7625|121.0685;Bagong Barrio|14.6615|120.9985;Baesa|14.6770|121.0060;Santa Quiteria|14.6820|121.0200;Bagumbong|14.7400|121.0100;Deparo|14.7480|121.0230;Camarin|14.7550|121.0320;Bagong Silang|14.7700|121.0450;Amparo (Sa Nana)|14.7465|121.0735|Sanana;Pangarap Village|14.7570|121.0715;Sapang Alat|14.7790|121.0680;Tala|14.7685|121.0667;Urduja|14.7435|121.0362"],
 N:["Valenzuela, Malabon, Navotas and Bulacan","Malabon City Hall|14.6625|120.9569;Navotas|14.6667|120.9417;Valenzuela Gateway Complex|14.7003|120.9906;Malinta|14.7016|120.9780;Meycauayan|14.7369|120.9609;Marilao|14.7573|120.9486;Bocaue|14.7990|120.9260;Balagtas|14.8150|120.9100;Santa Maria (Bulacan)|14.8190|120.9570;San Jose del Monte|14.8140|121.0450;Norzagaray|14.9180|121.0430"],
-Q:["Quezon City and Novaliches","SM North EDSA / TriNoma|14.6561|121.0292;Balintawak|14.6573|121.0012;Muñoz|14.6570|121.0220;Quezon City Hall|14.6510|121.0495;UP Diliman|14.6538|121.0685;Commonwealth / Batasan|14.6820|121.0910;Capitol|14.6775|121.0795;Don Fabian|14.6930|121.0830;SM Annex|14.6580|121.0305;FCM (Fairview Center Mall)|14.7350|121.0590;PCMC / Agham Road|14.6500|121.0390;Litex|14.7040|121.0802;Eton Centris|14.6405|121.0378;Kamuning|14.6270|121.0420;Cubao (Araneta City)|14.6196|121.0529;Welcome Rotonda|14.6165|121.0000;Katipunan|14.6307|121.0725;Novaliches Proper|14.7240|121.0370|Bayan;Robinsons Novaliches|14.7170|121.0426;SM Fairview|14.7339|121.0575"],
+Q:["Quezon City and Novaliches","SM North EDSA / TriNoma|14.6561|121.0292;Balintawak|14.6573|121.0012;Muñoz|14.6570|121.0220;Quezon City Hall|14.6510|121.0495;UP Diliman|14.6538|121.0685;Commonwealth / Batasan|14.6820|121.0910;Capitol|14.6690|121.0630;Don Fabian|14.6720|121.0585;SM Annex|14.6580|121.0305;FCM (Fairview Center Mall)|14.7350|121.0590;PCMC / Agham Road|14.6500|121.0390;Litex|14.7040|121.0802;Eton Centris|14.6405|121.0378;Kamuning|14.6270|121.0420;Cubao (Araneta City)|14.6196|121.0529;Welcome Rotonda|14.6165|121.0000;Katipunan|14.6307|121.0725;Novaliches Proper|14.7240|121.0370|Bayan;Robinsons Novaliches|14.7170|121.0426;SM Fairview|14.7339|121.0575"],
 C:["Manila, Mandaluyong and San Juan","Quiapo|14.5995|120.9836;Manila City Hall|14.5896|120.9815;Divisoria|14.6010|120.9718;Blumentritt|14.6225|120.9825;Lawton|14.5933|120.9795;Ermita (T.M. Kalaw)|14.5830|120.9830;Paco|14.5790|120.9970;Pandacan|14.5850|121.0060;Santa Mesa|14.6000|121.0120;Mandaluyong City Hall|14.5794|121.0356;Kalentong (JRC)|14.5776|121.0277;San Juan (Pinaglabanan)|14.6016|121.0343;Greenhills|14.6027|121.0486"],
 M:["Pasay, Parañaque, Makati and Taguig","Libertad (Pasay)|14.5476|120.9977;Vito Cruz|14.5636|120.9946;Buendia / Gil Puyat|14.5540|121.0114;Pasay Rotonda|14.5385|121.0011;Baclaran|14.5340|120.9987;SM Mall of Asia|14.5352|120.9822;PITX|14.5065|120.9908;NAIA Terminal 3|14.5090|121.0177;Nichols|14.5190|121.0230;Magallanes|14.5415|121.0195;Ayala Center (Makati)|14.5495|121.0271;Guadalupe (ABC)|14.5670|121.0450;Market! Market!|14.5496|121.0560;BGC / McKinley Hill|14.5368|121.0527;FTI / Arca South|14.5082|121.0490;SM Bicutan|14.4838|121.0443"],
 E:["Marikina, Pasig and Rizal","Ortigas Center (EDSA-Shaw)|14.5813|121.0528;Robinsons Galleria|14.5876|121.0599;Eastwood City|14.6097|121.0802;Marikina (SM Marikina)|14.6239|121.0846;SSS Village|14.6360|121.0951;Pasig Market|14.5764|121.0851;Rosario (Pasig)|14.5878|121.0897;Pateros|14.5446|121.0687;Cainta Junction|14.5783|121.1143;SM Masinag|14.6256|121.1207;Antipolo|14.5985|121.1741;Taytay|14.5635|121.1327;Angono|14.5266|121.1536;Binangonan|14.4640|121.1920;San Mateo|14.6935|121.1236;Rodriguez (Montalban)|14.7595|121.1182"],
@@ -722,18 +841,80 @@ V:["Cavite","Bacoor|14.4590|120.9470;Imus|14.4297|120.9367;Kawit|14.4456|120.904
 var PLACES={};
 var KNOWN={"Lawton|Malaria":32.5,"Malaria|Manila City Hall":32.5,"Novaliches Proper|Tala":13.6,"Bagong Silang|Novaliches Proper":7.76};
 var KNOWNF={"Don Fabian|Malaria":{ob:43,ab:50}};
-var ANCH={"Malaria":0,"Pangarap Village":1.07,"Novaliches Proper":10,"Don Fabian":16,"Lawton":32.5};
-var CORR=[{sc:1.33,s:["San Jose del Monte","Sapang Alat","Malaria","Pangarap Village","Amparo (Sa Nana)","Novaliches Proper","Don Fabian","Commonwealth / Batasan","Capitol","Quezon City Hall","Eton Centris","Welcome Rotonda","Quiapo","Lawton","Manila City Hall","Ermita (T.M. Kalaw)","Vito Cruz","Buendia / Gil Puyat","PITX"]}];
-var CUM=null;
-function buildCum(){CUM=CORR.map(function(c){
- var s=c.s.filter(function(n){return PLACES[n]}),m={},i,k,idx=[];
- s.forEach(function(n,j){if(ANCH[n]!=null){idx.push(j);m[n]=ANCH[n]}});
- function leg(j){return hav(PLACES[s[j]],PLACES[s[j+1]])}
- for(k=0;k<idx.length-1;k++){var a=idx[k],b=idx[k+1],tot=0,acc=0;for(i=a;i<b;i++)tot+=leg(i);
-  for(i=a;i<b-1;i++){acc+=leg(i);m[s[i+1]]=ANCH[s[a]]+(ANCH[s[b]]-ANCH[s[a]])*acc/tot}}
- var v=ANCH[s[idx[0]]];for(i=idx[0]-1;i>=0;i--){v-=leg(i)*c.sc;m[s[i]]=v}
- v=ANCH[s[idx[idx.length-1]]];for(i=idx[idx.length-1];i<s.length-1;i++){v+=leg(i)*c.sc;m[s[i+1]]=v}
- return m})}
+var RDATA=[
+"B6|Bus 6 / 7 / 49 (Sapang Palay to PITX)|b|0|Norzagaray;San Jose del Monte;Sapang Alat;Malaria;Pangarap Village;Amparo (Sa Nana);SM Fairview;Novaliches Proper;Don Fabian;Capitol;Quezon City Hall;Eton Centris;Welcome Rotonda;Quiapo;Lawton;Manila City Hall;Ermita (T.M. Kalaw);Vito Cruz;Buendia / Gil Puyat;PITX|Norzagaray=-14.85,Malaria=0,Pangarap Village=1.07,Amparo (Sa Nana)=3.82,Novaliches Proper=10,Don Fabian=16,Lawton=32.5,PITX=45.3|Quirino Hwy, Mindanao Ave, Commonwealth Ave, Quezon Ave and Taft Ave",
+"B1|EDSA Carousel|b|28|Monumento (Caloocan);Bagong Barrio;Balintawak;Muñoz;SM North EDSA / TriNoma;Eton Centris;Cubao (Araneta City);Ortigas Center (EDSA-Shaw);Guadalupe (ABC);Magallanes;Pasay Rotonda;SM Mall of Asia;PITX||EDSA and Macapagal Blvd",
+"B37|Bus 37 (Fairview to Monumento)|b|19.6|Robinsons Novaliches;Novaliches Proper;Balintawak;Bagong Barrio;Monumento (Caloocan)||Quirino Hwy, NLEX and A. Bonifacio",
+"B14|Bus 14 (Balagtas to PITX via Quiapo)|b|42.6|Balagtas;Bocaue;Marilao;Meycauayan;Malinta;Monumento (Caloocan);5th Avenue (LRT-1);Blumentritt;Quiapo;Lawton;Manila City Hall;Ermita (T.M. Kalaw);Vito Cruz;Buendia / Gil Puyat;PITX||MacArthur Hwy, Rizal Ave and Taft Ave",
+"B47|Bus 47 (Monumento to PITX via Manila Pier)|b|22.2|Monumento (Caloocan);Divisoria;SM Mall of Asia;PITX||C-4, R-10 and Roxas Blvd",
+"B33|Bus 33 (Fairview to North EDSA)|b|12.2|SM Fairview;Novaliches Proper;SM North EDSA / TriNoma||Quirino Hwy and Mindanao Ave",
+"B51|Bus 51 (VGC to Cubao)|b|15.2|Valenzuela Gateway Complex;Katipunan;Cubao (Araneta City)||Mindanao Ave and Katipunan Ave",
+"B34|Bus 34 (Montalban to PITX via Batasan)|b|40.5|Rodriguez (Montalban);San Mateo;Commonwealth / Batasan;Capitol;Quezon City Hall;Eton Centris;Welcome Rotonda;Quiapo;Lawton;Manila City Hall;Ermita (T.M. Kalaw);Vito Cruz;Buendia / Gil Puyat;PITX||Batasan Rd, Commonwealth Ave and Quezon Ave",
+"B2|Bus 2 (Angono to Quiapo via Ortigas)|b|27.9|Angono;Taytay;Cainta Junction;Greenhills;San Juan (Pinaglabanan);Santa Mesa;Quiapo||Ortigas Ave and Magsaysay Blvd",
+"B3|Bus 3 (Antipolo to Quiapo via Cubao)|b|28.4|Antipolo;SM Masinag;Cubao (Araneta City);Santa Mesa;Quiapo||Marcos Hwy, Aurora Blvd and Magsaysay Blvd",
+"B10|Bus 10 (Ayala to Alabang)|b|19.4|Ayala Center (Makati);Magallanes;Sucat;Alabang (Vista Terminal Exchange)||SLEX",
+"B24|Bus 24 (Alabang to Lawton via Magallanes)|b|25.1|Alabang (Vista Terminal Exchange);Sucat;Magallanes;Buendia / Gil Puyat;Vito Cruz;Ermita (T.M. Kalaw);Lawton||SLEX and Taft Ave",
+"B46|Bus 46 (Pacita to Buendia)|b|24.8|Pacita Complex (San Pedro);Alabang (Vista Terminal Exchange);Sucat;Magallanes;Buendia / Gil Puyat||SLEX",
+"B27|Bus 27 (Dasmariñas to Lawton via PITX)|b|40.4|Dasmariñas;Imus;Bacoor;PITX;Vito Cruz;Ermita (T.M. Kalaw);Lawton||Aguinaldo Hwy, CAVITEX and Roxas Blvd",
+"B26|Bus 26 (Cavite City to PITX)|b|24.7|Cavite City;Kawit;PITX||CAVITEX",
+"B28|Bus 28 (Naic to PITX)|b|34.5|Naic;Kawit;PITX||CAVITEX",
+"T177|Jeepney T177 (Amparo to Novaliches)|j|6.18|Amparo (Sa Nana);Novaliches Proper||Quirino Hwy",
+"T145|Jeepney T145 (Novaliches to Pangarap)|j|8.93|Novaliches Proper;Pangarap Village||Quirino Hwy",
+"T176|Jeepney T176 (Novaliches to Tala)|j|13.6|Novaliches Proper;Tala||Camarin",
+"T101|Jeepney T101 (Bagong Silang to Novaliches)|j|7.76|Bagong Silang;Novaliches Proper||Susano Rd",
+"T179|Jeepney T179 (Bagong Silang to SM Fairview)|j|6.4|Bagong Silang;SM Fairview||Maligaya",
+"T147|Jeepney T147 (Novaliches to Urduja)|j|0|Novaliches Proper;Urduja||Zabarte Rd",
+"T117|Jeepney T117 (Deparo to Novaliches)|j|0|Deparo;Novaliches Proper||Susano Rd",
+"T156|Jeepney T156 (Bagumbong to Novaliches)|j|0|Bagumbong;Novaliches Proper||Quirino Hwy",
+"T102|Jeepney T102 (Camarin to Novaliches)|j|0|Camarin;Novaliches Proper||Zabarte Rd",
+"T165|Jeepney T165 (Balintawak to Novaliches)|j|10.1|Balintawak;Novaliches Proper||A. Bonifacio and Quirino Hwy",
+"T187|Jeepney T187 (Blumentritt to Novaliches)|j|11.1|Blumentritt;Novaliches Proper||A. Bonifacio",
+"T3198|Jeepney T3198 (Sangandaan to Divisoria)|j|6.17|Sangandaan;Maypajo;Divisoria||Maypajo",
+"TSQ|Jeepney (Sangandaan to Quiapo)|j|0|Sangandaan;Maypajo;Quiapo||Rizal Ave",
+"T3216|Jeepney T3216 (Monumento to Muñoz)|j|8|Monumento (Caloocan);Bagong Barrio;Balintawak;Muñoz||Rizal Ave Ext and A. Bonifacio",
+"T3141|Jeepney T3141 (Balintawak to Blumentritt)|j|4.05|Balintawak;Blumentritt||A. Bonifacio",
+"T155|Jeepney T155 (Malinta to Monumento)|j|5.19|Malinta;Monumento (Caloocan)||MacArthur Hwy",
+"T3117|Jeepney T3117 (Divisoria to Malinta)|j|11.6|Divisoria;Malinta||Abad Santos",
+"T3174|Jeepney T3174 (Baclaran to Divisoria via Taft)|j|13.6|Baclaran;Libertad (Pasay);Vito Cruz;Lawton;Quiapo;Divisoria||Taft Ave",
+"T3219|Jeepney T3219 (Libertad to Monumento via Taft)|j|16.5|Libertad (Pasay);Vito Cruz;Lawton;Quiapo;Blumentritt;5th Avenue (LRT-1);Monumento (Caloocan)||Taft Ave, Quezon Blvd and Rizal Ave",
+"T2102|Jeepney T2102 (Cubao to Fairview via Commonwealth)|j|16.36|Cubao (Araneta City);Quezon City Hall;Capitol;Commonwealth / Batasan;Litex;SM Fairview||Kalayaan Ave and Commonwealth Ave",
+"T238|Jeepney T238 (Cainta to Cubao)|j|11.76|Cainta Junction;Cubao (Araneta City)||Marcos Hwy",
+"T2105|Jeepney T2105 (Antipolo to Cubao)|j|19|Antipolo;SM Masinag;Cubao (Araneta City)||Marcos Hwy and Aurora Blvd",
+"T209|Jeepney T209 (Marikina to Pasig)|j|10.58|Marikina (SM Marikina);Pasig Market||",
+"T431|Jeepney T431 (Alabang to Baclaran)|j|18.8|Alabang (Vista Terminal Exchange);Zapote (Las Piñas);Baclaran||Alabang-Zapote Rd",
+"T436|Jeepney T436 (Baclaran to Sucat)|j|13.4|Baclaran;Sucat||Quirino Ave",
+"T420|Jeepney T420 (Alabang to Biñan)|j|11.1|Alabang (Vista Terminal Exchange);Biñan||National Rd",
+"T419|Jeepney T419 (Alabang to Balibago)|j|19.1|Alabang (Vista Terminal Exchange);Biñan;Santa Rosa (Balibago)||National Rd"];
+var RTS=null,NET=null;
+function famOf(m){return m==="tj"||m==="mj"?"j":"b"}
+function netAdd(a,b,w,r){(NET[a]=NET[a]||[]).push({to:b,w:w,r:r})}
+function buildNet(){RTS=[];NET={};
+ RDATA.forEach(function(line){var p=line.split("|"),r={id:p[0],n:p[1],fam:p[2],km:+p[3]||0,a:{},via:p[6]||"",s:p[4].split(";").filter(function(n){return PLACES[n]})};
+  (p[5]||"").split(",").forEach(function(x){var q=x.split("=");if(q.length===2&&PLACES[q[0]])r.a[q[0]]=+q[1]});
+  var s=r.s,pos={},i,k,idx=[];if(s.length<2)return;
+  function leg(j){return hav(PLACES[s[j]],PLACES[s[j+1]])}
+  s.forEach(function(n,j){if(r.a[n]!=null){idx.push(j);pos[n]=r.a[n]}});
+  if(idx.length){
+   for(k=0;k<idx.length-1;k++){var a=idx[k],b=idx[k+1],tot=0,acc=0;for(i=a;i<b;i++)tot+=leg(i);for(i=a;i<b-1;i++){acc+=leg(i);pos[s[i+1]]=r.a[s[a]]+(r.a[s[b]]-r.a[s[a]])*acc/tot}}
+   var v=r.a[s[idx[0]]];for(i=idx[0]-1;i>=0;i--){v-=leg(i)*1.33;pos[s[i]]=v}
+   v=r.a[s[idx[idx.length-1]]];for(i=idx[idx.length-1];i<s.length-1;i++){v+=leg(i)*1.33;pos[s[i+1]]=v}
+  }else{
+   var t2=0,c2=0;for(i=0;i<s.length-1;i++)t2+=leg(i);var L=r.km||t2*1.3;
+   pos[s[0]]=0;for(i=0;i<s.length-1;i++){c2+=leg(i);pos[s[i+1]]=L*c2/t2}}
+  r.pos=pos;RTS.push(r);
+  for(i=0;i<s.length-1;i++){var w=Math.max(0.1,Math.abs(pos[s[i+1]]-pos[s[i]]));netAdd(s[i],s[i+1],w,r);netAdd(s[i+1],s[i],w,r)}})}
+/* shortest road path over the real routes; riding a different vehicle type costs extra, and so does each transfer */
+function plan(o,d,fam){if(!RTS)buildNet();
+ if(o===d||!NET[o]||!NET[d])return null;
+ var best={},prev={},q=[[0,o,""]],end=null,key=function(n,r){return n+"|"+r};best[key(o,"")]=0;
+ while(q.length){q.sort(function(a,b){return a[0]-b[0]});var cur=q.shift(),c=cur[0],n=cur[1],r=cur[2];
+  if(c>best[key(n,r)]+1e-9)continue;if(n===d){end=key(n,r);break}
+  (NET[n]||[]).forEach(function(e){var cost=c+e.w*(e.r.fam===fam?1:2.4)+(r&&r!==e.r.id?6:0),k=key(e.to,e.r.id);
+   if(best[k]===undefined||cost<best[k]-1e-9){best[k]=cost;prev[k]=[key(n,r),e,n];q.push([cost,e.to,e.r.id])}})}
+ if(!end)return null;
+ var edges=[],k=end;while(prev[k]){var pv=prev[k];edges.unshift({from:pv[2],to:k.split("|")[0],w:pv[1].w,r:pv[1].r});k=pv[0]}
+ var legs=[];edges.forEach(function(e){var l=legs[legs.length-1];if(l&&l.r===e.r){l.to=e.to;l.km+=e.w}else legs.push({r:e.r,from:e.from,to:e.to,km:e.w})});
+ return{legs:legs,km:legs.reduce(function(a,l){return a+l.km},0)}}
 var MODES={
  tj:{n:"Traditional jeepney",base:14,bk:4,pk:2},
  mj:{n:"Modern jeepney",base:17,bk:4,pk:2.4},
@@ -754,7 +935,7 @@ function startOfWeek(d,monFirst){var x=new Date(d.getFullYear(),d.getMonth(),d.g
 S.set=Object.assign({theme:"system",accent:"blue",size:"m",motion:"on",name:"",warn:90,dfare:"reg",dmode:"tj",haptic:"on",splash:"on",round:"m",dense:"m",font:"roboto",home:"dashboard",wk:"mon",lang:"tl",fbar:"on"},S.set||{});
 S.plan=(S.plan&&S.plan.days)?S.plan:{days:{}};
 S.history.forEach(function(x){if(!x.ts&&x.date){var d=new Date(x.date+" "+new Date().getFullYear());if(!isNaN(d)){if(d>new Date())d.setFullYear(d.getFullYear()-1);x.ts=iso(d)}}});
-if(!Array.isArray(S.recent))S.recent=[];S.tour=Object.assign({done:false},S.tour||{});
+if(!Array.isArray(S.recent))S.recent=[];S.tour=Object.assign({done:false},S.tour||{});S.intro=S.intro||{done:!!raw};
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
 var svT;function saveSoon(){clearTimeout(svT);svT=setTimeout(save,250)}
 window.addEventListener("pagehide",function(){clearTimeout(svT);save()});document.addEventListener("visibilitychange",function(){if(document.hidden){clearTimeout(svT);save()}});
@@ -770,8 +951,8 @@ function hav(a,b){var R=6371,r=Math.PI/180,dl=(b[0]-a[0])*r,dg=(b[1]-a[1])*r;
  var x=Math.sin(dl/2)*Math.sin(dl/2)+Math.cos(a[0]*r)*Math.cos(b[0]*r)*Math.sin(dg/2)*Math.sin(dg/2);return 2*R*Math.asin(Math.sqrt(x))}
 function dist(){var c=S.c,k=num(c.km);if(k)return{km:k,est:false};
  var kn=KNOWN[[c.o,c.d].sort().join("|")];if(kn)return{km:kn,est:false,known:true};
- if(!CUM)buildCum();
- for(var i=0;i<CUM.length;i++){var cm=CUM[i];if(c.o!==c.d&&cm[c.o]!=null&&cm[c.d]!=null)return{km:Math.max(1,Math.round(Math.abs(cm[c.o]-cm[c.d])*10)/10),est:true,corridor:true}}
+ var pl=c.o!==c.d?plan(c.o,c.d,famOf(c.mode)):null;
+ if(pl)return{km:Math.max(1,Math.round(pl.km*10)/10),est:true,corridor:true,legs:pl.legs};
  var a=PLACES[c.o],b=PLACES[c.d];if(!a||!b||c.o===c.d)return{km:0,est:true};
  return{km:Math.max(1,Math.round(hav(a,b)*1.3*10)/10),est:true}}
 function fareFor(km,mk){var m=MODES[mk];if(!km)return 0;
@@ -790,8 +971,12 @@ function calc(){var c=S.c,x=xfer(),disc=c.ft==="disc",dq=function(f){return disc
   var legs=(x.fwd?[bus,oth]:[oth,bus]).map(function(l){return[l[0],l[1],dq(l[1])]});
   var reg=legs[0][1]+legs[1][1],pp=legs[0][2]+legs[1][2],tot=pp*c.pax;
   return{transfer:true,legs:legs,opt:o[0],km:0,reg:reg,pp:pp,tot:tot,diff:c.bill-tot}}
- var d=dist(),reg=fareFor(d.km,c.mode),kf=KNOWNF[[c.o,c.d].sort().join("|")],k0=(kf&&kf[c.mode]!=null)?(reg=kf[c.mode]):0,pp=dq(reg);
- var tot=pp*c.pax,diff=c.bill-tot;return{km:d.km,est:d.est,known:d.known,corridor:d.corridor,reg:reg,pp:pp,tot:tot,diff:diff}}
+ var d=dist(),kf=KNOWNF[[c.o,c.d].sort().join("|")],rep=kf&&kf[c.mode]!=null,li=null,reg,pp;
+ if(d.legs)li=d.legs.map(function(l){var f=fareFor(Math.max(1,l.km),c.mode);return{l:l,reg:f,pp:dq(f)}});
+ if(rep){reg=kf[c.mode];pp=dq(reg)}
+ else if(li&&li.length>1){reg=li.reduce(function(a,q){return a+q.reg},0);pp=li.reduce(function(a,q){return a+q.pp},0)}
+ else{reg=fareFor(d.km,c.mode);pp=dq(reg)}
+ var tot=pp*c.pax,diff=c.bill-tot;return{km:d.km,est:d.est,known:d.known,corridor:d.corridor,legsInfo:li,reported:rep,reg:reg,pp:pp,tot:tot,diff:diff}}
 function renderCalc(){
  var c=S.c,r=calc(),cl,x=xfer();
  tween($("#r-pp"),r.pp);tween($("#r-tot"),r.tot);
@@ -809,9 +994,14 @@ function renderCalc(){
   $("#r-note").textContent="Transfer route via "+x.t.via+", using fares reported by a commuter"+(c.ft==="disc"?". Regular total would be "+pesoW(r.reg)+" per person.":".");
   $("#jtxt").textContent="";
  }else{
-  $("#r-note").textContent=(c.o===c.d&&!num(c.km))?"Pick two different places, or type the distance in km.":"About "+r.km+" km"+(r.est?(r.corridor?" (estimated along the route)":" (estimated)"):"")+" by "+MODES[c.mode].n.toLowerCase()+(c.ft==="disc"?". Regular fare would be "+pesoW(r.reg)+" per person.":".");
+  $("#r-note").textContent=(c.o===c.d&&!num(c.km))?"Pick two different places, or type the distance in km.":"About "+r.km+" km"+(r.est?(r.corridor?(r.legsInfo&&r.legsInfo.length>1?" over "+r.legsInfo.length+" rides, from route data":" along the route"):" (estimated)"):"")+" by "+MODES[c.mode].n.toLowerCase()+(c.ft==="disc"?". Regular fare would be "+pesoW(r.reg)+" per person.":".");
   var bs=$("#journey .bus");if(bs.dataset.m!==S.c.mode){bs.dataset.m=S.c.mode;bs.innerHTML=vsvg(S.c.mode)}
-  $("#jtxt").textContent=r.km?r.km+" km by "+MODES[c.mode].n.toLowerCase():"";
+ $("#jtxt").textContent=r.km?r.km+" km by "+MODES[c.mode].n.toLowerCase():"";
+  var rb=$("#routebox"),li=r.legsInfo;
+  if(li&&!num(c.km)&&!r.known){rb.hidden=false;
+   $("#rlegs").innerHTML=li.map(function(q){return"<li><span><b>"+esc(q.l.r.n.split(" (")[0])+"</b><small>"+esc(q.l.from)+" → "+esc(q.l.to)+" · "+(Math.round(q.l.km*10)/10)+" km</small></span><span>"+pesoW(q.reg)+"</span></li>"}).join("");
+   $("#rvia").textContent=r.reported?"Total uses the fare you reported for this trip.":(li.length>1?"Transfer at "+li.slice(0,-1).map(function(q){return q.l.to}).join(" and ")+". Each ride pays its own minimum fare.":"Via "+(li[0].l.r.via||"the main road")+".")}
+  else rb.hidden=true;
  }
  $("#addride").disabled=!r.tot;
  var fp=$("#fbar .fprev"),bud=num(S.budget);
@@ -830,15 +1020,14 @@ function initCalc(){
  ALLP.sort(function(a,b){return a.n.localeCompare(b.n)});
  GR=[["modes",Object.keys(MODES).map(function(k){return[k,MODES[k].n]}),"mode"],["ftypes",[["reg","Regular"],["disc","Discounted (20%)"]],"ft"],["bills",[20,50,100,200,500,1000].map(function(v){return[v,"₱"+v]}),"bill"]];
  GR.forEach(function(g){var box=$("#"+g[0]);box.innerHTML="";g[1].forEach(function(it,i){var b=document.createElement("button");b.type="button";if(g[0]==="modes"){b.className="veh";b.style.setProperty("--vc",VCOL[it[0]]);b.innerHTML=vsvg(it[0])+"<b>"+VSHORT[it[0]]+"</b><small>"+vhint(it[0])+"</small>";b.title=MODES[it[0]].n;b.setAttribute("aria-label",MODES[it[0]].n)}else b.textContent=it[1];b.dataset.v=String(it[0]);b.style.setProperty("--i",i);
-  b.onclick=function(){S.c[g[2]]=it[0];save();syncUI();renderCalc();if(g[0]==="modes")ride()};box.appendChild(b)})});
+  b.onclick=function(){S.c[g[2]]=it[0];save();syncUI();renderCalc();if(g[0]==="modes"){ride();recentSoon()}};box.appendChild(b)})});
  $("#km").value=S.c.km;if(S.c.km)$("#more").open=true;
- initPicker();CB.o=mkPlace("o",function(){return S.c.o},function(v){S.c.o=v;save();renderCalc();ride()});
- CB.d=mkPlace("d",function(){return S.c.d},function(v){S.c.d=v;save();renderCalc();ride()});
+ initPicker();CB.o=mkPlace("o",function(){return S.c.o},function(v){S.c.o=v;save();renderCalc();ride();recentSoon()});
+ CB.d=mkPlace("d",function(){return S.c.d},function(v){S.c.d=v;save();renderCalc();ride();recentSoon()});
  $("#km").oninput=function(e){S.c.km=e.target.value;saveSoon();renderCalc()};
  $("#pm").onclick=function(){S.c.pax=Math.max(1,S.c.pax-1);save();syncUI();renderCalc()};
  $("#pp2").onclick=function(){S.c.pax=Math.min(10,S.c.pax+1);save();syncUI();renderCalc()};
  $("#swap").onclick=function(){var t=S.c.o;S.c.o=S.c.d;S.c.d=t;CB.o();CB.d();save();renderCalc();ride();$("#swap").classList.toggle("spin")};
- $("#calcbtn").onclick=function(){renderCalc();ride();pushRecent()};
  $("#addride").onclick=function(){var r=calc();if(!r.tot)return;var c=S.c;
   S.rides=S.rides.filter(function(x){return num(x.f)||x.n});
   if(r.legs)r.legs.forEach(function(l){S.rides.push({n:l[0],f:String(l[2]*c.pax)})});else S.rides.push({n:c.o+" to "+c.d+" ("+MODES[c.mode].n.toLowerCase()+")",f:String(r.tot)});pushRecent();save();render();toast("Added to your trip")};
@@ -855,11 +1044,22 @@ function applySet(){var h=document.documentElement,t=S.set;
  RM=t.motion==="off"||!!(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches);
  var hr=new Date().getHours(),g=t.lang==="en"?(hr<12?"Good morning":hr<18?"Good afternoon":"Good evening"):(hr<12?"Magandang umaga":hr<18?"Magandang hapon":"Magandang gabi");
  $("#greet").textContent=t.name?g+", "+t.name:g;sysBars()}
+var SPG=null,SPUSH=false,SPT={theme:"Theme and colors",layout:"Layout and display",fares:"Fares and profile",data:"Your data",about:"About"};
+function showSettings(pg,quiet){SPG=pg;
+ $("#s-menu").hidden=!!pg;document.querySelectorAll(".spage").forEach(function(e){e.hidden=e.id!=="sp-"+pg});
+ $("#s-title").textContent=pg?SPT[pg]:"Settings";
+ if(pg&&!quiet){try{history.pushState({sp:1},"");SPUSH=true}catch(e){SPUSH=false}}if(!pg)SPUSH=false;
+ window.scrollTo(0,0)}
 function renderSettings(){if(!SG)return;
+ var TL={system:"System",light:"Light",dark:"Dark",amoled:"AMOLED black"},al=SW.filter(function(a){return a[0]===S.set.accent})[0];
+ $("#sm-theme").textContent=(TL[S.set.theme]||"System")+" · "+(al?al[1]:"Material");
+ $("#sm-layout").textContent=({s:"Sharp",m:"Soft",l:"Round"}[S.set.round]||"Soft")+" corners · "+({s:"Small",m:"Medium",l:"Large"}[S.set.size]||"Medium")+" text";
+ $("#sm-fares").textContent=(S.set.name?S.set.name+" · ":"")+(S.set.dfare==="disc"?"Discounted":"Regular")+" fares · "+MODES[S.set.dmode].n;
+ $("#sm-about").textContent="Version 1.6";
  SG.forEach(function(g){$("#"+g[0]).childNodes.forEach(function(b){b.setAttribute("aria-pressed",String(String(S.set[g[2]])===b.dataset.v))})});
  $("#s-accent").childNodes.forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.v===S.set.accent))});
  var set=function(id,v){var e=$("#"+id);if(document.activeElement!==e&&e.value!==String(v))e.value=v};
- set("s-name",S.set.name);set("s-mode",S.set.dmode);set("s-warn",S.set.warn);$("#s-round").checked=S.round}
+ set("s-name",S.set.name);set("s-mode",S.set.dmode);set("s-warn",S.set.warn);$("#s-round").checked=S.round;tsync()}
 function initSettings(){
  SG=[["s-theme",[["system","System"],["light","Light"],["dark","Dark"],["amoled","AMOLED black"]],"theme"],["s-size",[["s","Small"],["m","Medium"],["l","Large"]],"size"],["s-motion",[["on","On"],["off","Reduced"]],"motion"],["s-haptic",[["on","On"],["off","Off"]],"haptic"],["s-splash",[["on","On"],["off","Off"]],"splash"],["s-ft",[["reg","Regular"],["disc","Discounted (20%)"]],"dfare"],["s-corner",[["s","Sharp"],["m","Soft"],["l","Round"]],"round"],["s-dense",[["m","Comfortable"],["c","Compact"]],"dense"],["s-font",[["roboto","Roboto"],["rounded","Rounded"],["system","System"]],"font"],["s-home",[["dashboard","Dashboard"],["calc","Fares"],["plan","Planner"],["history","History"]],"home"],["s-wk",[["mon","Monday"],["sun","Sunday"]],"wk"],["s-lang",[["tl","Tagalog"],["en","English"]],"lang"],["s-fbar",[["on","On"],["off","Off"]],"fbar"]];
  SG.forEach(function(g){var box=$("#"+g[0]);box.innerHTML="";g[1].forEach(function(it,i){var b=document.createElement("button");b.type="button";b.textContent=it[1];b.dataset.v=it[0];b.style.setProperty("--i",i);
@@ -868,11 +1068,15 @@ function initSettings(){
   b.type="button";b.dataset.v=a[0];b.style.setProperty("--i",i);b.setAttribute("aria-label",a[1]+" color theme");
   b.innerHTML='<i style="background:linear-gradient(to bottom,'+c[0]+' 0 25%,'+c[1]+' 25% 50%,'+c[2]+' 50% 75%,'+c[3]+' 75% 100%)"></i><span>'+a[1]+'</span>';
   b.onclick=function(){S.set.accent=a[0];save();applySet();renderSettings()};ac.appendChild(b)});
- $("#s-back").onclick=function(){go(window._last||"dashboard")};
+ $("#s-back").onclick=function(){if(SPG){if(SPUSH){try{history.back()}catch(e){showSettings(null,true)}}else showSettings(null,true)}else go(window._last||"dashboard")};
+ document.querySelectorAll(".srow").forEach(function(b){b.onclick=function(){showSettings(b.dataset.sp)}});
  $("#gear").onclick=function(){go(window._cur==="settings"?(window._last||"dashboard"):"settings")};
  Object.keys(MODES).forEach(function(k){$("#s-mode").appendChild(opt(k,MODES[k].n))});
 
  [[60,"60% of my budget"],[70,"70% of my budget"],[80,"80% of my budget"],[90,"90% of my budget"],[100,"Only when over budget"]].forEach(function(w){$("#s-warn").appendChild(opt(w[0],w[1]))});
+ var WN={60:"Early warning",70:"",80:"",90:"Default",100:"No early warnings"};
+ themedSelect($("#s-mode"),{title:"Usual vehicle",btn:function(c){var k=c.value;return'<span class="pv-v">'+vsvg(k)+'</span><span>'+esc(MODES[k].n)+'</span>'},render:function(c){var k=c.value;return'<span class="orow-v">'+vsvg(k)+'</span><span class="otx"><b>'+esc(MODES[k].n)+'</b><small>'+esc(vhint(k))+'</small></span>'}});
+ themedSelect($("#s-warn"),{title:"Warn me when planned fares reach",render:function(c){return'<span class="otx"><b>'+esc(c.text)+'</b>'+(WN[c.value]?'<small>'+WN[c.value]+'</small>':"")+'</span>'}});
  $("#s-name").oninput=function(e){S.set.name=e.target.value.slice(0,24);saveSoon();applySet()};
  $("#s-mode").onchange=function(e){S.set.dmode=e.target.value;S.c.mode=e.target.value;save();syncUI();render()};
 
@@ -881,7 +1085,7 @@ function initSettings(){
  $("#s-exp").onclick=function(){var j=JSON.stringify(S),fb=function(){var t=$("#s-imp");t.value=j;t.focus();t.select();toast("Backup shown below. Copy it from the box.")};
   try{navigator.clipboard.writeText(j).then(function(){toast("Backup copied")},fb)}catch(e){fb()}};
  $("#s-impb").onclick=function(){try{var o=JSON.parse($("#s-imp").value);if(!o||typeof o!=="object"||!Array.isArray(o.rides))throw 0;S=Object.assign({},o);save();location.reload()}catch(e){toast("That doesn’t look like a SakayBudget backup")}};
- $("#s-clr").onclick=clearHist;$("#s-tour").onclick=function(){S.tour.done=false;save();go("dashboard")};
+ $("#s-clr").onclick=clearHist;$("#s-tour").onclick=function(){S.tour.done=false;save();go("dashboard");setTimeout(openIntro,380)};
  var rt;$("#s-rst").onclick=function(){var b=this;if(b.dataset.arm){try{localStorage.removeItem(KEY)}catch(e){}location.reload();return}
   b.dataset.arm="1";b.textContent="Tap again to confirm";clearTimeout(rt);rt=setTimeout(function(){delete b.dataset.arm;b.textContent="Reset everything"},3500)};
  try{matchMedia("(prefers-color-scheme: dark)").addEventListener("change",sysBars)}catch(e){}
@@ -902,10 +1106,79 @@ function vsvg(k){var w=VW[k];return'<svg class="vi" viewBox="0 0 72 40" style="-
 function vhint(k){var m=MODES[k];return m.base?"₱"+m.base+" first "+m.bk+" km":"₱"+m.pk.toFixed(2)+" per km"}
 function initSplash(){var sp=$("#splash");
  if(!sp)return;
- if(S.set.splash==="off"||RM){sp.remove();return}
+ if(S.set.splash==="off"||RM){sp.remove();maybeIntro();return}
  $("#sp-bus").innerHTML=vsvg("tj");
- var done=false,fin=function(){if(done)return;done=true;sp.classList.add("out");setTimeout(function(){sp.remove()},520)};
+ var done=false,fin=function(){if(done)return;done=true;sp.classList.add("out");setTimeout(function(){sp.remove();maybeIntro()},520)};
  sp.addEventListener("pointerdown",fin);setTimeout(fin,2500)}
+var INTRO={open:false,i:0,pushed:false,ignore:false,after:null,n:7};
+function introSlides(){
+ var veh=["tj","mj","ob","ab","ut","um"].map(function(k,i){return'<span style="animation-delay:'+(i*70)+'ms">'+vsvg(k)+'</span>'}).join("");
+ var calc=["M","T","W","T","F","S","S"].map(function(d){return"<span>"+d+"</span>"}).join("");
+ var cells=[["",0],["₱56",1],["₱56",1],["",0],["₱56",1],["₱56",1,1],["",0]].map(function(c,i){return'<div class="cal-d'+(c[1]?" on":"")+(c[2]?" sel":"")+(i===3?" today":"")+(i===1?" has":"")+'"><b>'+(10+i)+"</b><i>"+c[0]+"</i></div>"}).join("");
+ return[
+ {t:'Welcome to <span class="in-logo">Sakay<span>Budget</span></span>',x:"Work out your jeepney, bus and UV Express fare before you leave home, and keep your commute inside your budget.",a:'<div class="in-veh">'+veh+'</div>'},
+ {t:"Set your daily budget",x:"This is the money you set aside for fares each day. You can change it any time on the Dashboard.",a:'<div class="in-card"><label for="in-b">Daily commuting budget</label><div class="money"><b>₱</b><input id="in-b" type="number" min="0" inputmode="decimal" placeholder="e.g. 150"></div><div class="chips2" id="in-bq" style="margin:10px 0 0"></div><label for="in-n" style="margin-top:14px">What should we call you? (optional)</label><input id="in-n" maxlength="24" autocomplete="off" placeholder="Your name"></div>'},
+ {t:"Pick where you are going",x:"Tap Origin or Destination and search any stop, even by nickname, like Bayan for Novaliches. We follow real bus and jeepney routes to get the road distance.",a:'<div class="in-card in-mock"><div class="in-place"><i class="dot a"></i><div><small>Origin (sakay)</small><b>Malaria</b></div></div><div class="in-place"><i class="dot b"></i><div><small>Destination (baba)</small><b>Quiapo</b></div></div><div class="in-route">Route used: Bus 6 / 7 / 49 · 32 km</div></div>'},
+ {t:"Choose your ride",x:"Pick the vehicle and fare type. The fare updates as you choose, so there is no button to press.",a:'<div class="in-card in-mock"><div class="vehs" style="margin:0 0 12px"><div class="veh" aria-pressed="false" style="--vc:'+VCOL.tj+'">'+vsvg("tj")+'<b>Jeepney</b></div><div class="veh" aria-pressed="true" style="--vc:'+VCOL.ab+'">'+vsvg("ab")+'<b>Aircon bus</b></div><div class="veh" aria-pressed="false" style="--vc:'+VCOL.ut+'">'+vsvg("ut")+'<b>UV Express</b></div></div><div class="in-fare"><b>₱110</b><span>Fare per person · Regular</span></div></div>'},
+ {t:"Add it to your trip",x:"Tap Add to my trip for each ride. The bar at the bottom keeps your total and what is left in view while you plan.",a:'<div class="in-card in-mock"><div class="fbar"><div><small>Total fare</small><b class="ft">₱110.00</b></div><div class="fdiv"></div><div><small>Remaining</small><b class="fr">₱40.00</b></div><span class="badge ok">On budget</span></div><div class="in-btn">Add to my trip</div></div>'},
+ {t:"Plan your week",x:"Use the Planner calendar to pick your commuting days and trips. Trips you save in History show up as what you actually spent.",a:'<div class="in-card in-mock"><div class="calwd">'+calc.slice(0,0)+["M","T","W","T","F","S","S"].map(function(d){return"<span>"+d+"</span>"}).join("")+'</div><div class="calgrid">'+cells+'</div></div>'},
+ {t:"Make it yours",x:"Settings has color themes, AMOLED black, corner styles, text size and more. Tap the gear any time.",a:'<div class="in-card in-mock"><div class="pals" style="margin:0 0 12px">'+[["Material",["#F8F9FF","#D9E2FF","#1B5BC9","#001945"]],["Sunset",["#FFF4EA","#FFD9B8","#FF9F5A","#C2510A"]],["Mint",["#EDFBF3","#BDEBD3","#7FD8AE","#1F8A5B"]],["Jeepney",["#FFF7E0","#FFE08A","#FFC93C","#D62828"]]].map(function(a,i){var c=a[1];return'<div style="--i:'+i+'"><i style="background:linear-gradient(to bottom,'+c[0]+' 0 25%,'+c[1]+' 25% 50%,'+c[2]+' 50% 75%,'+c[3]+' 75% 100%)"></i><span>'+a[0]+'</span></div>'}).join("")+'</div><div class="chips2" style="margin:0"><span class="in-chip" aria-pressed="false">Light</span><span class="in-chip" aria-pressed="true">Dark</span><span class="in-chip" aria-pressed="false">AMOLED black</span></div></div>'}]}
+function renderIntro(dir){var sl=introSlides(),i=INTRO.i,x=sl[i],st=$("#in-stage");
+ st.innerHTML='<div class="in-slide'+(dir==="back"?" back":"")+'"><div class="in-art">'+x.a+'</div><h2 id="in-title">'+x.t+'</h2><p>'+x.x+'</p></div>';
+ $("#in-step").textContent=(i+1)+" of "+sl.length;
+ $("#in-dots").innerHTML=sl.map(function(_,k){return'<button type="button" tabindex="-1"'+(k===i?' aria-current="true"':"")+"></button>"}).join("");
+ $("#in-back").style.display=i?"":"none";
+ $("#in-next").textContent=i===sl.length-1?"Start planning":"Next";
+ $("#in-skip").hidden=i===sl.length-1;
+ if(i===1){var b=$("#in-b"),n=$("#in-n"),q=$("#in-bq");b.value=S.budget||"";n.value=S.set.name||"";
+  [100,150,200,300].forEach(function(v){var c=document.createElement("button");c.type="button";c.textContent="₱"+v;c.setAttribute("aria-pressed",String(+S.budget===v));c.onclick=function(){S.budget=String(v);b.value=v;save();q.childNodes.forEach(function(k){k.setAttribute("aria-pressed",String(k===c))})};q.appendChild(c)});
+  b.oninput=function(){S.budget=b.value;saveSoon();q.childNodes.forEach(function(k){k.setAttribute("aria-pressed",String(k.textContent==="₱"+b.value))})};
+  n.oninput=function(){S.set.name=n.value.slice(0,24);saveSoon();applySet()}}}
+function openIntro(){if(INTRO.open)return;INTRO.open=true;INTRO.i=0;renderIntro();var e=$("#intro");e.hidden=false;void e.offsetWidth;e.classList.add("open");
+ try{history.pushState({intro:1},"");INTRO.pushed=true}catch(x){INTRO.pushed=false}
+ setTimeout(function(){var n=$("#in-next");if(n)n.focus()},350)}
+function closeIntro(done,after){if(!INTRO.open)return;INTRO.open=false;if(done){S.intro.done=true;save()}INTRO.after=after||null;
+ var e=$("#intro");e.classList.remove("open");setTimeout(function(){if(!INTRO.open)e.hidden=true},320);
+ if(INTRO.pushed){INTRO.pushed=false;INTRO.ignore=true;try{history.back()}catch(x){INTRO.ignore=false}
+  setTimeout(function(){if(INTRO.after){var f=INTRO.after;INTRO.after=null;INTRO.ignore=false;f()}},450)}
+ else if(INTRO.after){var f=INTRO.after;INTRO.after=null;f()}}
+function introNext(){if(INTRO.i>=INTRO.n-1){closeIntro(true,function(){render();go("calc");toast("You are ready. Pick a route to plan your first trip.")});return}INTRO.i++;renderIntro("fwd")}
+function introPrev(){if(INTRO.i>0){INTRO.i--;renderIntro("back")}}
+function maybeIntro(){if(S.intro&&!S.intro.done)openIntro()}
+function initIntro(){
+ $("#in-next").onclick=introNext;$("#in-back").onclick=introPrev;$("#in-skip").onclick=function(){closeIntro(true)};
+ var x0=0,y0=0,st=$("#in-stage");
+ st.addEventListener("touchstart",function(e){x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});
+ st.addEventListener("touchend",function(e){var t=e.changedTouches[0],dx=t.clientX-x0,dy=t.clientY-y0;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5){if(dx<0&&INTRO.i<INTRO.n-1){INTRO.i++;renderIntro("fwd")}else if(dx>0)introPrev()}},{passive:true});
+ document.addEventListener("keydown",function(e){if(!INTRO.open)return;if(e.key==="ArrowRight")introNext();else if(e.key==="ArrowLeft")introPrev();else if(e.key==="Escape")closeIntro(true)})}
+var TSEL=[],OS={open:false,pushed:false,o:null};
+function tsyncOne(o){var op=o.sel.options[o.sel.selectedIndex],pv=o.btn.querySelector(".pv"),c={value:op?op.value:"",text:op?op.textContent:"Choose"};
+ if(o.cfg.btn)pv.innerHTML=o.cfg.btn(c);else pv.textContent=c.text;o.btn.disabled=!o.sel.options.length}
+function tsync(){TSEL.forEach(tsyncOne)}
+function themedSelect(sel,cfg){
+ var btn=document.createElement("button");btn.type="button";btn.className="place tsel";btn.id=sel.id+"-btn";btn.setAttribute("aria-haspopup","dialog");
+ btn.innerHTML='<span class="pv"></span><i class="chev" aria-hidden="true"></i>';
+ sel.style.display="none";sel.setAttribute("aria-hidden","true");sel.tabIndex=-1;sel.parentNode.insertBefore(btn,sel.nextSibling);
+ var lb=document.querySelector('label[for="'+sel.id+'"]');if(lb)lb.setAttribute("for",btn.id);
+ var o={sel:sel,btn:btn,cfg:cfg||{}};TSEL.push(o);btn.onclick=function(){openOpt(o)};tsyncOne(o);return o}
+function openOpt(o){OS.o=o;var sel=o.sel,cur=sel.value,h="";
+ $("#os-title").textContent=o.cfg.title||"Choose";
+ for(var i=0;i<sel.options.length;i++){var op=sel.options[i],c={value:op.value,text:op.textContent,i:i};
+  h+='<button type="button" class="prow orow'+(op.value===cur?" cur":"")+'" role="option" aria-selected="'+(op.value===cur)+'" data-i="'+i+'">'+(o.cfg.render?o.cfg.render(c):'<span class="otx"><b>'+esc(c.text)+'</b></span>')+'<span class="pchk" aria-hidden="true">✓</span></button>'}
+ $("#os-list").innerHTML=h;
+ var sh=$("#osheet");sh.hidden=false;void sh.offsetWidth;sh.classList.add("open");OS.open=true;
+ try{history.pushState({os:1},"");OS.pushed=true}catch(e){OS.pushed=false}
+ document.body.classList.add("noscroll");
+ var c0=$("#os-list").querySelector(".cur");if(c0&&c0.scrollIntoView)c0.scrollIntoView({block:"nearest"})}
+function hideOpt(){var sh=$("#osheet");sh.classList.remove("open");OS.open=false;OS.pushed=false;document.body.classList.remove("noscroll");
+ setTimeout(function(){if(!OS.open)sh.hidden=true},220);if(OS.o&&OS.o.btn&&OS.o.btn.focus)OS.o.btn.focus()}
+function closeOpt(){if(!OS.open)return;if(OS.pushed){try{history.back()}catch(e){hideOpt()}}else hideOpt()}
+function initOpt(){
+ $("#os-x").onclick=closeOpt;
+ $("#osheet").addEventListener("click",function(e){if(e.target===this)closeOpt()});
+ $("#os-list").addEventListener("click",function(e){var b=e.target.closest(".orow");if(!b||!OS.o)return;var o=OS.o,sel=o.sel;
+  sel.selectedIndex=+b.dataset.i;sel.dispatchEvent(new Event("change",{bubbles:true}));tsyncOne(o);closeOpt()});
+ document.addEventListener("keydown",function(e){if(e.key==="Escape"&&OS.open)closeOpt()})}
 var ALLP=[],CB={};
 var SHORT={K:"Caloocan",N:"North and Bulacan",Q:"Quezon City",C:"Manila",M:"Pasay and Makati",E:"East",S:"South",V:"Cavite"};
 var PK={open:false,pushed:false,id:"",q:"",reg:"all",get:null,set:null,btn:null,scrolled:0};
@@ -945,25 +1218,7 @@ function initPicker(){
 function mkPlace(id,get,set){var b=$("#"+id),v=b.querySelector(".pv");
  function up(){v.textContent=get()||"Choose a place"}
  b.addEventListener("click",function(){openPicker(id,get,function(x){set(x);up()},b)});up();return up}
-var POP=[
-["Sangandaan","Quiapo","tj","Busiest jeepney line in Metro Manila, about 214,000 riders a day"],
-["Novaliches Proper","Monumento (Caloocan)","ob","Commuters report about ₱26–40 by bus"],
-["Malaria","Don Fabian","ab","Your reported fare: ₱40 aircon, ₱35 ordinary (discounted)"],
-["Malaria","Lawton","ab","Sapang Palay to PITX buses pass here. Reported ₱80 discounted"],
-["SM Fairview","Cubao (Araneta City)","ob","Cubao is the busiest transfer hub in Metro Manila"],
-["Quiapo","SM Fairview","ob","Quiapo to Fairview, a long-running line"],
-["Divisoria","Cubao (Araneta City)","ob","Divisoria to Cubao via Nagtahan"],
-["Monumento (Caloocan)","Baclaran","ob","Baclaran to Monumento via Taft"],
-["Lawton","PITX","ab","Lawton to PITX"],
-["Marikina (SM Marikina)","Cubao (Araneta City)","tj","Marikina to Cubao"],
-["Buendia / Gil Puyat","Ayala Center (Makati)","tj","Buendia to Makati Avenue"],
-["Novaliches Proper","Tala","tj","Jeepney line Novaliches to Tala, about 13.6 km"]];
-function quote(o,d,m){var c=S.c,so=c.o,sd=c.d,sk=c.km;c.o=o;c.d=d;c.km="";var k=dist().km;c.o=so;c.d=sd;c.km=sk;
- var r=fareFor(k,m),kf=KNOWNF[[o,d].sort().join("|")];if(kf&&kf[m]!=null)r=kf[m];return{km:k,fare:r}}
-function renderPopular(){var box=$("#plist");box.innerHTML="";
- POP.forEach(function(r,i){if(!PLACES[r[0]]||!PLACES[r[1]])return;var q=quote(r[0],r[1],r[2]),b=document.createElement("button");b.type="button";b.className="pop";b.style.setProperty("--i",i);
-  b.innerHTML='<span class="pop-main"><b>'+esc(r[0])+" → "+esc(r[1])+'</b><small>'+esc(r[3])+'</small></span><span class="pop-fare"><b>'+pesoW(q.fare)+'</b><small>'+esc(VSHORT[r[2]])+" · "+q.km+" km</small></span>";
-  b.onclick=function(){S.c.o=r[0];S.c.d=r[1];S.c.mode=r[2];save();if(CB.o)CB.o();if(CB.d)CB.d();syncUI();renderCalc();ride();$("#popular").open=false;toast("Route loaded");window.scrollTo(0,0)};box.appendChild(b)})}
+var rcT;function recentSoon(){clearTimeout(rcT);rcT=setTimeout(function(){if($("#calc")&&!$("#calc").hidden&&calc().tot)pushRecent()},1800)}
 function pushRecent(){var c=S.c;if(c.o===c.d)return;
  S.recent=(S.recent||[]).filter(function(r){return!(r.o===c.o&&r.d===c.d&&r.m===c.mode)});S.recent.unshift({o:c.o,d:c.d,m:c.mode});S.recent=S.recent.slice(0,5);save();renderRecent()}
 function renderRecent(){var box=$("#rchips"),r=S.recent||[],sig=JSON.stringify(r);$("#recent").hidden=!r.length;if(box.dataset.sig===sig)return;box.dataset.sig=sig;box.innerHTML="";
@@ -978,7 +1233,6 @@ function renderTour(){var t=$("#tour");if(S.tour.done){t.hidden=true;return}
  t.hidden=false;
  if(st[0]&&st[1]&&st[2]){S.tour.done=true;save();setTimeout(function(){t.hidden=true;toast("You’re all set. Happy commuting!")},900)}}
 function initFx(){
- $("#popular").addEventListener("toggle",function(){if(this.open)renderPopular()});
  document.addEventListener("focusin",function(e){var t=e.target;if(t&&/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)&&t.type!=="checkbox")document.body.classList.add("kb")});
  document.addEventListener("focusout",function(){document.body.classList.remove("kb")});
  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&PK.open)closePicker()});
@@ -1003,7 +1257,7 @@ function renderPage(id){
  else if(id==="calc"){if(!$("#tripdate").value)$("#tripdate").value=todayISO();$("#round").checked=S.round;renderRides();renderRecent();renderCalc();renderStub()}
  else if(id==="plan"){renderStub();renderPlan()}
  else if(id==="history")renderHistory();
- else if(id==="settings")renderSettings()}
+ else if(id==="settings"){showSettings(null,true);renderSettings()}}
 function go(id,pop){
  if(window._ready&&!pop&&(location.hash||"").slice(1)!=="p-"+id){try{history.pushState(null,"","#p-"+id)}catch(e){}}
  var ni=pages.map(function(p){return p[0]}).indexOf(id),dir=ni>=(window._pi||0)?1:-1;
@@ -1021,7 +1275,7 @@ function go(id,pop){
  var de=document.documentElement;
  if(useVT){
   de.dataset.dir=dir>0?"fwd":"back";
-  try{document.startViewTransition(apply);return}catch(e){}}
+  try{var vt=document.startViewTransition(apply);if(vt.ready)vt.ready.catch(function(){});if(vt.finished)vt.finished.catch(function(){});if(vt.updateCallbackDone)vt.updateCallbackDone.catch(function(){});return}catch(e){}}
  apply()}
 document.querySelectorAll("[data-go]").forEach(function(b){b.onclick=function(){go(b.dataset.go)}});
 
@@ -1052,79 +1306,71 @@ function renderStub(){
  var pct=b?Math.min(100,t/b*100):0,bar=$("#d-bar");bar.className="bar"+(over?" over":"");bar.firstChild.style.width=pct+"%";
  $("#d-hint").textContent=over?"Your planned fares are higher than your allowance. Remove a ride or raise your budget.":b?"You will use "+Math.round(pct)+"% of today’s allowance.":"Enter your allowance, then work out your fares in Fare Calculator.";
 }
-var PW=0,MON=["January","February","March","April","May","June","July","August","September","October","November","December"];
-function planDay(i){var d=S.plan.days[i];if(!d){d=S.plan.days[i]={on:i>=1&&i<=5,kind:"",items:[],round:false,amt:"",b:"",label:""}}return d}
+var CY,CM,SELD,MON=["January","February","March","April","May","June","July","August","September","October","November","December"],WDF=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+(function(){var n=new Date();CY=n.getFullYear();CM=n.getMonth();SELD=todayISO()})();
+function tmpl(i){var d=S.plan.days[i];if(!d){d=S.plan.days[i]={on:i>=1&&i<=5,kind:"",items:[],round:false,amt:"",b:"",label:""}}return d}
+function eff(t){return(S.plan.dates&&S.plan.dates[t])||tmpl(parseISO(t).getDay())}
+function ovr(t){S.plan.dates=S.plan.dates||{};if(!S.plan.dates[t])S.plan.dates[t]=JSON.parse(JSON.stringify(tmpl(parseISO(t).getDay())));return S.plan.dates[t]}
 function dayCost(d){if(d.kind==="custom")return num(d.amt);return(d.items||[]).reduce(function(a,r){return a+num(r.f)},0)*(d.round?2:1)}
 function spentOn(t){return S.history.reduce(function(a,x){return a+(x.ts===t?x.total:0)},0)}
-function weekDates(off){var b=startOfWeek(addDays(new Date(),off*7),S.set.wk!=="sun"),a=[];for(var i=0;i<7;i++)a.push(addDays(b,i));return a}
-function weekEst(){var c=0,n=0,any=false;for(var i=0;i<7;i++){var d=planDay(i);if(d.on){n++;var k=dayCost(d);if(k)any=true;c+=k}}return any?c:total()*n}
+function kfmt(n){return n>=1000?"₱"+(Math.round(n/100)/10)+"k":"₱"+Math.round(n)}
+function weekEst(){var s0=startOfWeek(new Date(),S.set.wk!=="sun"),c=0,n=0,any=false;for(var i=0;i<7;i++){var d=eff(iso(addDays(s0,i)));if(d.on){n++;var k=dayCost(d);if(k)any=true;c+=k}}return any?c:total()*n}
 function tripOptions(d){var sel=d.kind==="custom"?"custom":((d.items||[]).length?"keep":""),o='<option value=""'+(sel===""?" selected":"")+'>No trip planned</option>';
  if(sel==="keep")o+='<option value="keep" selected>'+esc(d.label||"Planned trip")+" · "+peso(dayCost(d))+'</option>';
  if(total()>0)o+='<option value="today">Today’s rides · '+peso(total())+'</option>';
  S.history.map(function(x,i){return[x,i]}).filter(function(q){return q[0].items&&q[0].items.length}).slice(-12).reverse().forEach(function(q){o+='<option value="h:'+q[1]+'">'+esc(q[0].label)+" · "+peso(q[0].total)+'</option>'});
  return o+'<option value="custom"'+(sel==="custom"?" selected":"")+'>Custom amount</option>'}
-function renderPlan(){
- var ds=weekDates(PW),hs=ds[0],he=ds[6],sm=hs.getMonth()===he.getMonth();
- $("#wk-title").textContent=MO[hs.getMonth()]+" "+hs.getDate()+" – "+(sm?"":MO[he.getMonth()]+" ")+he.getDate();
- $("#wk-sub").textContent=PW===0?"This week":PW===1?"Next week":PW===-1?"Last week":(PW>0?PW+" weeks ahead":(-PW)+" weeks ago");
- $("#wk-now").hidden=PW===0;
- var pr=$("#pl-presets");pr.innerHTML="";
- [["Mon–Fri",[1,2,3,4,5]],["Mon–Sat",[1,2,3,4,5,6]],["Every day",[0,1,2,3,4,5,6]]].forEach(function(st,i){var b=document.createElement("button");b.type="button";b.textContent=st[0];b.style.setProperty("--i",i);
-  var cur=[0,1,2,3,4,5,6].filter(function(k){return planDay(k).on}).join(),want=st[1].slice().sort().join();
-  b.setAttribute("aria-pressed",String(cur===want));
-  b.onclick=function(){for(var k=0;k<7;k++)planDay(k).on=st[1].indexOf(k)>-1;save();renderPlan()};pr.appendChild(b)});
- var cl=document.createElement("button");cl.type="button";cl.textContent="Clear trips";cl.style.setProperty("--i",3);
- cl.onclick=function(){var old=JSON.stringify(S.plan);for(var k=0;k<7;k++){var d=planDay(k);d.kind="";d.items=[];d.amt="";d.label=""}save();renderPlan();toast("Trips cleared",["Undo",function(){S.plan=JSON.parse(old);save();renderPlan()}])};pr.appendChild(cl);
- $("#pl-cols").innerHTML=ds.map(function(dt){return'<div class="pcol"><div class="pbar"><i></i><u></u></div><span>'+WD[dt.getDay()].charAt(0)+'</span></div>'}).join("");
- $("#pl-days").innerHTML=ds.map(function(dt){var i=dt.getDay(),d=planDay(i);
-  return'<div class="pday" data-i="'+i+'"><div class="pd-top"><label class="sw"><input type="checkbox" data-on'+(d.on?" checked":"")+' aria-label="Commute on '+WD[i]+'"><span class="swt"></span></label><div class="pd-name"><b>'+WD[i]+" "+dt.getDate()+'</b><small>'+MO[dt.getMonth()]+'</small></div><div class="pd-cost" data-cost></div></div>'
-  +'<div class="pd-body"><label>Trip</label><select data-trip>'+tripOptions(d)+'</select>'
-  +'<div class="pd-row"'+(d.kind==="custom"?"":" hidden")+'><label>Amount</label><div class="money"><b>₱</b><input data-amt type="number" min="0" step="1" inputmode="decimal" value="'+esc(d.amt)+'" placeholder="0"></div></div>'
-  +'<div class="pd-row"><label>Budget for this day</label><div class="money"><b>₱</b><input data-b type="number" min="0" step="1" inputmode="decimal" value="'+esc(d.b)+'"></div></div>'
-  +'<div class="pd-bar"><i></i></div><div class="pd-meta" data-meta></div><div class="pd-act"><button class="mini" data-copy type="button">Copy to all commuting days</button></div></div></div>'}).join("");
- updPlan()}
-function updPlan(){
- var ds=weekDates(PW),defb=num(S.budget),cards=$("#pl-days").childNodes,cols=$("#pl-cols").childNodes,st={plan:0,bud:0,spent:0,n:0,max:1},td=todayISO(),info=[];
- ds.forEach(function(dt,idx){var i=dt.getDay(),d=planDay(i),c=dayCost(d),b=num(d.b)||defb,sp=spentOn(iso(dt)),on=!!d.on;
-  info.push({c:on?c:0,b:on?b:0});
-  if(on){st.plan+=c;st.bud+=b;st.n++}st.spent+=sp;st.max=Math.max(st.max,on?c:0,on?b:0);
-  var over=on&&b&&c>b,near=on&&b&&!over&&c>0&&S.set.warn<100&&c>=b*S.set.warn/100,cls=!on?"off":over?"bad":near?"warn":"ok",el=cards[idx];
-  if(el&&el.querySelector){el.className="pday "+cls+(iso(dt)===td?" today":"");
-   el.querySelector("[data-cost]").textContent=on?(c?peso(c):"No trip yet"):"Rest day";
-   el.querySelector("[data-meta]").innerHTML=on?((b?(over?'<b class="neg">Over by '+peso(c-b)+"</b>":"<b>"+peso(Math.max(b-c,0))+" left</b>")+" of "+peso(b):"Set a budget on the Dashboard, or here")+(sp?" · Spent "+peso(sp):"")):(sp?"Spent "+peso(sp)+" on this day":"");
-   el.querySelector(".pd-bar i").style.width=(on&&b?Math.min(100,c/b*100):0)+"%";
-   el.querySelector("[data-b]").placeholder=defb?String(defb):"Daily budget";
-   el.querySelector("[data-copy]").hidden=!(c>0)}
-  if(cols[idx]&&cols[idx].classList)cols[idx].classList.toggle("today",iso(dt)===td)});
- info.forEach(function(x,idx){var cl=cols[idx];if(!cl||!cl.querySelector)return;cl.querySelector(".pbar i").style.height=(x.c/st.max*100)+"%";var u=cl.querySelector(".pbar u");u.style.bottom=(x.b/st.max*100)+"%";u.style.display=x.b?"block":"none"});
- var left=st.bud-st.plan;
- tween($("#pl-plan"),st.plan,peso);tween($("#pl-bud"),st.bud,peso);tween($("#pl-left"),Math.abs(left),peso);tween($("#pl-spent"),st.spent,peso);
- $("#pl-leftl").textContent=left<0?"Over budget":"Left";$("#pl-leftbox").classList.toggle("neg",left<0);
- $("#pl-hint").textContent=!st.n?"No commuting days picked. Choose Mon–Fri above, or switch days on below.":!st.plan?"Pick a trip for each commuting day. You can reuse today’s rides or any trip you saved.":!st.bud?"Set a daily budget on the Dashboard to see what is left.":left<0?"You would be over budget by "+peso(-left)+" this week.":"On track. About "+peso(left)+" would be left across "+st.n+(st.n===1?" commuting day.":" commuting days.");
- var m=ds[3],y=m.getFullYear(),mo=m.getMonth(),dim=new Date(y,mo+1,0).getDate(),mp=0,mb=0,mn=0,pre=y+"-"+("0"+(mo+1)).slice(-2);
- for(var k=1;k<=dim;k++){var dy=planDay(new Date(y,mo,k).getDay());if(dy.on){mn++;mp+=dayCost(dy);mb+=num(dy.b)||defb}}
- var ms=S.history.reduce(function(a,x){return a+((x.ts||"").slice(0,7)===pre?x.total:0)},0);
- $("#pm-title").textContent=MON[mo]+" "+y;
- $("#pm-body").textContent=mn+" commuting days · planned "+peso(mp)+(mb?" of "+peso(mb)+" budget":"")+" · spent so far "+peso(ms)}
+function renderCal(){
+ var mf=S.set.wk!=="sun",first=startOfWeek(new Date(CY,CM,1),mf),defb=num(S.budget),td=todayISO(),h="",st={plan:0,spent:0,n:0};
+ $("#cal-title").textContent=MON[CM]+" "+CY;
+ $("#cal-wd").innerHTML=(mf?[1,2,3,4,5,6,0]:[0,1,2,3,4,5,6]).map(function(i){return"<span>"+WD[i].charAt(0)+"</span>"}).join("");
+ var dim=new Date(CY,CM+1,0).getDate(),lead=Math.round((new Date(CY,CM,1)-first)/864e5),rows=Math.ceil((lead+dim)/7);
+ for(var i=0;i<rows*7;i++){var dt=addDays(first,i),t=iso(dt),inM=dt.getMonth()===CM,d=eff(t),on=!!d.on,c=dayCost(d),b=num(d.b)||defb,sp=spentOn(t);
+  if(inM){if(on){st.n++;st.plan+=c}st.spent+=sp}
+  h+='<button type="button" class="cal-d'+(inM?"":" out")+(on?" on":"")+(t===td?" today":"")+(t===SELD?" sel":"")+(on&&b&&c>b?" bad":"")+(sp?" has":"")+'" data-t="'+t+'" aria-label="'+fmtD(t)+(on?", commuting":"")+'"><b>'+dt.getDate()+'</b><i>'+(on&&c?kfmt(c):"")+'</i></button>'}
+ $("#cal-grid").innerHTML=h;
+ tween($("#cs-plan"),st.plan,peso);tween($("#cs-spent"),st.spent,peso);tween($("#cs-days"),st.n,String)}
+function updDayMeta(){var t=SELD,d=eff(t),c=dayCost(d),b=num(d.b)||num(S.budget),sp=spentOn(t),on=!!d.on,over=b&&c>b;$("#dp-repeat").hidden=!(c>0);
+ $("#dp-bar").style.width=(on&&b?Math.min(100,c/b*100):0)+"%";$("#dp-bar").parentNode.className="pd-bar"+(over?" bad":"");
+ $("#dp-meta").innerHTML=(on?(c?"Planned <b>"+peso(c)+"</b>":"No trip planned yet")+(b?" · "+(over?'<b class="neg">over by '+peso(c-b)+"</b>":peso(Math.max(b-c,0))+" left of "+peso(b)):" · set a budget to compare"):"Rest day")+(sp?"<br>Spent "+peso(sp)+" on this day (from History)":"")}
+function updDay(){var t=SELD,d=eff(t),dt=parseISO(t),on=!!d.on,hasO=!!(S.plan.dates&&S.plan.dates[t]);
+ $("#dp-title").textContent=fmtD(t)+(t===todayISO()?" · Today":"");
+ $("#dp-sub").textContent=on?(hasO?"Only this date is changed":"Follows your usual "+WDF[dt.getDay()]):"Rest day";
+ $("#dp-on").checked=on;$("#dayp").classList.toggle("off",!on);
+ $("#dp-trip").innerHTML=tripOptions(d);
+ $("#dp-amtrow").hidden=d.kind!=="custom";
+ if(document.activeElement!==$("#dp-amt"))$("#dp-amt").value=d.amt||"";
+ if(document.activeElement!==$("#dp-b"))$("#dp-b").value=d.b||"";
+ $("#dp-b").placeholder=num(S.budget)?String(num(S.budget)):"Daily budget";
+ $("#dp-repeat").textContent="Repeat every "+WDF[dt.getDay()];$("#dp-repeat").hidden=!(dayCost(d)>0);
+ $("#dp-reset").hidden=!hasO;
+ tsync();updDayMeta()}
+function renderUsual(){var u=$("#usual");if(u.hidden)return;
+ var mf=S.set.wk!=="sun",order=mf?[1,2,3,4,5,6,0]:[0,1,2,3,4,5,6],cur=[0,1,2,3,4,5,6].filter(function(k){return tmpl(k).on}).join();
+ u.innerHTML='<label style="margin-top:14px">Usual commuting days</label><div class="chips2" id="u-pre"></div><div class="chips2" id="u-days"></div><p class="hint" style="margin:0">These repeat every week. Tap a date above to change only that day.</p>';
+ [["Mon–Fri",[1,2,3,4,5]],["Mon–Sat",[1,2,3,4,5,6]],["Every day",[0,1,2,3,4,5,6]]].forEach(function(st){var b=document.createElement("button");b.type="button";b.textContent=st[0];b.setAttribute("aria-pressed",String(cur===st[1].slice().sort().join()));
+  b.onclick=function(){for(var k=0;k<7;k++)tmpl(k).on=st[1].indexOf(k)>-1;save();renderPlan()};$("#u-pre").appendChild(b)});
+ order.forEach(function(i){var b=document.createElement("button");b.type="button";b.textContent=WD[i];b.setAttribute("aria-pressed",String(!!tmpl(i).on));
+  b.onclick=function(){tmpl(i).on=!tmpl(i).on;save();renderPlan()};$("#u-days").appendChild(b)})}
+function renderPlan(){renderCal();updDay();renderUsual()}
 function initPlan(){
- var box=$("#pl-days");
- box.addEventListener("change",function(e){var t=e.target,card=t.closest(".pday");if(!card)return;var i=+card.dataset.i,d=planDay(i);
-  if(t.hasAttribute("data-on")){d.on=t.checked;save();updPlan();renderPlanKeep();return}
-  if(t.hasAttribute("data-trip")){var v=t.value;
-   if(v===""){d.kind="";d.items=[];d.label="";d.amt=""}
-   else if(v==="today"){d.kind="today";d.items=S.rides.filter(function(r){return num(r.f)}).map(function(r){return{n:r.n,f:r.f}});d.round=S.round;d.label="Today’s rides";d.amt=""}
-   else if(v.indexOf("h:")===0){var x=S.history[+v.slice(2)];if(x){d.kind="h";d.items=(x.items||[]).map(function(r){return{n:r.n,f:r.f}});d.round=!!x.round;d.label=x.label;d.amt=""}}
-   else if(v==="custom"){d.kind="custom";d.items=[];d.label="Custom amount"}
-   save();renderPlan();
-   if(v==="custom"){var a=$("#pl-days").querySelector('.pday[data-i="'+i+'"] [data-amt]');if(a)a.focus()}}});
- box.addEventListener("input",function(e){var t=e.target,card=t.closest(".pday");if(!card)return;var d=planDay(+card.dataset.i);
-  if(t.hasAttribute("data-amt")){d.amt=t.value;saveSoon();updPlan()}else if(t.hasAttribute("data-b")){d.b=t.value;saveSoon();updPlan()}});
- box.addEventListener("click",function(e){var b=e.target.closest("[data-copy]");if(!b)return;var src=planDay(+b.closest(".pday").dataset.i),n=0;
-  for(var k=0;k<7;k++){var d=planDay(k);if(d!==src&&d.on){d.kind=src.kind;d.items=(src.items||[]).map(function(r){return{n:r.n,f:r.f}});d.round=src.round;d.amt=src.amt;d.label=src.label;n++}}
-  save();renderPlan();toast(n?"Copied to "+n+(n===1?" other day":" other days"):"Switch on more days first")});
- $("#wk-prev").onclick=function(){PW--;renderPlan()};$("#wk-next").onclick=function(){PW++;renderPlan()};$("#wk-now").onclick=function(){PW=0;renderPlan()}}
-function renderPlanKeep(){var pr=$("#pl-presets");if(!pr)return;var cur=[0,1,2,3,4,5,6].filter(function(k){return planDay(k).on}).join();
- [[1,2,3,4,5],[1,2,3,4,5,6],[0,1,2,3,4,5,6]].forEach(function(st,i){if(pr.childNodes[i])pr.childNodes[i].setAttribute("aria-pressed",String(cur===st.slice().sort().join()))})}
+ $("#cal-grid").addEventListener("click",function(e){var b=e.target.closest(".cal-d");if(!b)return;SELD=b.dataset.t;var d=parseISO(SELD);CY=d.getFullYear();CM=d.getMonth();renderPlan();try{$("#dayp").scrollIntoView({behavior:"smooth",block:"nearest"})}catch(x){}});
+ $("#cal-prev").onclick=function(){CM--;if(CM<0){CM=11;CY--}renderPlan()};
+ $("#cal-next").onclick=function(){CM++;if(CM>11){CM=0;CY++}renderPlan()};
+ $("#cal-today").onclick=function(){var n=new Date();CY=n.getFullYear();CM=n.getMonth();SELD=todayISO();renderPlan()};
+ $("#cal-usual").onclick=function(){var u=$("#usual");u.hidden=!u.hidden;renderUsual()};
+ $("#dp-on").onchange=function(e){ovr(SELD).on=e.target.checked;save();renderPlan()};
+ themedSelect($("#dp-trip"),{title:"Trip for this day",render:function(c){var t=c.text.split(" · "),n=t[0],cost=t.slice(1).join(" · ");return'<span class="otx"><b>'+esc(n)+'</b></span>'+(cost?'<span class="ocost">'+esc(cost)+'</span>':"")}});
+ $("#dp-trip").onchange=function(e){var d=ovr(SELD),v=e.target.value;
+  if(v===""){d.kind="";d.items=[];d.label="";d.amt=""}
+  else if(v==="today"){d.kind="today";d.items=S.rides.filter(function(r){return num(r.f)}).map(function(r){return{n:r.n,f:r.f}});d.round=S.round;d.label="Today’s rides";d.amt=""}
+  else if(v.indexOf("h:")===0){var x=S.history[+v.slice(2)];if(x){d.kind="h";d.items=(x.items||[]).map(function(r){return{n:r.n,f:r.f}});d.round=!!x.round;d.label=x.label;d.amt=""}}
+  else if(v==="custom"){d.kind="custom";d.items=[];d.label="Custom amount"}
+  save();renderPlan();if(v==="custom")$("#dp-amt").focus()};
+ $("#dp-amt").oninput=function(e){ovr(SELD).amt=e.target.value;saveSoon();renderCal();updDayMeta()};
+ $("#dp-b").oninput=function(e){ovr(SELD).b=e.target.value;saveSoon();renderCal();updDayMeta()};
+ $("#dp-repeat").onclick=function(){var d=eff(SELD),dw=parseISO(SELD).getDay(),c=JSON.parse(JSON.stringify(d));c.on=true;S.plan.days[dw]=c;if(S.plan.dates)delete S.plan.dates[SELD];save();renderPlan();toast("Every "+WDF[dw]+" now uses this trip")};
+ $("#dp-reset").onclick=function(){if(S.plan.dates)delete S.plan.dates[SELD];save();renderPlan();toast("Back to your usual plan")}}
 function clearHist(){var old=S.history;if(!old.length){toast("Nothing to clear");return}S.history=[];save();render();toast("Saved trips cleared",["Undo",function(){S.history=old;save();render()}])}
 var HF="all";
 function renderHistory(){
@@ -1162,9 +1408,9 @@ $("#save").onclick=function(){
  $("#label").value="";$("#tripdate").value=todayISO();save();go("history");toast("Trip saved");
 };
 $("#clear").onclick=clearHist;
-initCalc();initSettings();initPlan();initFx();initSplash();
+initCalc();initSettings();initPlan();initOpt();initFx();initIntro();initSplash();
 var start=(location.hash||"").slice(1).replace(/^p-/,"");go(pages.some(function(p){return p[0]===start})?start:(S.set.home||"dashboard"));
-window._ready=true;var onNav=function(){if(PK.open){hideSheet();return}var h=(location.hash||"").slice(1).replace(/^p-/,"");if(h!==window._cur&&pages.some(function(p){return p[0]===h}))go(h,true)};
+window._ready=true;var onNav=function(){if(OS.open&&!INTRO.open&&!INTRO.ignore){hideOpt();return}if(INTRO.ignore){INTRO.ignore=false;var af=INTRO.after;INTRO.after=null;if(af)af();return}if(INTRO.open){if(INTRO.i>0){INTRO.i--;renderIntro("back")}try{history.pushState({intro:1},"")}catch(e){}return}if(PK.open){hideSheet();return}if(SPG){showSettings(null,true);return}var h=(location.hash||"").slice(1).replace(/^p-/,"");if(h!==window._cur&&pages.some(function(p){return p[0]===h}))go(h,true)};
 window.addEventListener("popstate",onNav);window.addEventListener("hashchange",onNav);
 })();
 </script>
